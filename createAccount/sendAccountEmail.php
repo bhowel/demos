@@ -37,7 +37,7 @@ if ( isset( $_GET["fullname"] ) &&
 	</html>
 	";
 
-	$sendgrid = new SendGrid( "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" );
+	$sendgrid = new SendGrid( "" );
 	$emailAccount = new SendGrid\Email();
 
 	$emailAccount->addTo( "barbara.howell.ms@gmail.com" )
