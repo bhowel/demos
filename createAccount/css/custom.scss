@@ -1,0 +1,422 @@
+/*
+
+  Custom styles for the CreateAccount project.
+  Styles for other tags to be added as needed.
+  
+  Grid system based on the Responsive Grid System by Graham Miller.
+  The generated styles have been revised.
+  Web site: http://www.responsivegridsystem.com/
+  License: http://creativecommons.org/licenses/by/3.0/
+
+*/
+
+// ============================================================================
+// SCREEN SIZES
+// ============================================================================
+
+$screenSmall : 480px;
+$screenMed   : 768px;
+$screenLarge : 992px;
+$screenXLarge: 1200px;
+  
+// ============================================================================
+// COLOR
+// ============================================================================
+	
+$gray3: rgba( 34, 34, 34, 1.0 );
+$gray2: rgba( 200, 200, 200, 1.0 );
+$gray1: rgba( 217, 217, 217, 1.0 );
+$gray0: rgba( 245, 245, 245, 1.0 );
+
+$gray-border1: rgba( 217, 220, 227, 1.0 );
+$gray-border0: rgba( 230, 233, 237, 1.0 );
+
+@mixin bg-color-set( $bgShort, $bgFull ) {
+  background-color: $bgShort;
+
+  @media only screen and ( min-width: $screenSmall )  { background-color: $bgShort; }
+  @media only screen and ( min-width: $screenMed )    { background-color: $bgFull; }
+  @media only screen and ( min-width: $screenLarge )  { background-color: $bgFull; }
+  @media only screen and ( min-width: $screenXLarge ) { background-color: $bgFull; }
+}
+
+// ============================================================================
+// WIDTH, PADDING, MARGIN, DISPLAY, FLOAT
+// ============================================================================
+
+@mixin width-set( $widthShort, $widthFull ) {
+  width: $widthShort;
+
+  @media only screen and ( min-width: $screenSmall )  { width: $widthShort;}
+  @media only screen and ( min-width: $screenMed )    { width: $widthFull; }
+  @media only screen and ( min-width: $screenLarge )  { width: $widthFull; }
+  @media only screen and ( min-width: $screenXLarge ) { width: $widthFull; }
+}
+
+@mixin max-width-set( $widthShort, $widthFull ) {
+  max-width: $widthShort;
+
+  @media only screen and ( min-width: $screenSmall )  { max-width: $widthShort;}
+  @media only screen and ( min-width: $screenMed )    { max-width: $widthFull; }
+  @media only screen and ( min-width: $screenLarge )  { max-width: $widthFull; }
+  @media only screen and ( min-width: $screenXLarge ) { max-width: $widthFull; }
+}
+
+@mixin padding-set( $paddingShort, $paddingFull ) {
+  padding: $paddingShort;
+
+  @media only screen and ( min-width: $screenSmall )  { padding: $paddingShort; }
+  @media only screen and ( min-width: $screenMed )    { padding: $paddingFull; }
+  @media only screen and ( min-width: $screenLarge )  { padding: $paddingFull; }
+  @media only screen and ( min-width: $screenXLarge ) { padding: $paddingFull; }
+}	
+
+@mixin margin-set( $marginShort, $marginFull ) {
+  margin: $marginShort;
+
+  @media only screen and ( min-width: $screenSmall )  { margin: $marginShort; }
+  @media only screen and ( min-width: $screenMed )    { margin: $marginFull; }
+  @media only screen and ( min-width: $screenLarge )  { margin: $marginFull; }
+  @media only screen and ( min-width: $screenXLarge ) { margin: $marginFull; }
+}
+
+@mixin display-set( $displayShort, $displayFull ) {
+  display: $displayShort;
+
+  @media only screen and ( min-width: $screenSmall )  { display: $displayShort; }
+  @media only screen and ( min-width: $screenMed )    { display: $displayFull; }
+  @media only screen and ( min-width: $screenLarge )  { display: $displayFull; }
+  @media only screen and ( min-width: $screenXLarge ) { display: $displayFull; }
+}
+
+@mixin float-set( $floatShort, $floatFull ) {
+  float: $floatShort;
+
+  @media only screen and ( min-width: $screenSmall )  { float: $floatShort; }
+  @media only screen and ( min-width: $screenMed )    { float: $floatFull; }
+  @media only screen and ( min-width: $screenLarge )  { float: $floatFull; }
+  @media only screen and ( min-width: $screenXLarge ) { float: $floatFull; }
+}
+
+// ============================================================================
+// TEXT
+// ============================================================================
+
+.textLight {
+	color: $gray2;
+}
+
+.textRequired {
+	color: red;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+input::-webkit-input-placeholder {
+	color: $gray1;
+	font-size: 14px;
+	font-weight: normal;
+}
+input::-moz-placeholder {
+	color: $gray1;
+	font-size: 14px;
+	font-weight: normal;
+}
+input:-moz-placeholder {   // Older versions of Firefox
+	color: $gray1;
+	font-size: 14px;
+	font-weight: normal;
+}
+input:-ms-input-placeholder { 
+	color: $gray1;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+// ============================================================================
+// BUTTON
+// ============================================================================
+
+$paddingButtonShort: 8px 57px 8px 57px;
+$paddingButtonFull : 8px 36px 8px 36px;
+
+button,
+.button {
+  @include padding-set( $paddingButtonShort, $paddingButtonFull );
+  transition: padding 0.5s;            	
+}
+
+// ============================================================================
+// BORDER
+// ============================================================================
+
+.border-bottom-none {
+  border-bottom: none;
+}
+
+// ============================================================================
+// BODY
+// ============================================================================
+
+body {
+  @include bg-color-set( white, $gray0 ); 
+  color: $gray3;
+  transition: background-color 0.5s;
+}
+
+// ============================================================================
+// CONTAINER
+// ============================================================================
+
+$container-width: 490px;
+
+.container {
+  @include padding-set( 0, 30px ); 
+}
+
+.container-med {
+  max-width: $container-width;
+}
+
+// ============================================================================
+// CONTAINERS FOR FORMS
+// ============================================================================
+
+@mixin container-header-prop-short {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  @content;
+}
+
+@mixin container-header-prop-full {
+  background-color: white;
+  border-top: 1px solid $gray-border1;
+  border-left: 1px solid $gray-border1;
+  border-right: 1px solid $gray-border1;
+  border-radius: 5px 5px 0 0;
+  padding: 42px 100px 20px 100px;
+  @content;
+}
+
+@mixin container-header-set() {
+  @include container-header-prop-short;
+
+  @media only screen and ( min-width: $screenSmall )  { @include container-header-prop-short; }
+  @media only screen and ( min-width: $screenMed )    { @include container-header-prop-full; }
+  @media only screen and ( min-width: $screenLarge )  { @include container-header-prop-full; }
+  @media only screen and ( min-width: $screenXLarge ) { @include container-header-prop-full; }
+}	            
+
+.container-header {
+  @include container-header-set(); 
+  -webkit-transition: background-color 0.5s, 
+                      border 0.5s,
+                      border-top 0.5s, border-left 0.5s, border-right 0.5s,
+                      border-radius 0.5s, padding 0.5s;
+  transition: background-color 0.5s, 
+                      border 0.5s,
+                      border-top 0.5s, border-left 0.5s, border-right 0.5s,
+                      border-radius 0.5s, padding 0.5s;  
+}
+
+@mixin container-form-prop-short {
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid $gray-border0;  
+  padding: 11px 0 0 0;
+  @content;
+}
+
+@mixin container-form-prop-med {
+  background-color: transparent;
+  border: none;
+  padding: 11px 0 0 0;
+  @content;
+}
+
+@mixin container-form-prop-full {
+  background-color: white;
+  border-top: 1px solid $gray-border0;
+  border-left: 1px solid $gray-border1;
+  border-right: 1px solid $gray-border1;
+  border-bottom: 1px solid $gray-border0;
+  border-radius: 0 0 5px 5px;
+  padding: 38px 100px 45px 100px;
+  @content;
+}
+
+@mixin container-form-set() {
+  @include container-form-prop-short;
+
+  @media only screen and ( min-width: $screenSmall )  { @include container-form-prop-med; }
+  @media only screen and ( min-width: $screenMed )    { @include container-form-prop-full; }
+  @media only screen and ( min-width: $screenLarge )  { @include container-form-prop-full; }
+  @media only screen and ( min-width: $screenXLarge ) { @include container-form-prop-full; }
+}	
+
+.container-form {
+  @include container-form-set(); 
+  -webkit-transition: background-color 0.5s, 
+                      border 0.5s,
+                      border-top 0.5s, border-left 0.5s, border-right 0.5s, border-bottom 0.5s,
+                      border-radius 0.5s, padding 0.5s;
+  transition: background-color 0.5s, 
+                      border 0.5s,
+                      border-top 0.5s, border-left 0.5s, border-right 0.5s, border-bottom 0.5s,
+                      border-radius 0.5s, padding 0.5s;  
+}
+
+$paddingSigninFull : 0px 100px 46px 100px;
+
+.container-signin {
+  @include padding-set( 0, $paddingSigninFull );
+  margin-top: 32px; 
+  -webkit-transition: margin 0.5s, padding 0.5s;
+  transition: margin 0.5s, padding 0.5s; 
+}
+
+// ============================================================================
+// LOGO
+// ============================================================================
+
+$marginLogoShort: 19px 0 0 0;
+$marginLogoFull : 0 auto;
+
+.logo {
+  @include margin-set( $marginLogoShort, $marginLogoFull );
+  @include width-set( 50px, 75px );
+  height: 100%;
+  -webkit-transition: margin 0.5s, width 0.5s;
+  transition: margin 0.5s, width 0.5s;      
+}
+
+// ============================================================================
+// FORM
+// ============================================================================
+
+.form-row {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 11px;
+}
+
+.form-row:before,
+.form-row:after { content: ""; display: table; }
+.form-row:after { clear: both; }
+.form-row { zoom: 1; /* For IE 6/7 */ }
+
+@mixin column-set() {
+  margin-left: 3%;
+  float: none;
+
+  @media only screen and ( min-width: $screenSmall )  { margin-left: 3%; float: none; }
+  @media only screen and ( min-width: $screenMed )    { margin-left: 3%; float: left; }
+  @media only screen and ( min-width: $screenLarge )  { margin-left: 3%; float: left; }
+  @media only screen and ( min-width: $screenXLarge ) { margin-left: 3%; float: left; }
+}
+
+.column {
+  @include column-set();
+  display: block;	
+  -webkit-transition: margin 0.5s, float 0.5s;
+  transition: margin 0.5s float 0.5s;  
+}
+
+.column-with-12 {
+  @include width-set( 94%, 97% );
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;   	
+}
+
+.column-with-6 {
+  @include width-set( 94%, 47% );	
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;   	
+}
+
+.cell-logo {  
+  @include float-set( left, none );
+  -webkit-transition: float 0.5s;
+  transition: float 0.5s;  
+}
+
+.cell-header {
+  @include max-width-set( 410px, $container-width );
+  padding-top: 22px; 
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s;   
+}
+
+.cell-checkbox {
+  text-align: center; 
+  padding-top: 10px;
+}
+
+$paddingCellButtonShort: 22px 0 0 0;
+$paddingCellButtonFull : 0;
+
+.cell-button {
+  @include padding-set( $paddingCellButtonShort, $paddingCellButtonFull );
+  text-align: center;
+  transition: padding 0.5s;  
+}
+
+// ============================================================================
+// MARGIN Must be last section in sheet.
+// ============================================================================
+
+.margin-top-0 {
+	margin-top: 0;
+}
+
+.margin-bottom-0 {
+	margin-bottom: 0;
+}
+
+.skip-next-row {
+	margin-bottom: 24px;
+}
+
+// ============================================================================
+// PARSLEY OVERRIDES
+// ============================================================================
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  border: 2px solid red;
+}
+
+.parsley-errors-list {
+  margin: 2px 0 3px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  opacity: 0;
+
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+.errorMessage {
+  color: $gray3;
+  font-size: 1.2em;
+  font-weight: normal;
+  display: block;
+  margin-top: 11px;
+}

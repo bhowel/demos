@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Create Account</title>
+  <meta title="author" content="Barbara Howell">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- STYLES //-->  
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skullExtractRevised.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+<!-- ========== MAIN CONTAINER //-->
+<div class="container">
+
+	<!-- ========== HEADER //-->
+	<div class="container-header container-med">
+		
+		<div class="form-row">
+			<div class="column column-with-12 center">
+				<div class="cell-logo">
+				  <img src="assets/logo.svg" class="logo" />
+				</div>
+				<div class="cell-header">
+					<p class="h4 margin-bottom-0">
+						Create new account
+					</p>			
+					<p class="h5 textLight margin-top-0">
+						Enter your credentials below
+					</p>
+				</div>					
+			</div>
+		</div>
+
+	</div>
+
+	<!-- ========== FORM //-->
+	<div class="container-form container-med">
+
+		<form id="accountForm">
+
+			<div class="form-row">
+				<div class="column column-with-6">
+					<label for="fullname"><span class="textRequired">*</span> Full name</label>
+					<input type="text" 
+					       class="form-control" 
+					       placeholder="Name and surname" 
+					       id="fullname" 
+					       required="" />		
+				</div>
+				<div class="column column-with-6">
+					<label for="username"><span class="textRequired">*</span> Username</label>
+					<input type="text" 
+					       class="form-control"
+					       placeholder="Username"
+					       id="username"
+					       required="" />				
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="column column-with-12">
+					<label for="email"><span class="textRequired">*</span> Email address</label>
+					<input type="text" 
+					       class="form-control"
+					       placeholder="Email address"
+					       id="email"
+					       data-parsley-type="email" 
+					       required="" />			
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="column column-with-6">
+					<label for="city"><span class="textRequired">*</span> City</label>
+					<input type="text" 
+					       class="form-control"
+					       placeholder="City"
+					       id="city"
+					       required="" />		
+				</div>			
+				<div class="column column-with-6">
+					<label for="country"><span class="textRequired">*</span> Country</label>
+					<input type="text" 
+					       class="form-control"
+					       placeholder="Country"
+					       id="country"
+					       required="" />				
+				</div>
+			</div>
+
+			<div class="form-row margin-bottom-0">
+				<div class="column column-with-12">
+					<label for="password"><span class="textRequired">*</span> Password</label>
+					<!-- Can't get margin bottom = 0 without using style. //-->
+					<input type="password" 
+					       class="form-control border-bottom-none"
+					       style="margin-bottom: 0;"
+					       placeholder="Password"
+					       id="password"
+					       data-parsley-equalto="#repeatpassword"
+					       required="" />   		
+				</div>
+			</div>
+
+			<div class="form-row skip-next-row">
+				<div class="column column-with-12">
+					<input type="password" 
+					       class="form-control"
+					       placeholder="Repeat password"
+					       id="repeatpassword"
+					       data-parsley-equalto="#password"
+					       required="" />		
+				</div>
+			</div>
+
+		</form>
+		
+			<div class="form-row">
+				<div class="column cell-checkbox h5 textLight">
+					<form id="termsForm">
+					<input id="terms" 
+					       type="checkbox" 
+					       class="form-control" 
+					       required="" 
+					       data-parsley-mincheck="1"
+					       data-parsley-error-message="Please check the box."
+					       data-parsley-errors-container="#termsMessage" /> I accept the <a href="">Terms &amp; Conditions</a>
+					<p id="termsMessage" class="errorMessage"></p>
+					</form>
+				</div>	
+				<div class="column cell-button">
+					<input id="btnSubmit" type="submit" class="button" value="Create account">			
+				</div>
+			</div>
+
+	</div>
+
+	<!-- ========== SIGN-IN //-->
+	<div class="container-signin container-med">
+
+    <div class="form-row">
+			<div class="column column-with-12 center">
+				<p class="h5 textLight">
+					Have an account already? <a href="">Sign in</a>
+				</p>	
+			</div>
+    </div>
+
+	</div>
+		
+</div>
+
+<!-- JAVASCRIPT //-->
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="js/parsley.min.js"></script>
+<script src="js/createAccount.js"></script>
+
+</body>
+</html>
