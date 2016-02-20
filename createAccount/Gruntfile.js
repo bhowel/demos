@@ -3,34 +3,18 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+  
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-      ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-    // Task configuration.
-    concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: true
-      },
-			js: {
-				src: 'js/*.js',
-				dest: 'js/concat.js'
-			}
-    },
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
-      }
-    },
+      
+    // Task configuration.  
+
+    // JSHint
     jshint: {
+      gruntfile: {
+        src: 'Gruntfile.js'
+      },
+			files: ['js/createAccount.js'],
       options: {
         curly: true,
         eqeqeq: true,
@@ -44,48 +28,91 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         browser: true,
-        globals: {}
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
+        globals: { "$": false }
       }
     },
-    watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
+        
+    // Uglify
+    uglify: {
+      options: {
+        mangle: false
       },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
-      },
-			css: {
-				files: 'css/**/*.scss',
-				tasks: ['sass']
-			}      
+      dist: {
+        files: {
+          'js/createAccount.min.js': 'js/createAccount.js'
+        }
+      }
     },
+		
+		// SASS
 		sass: {
 			dist: {
 				files: {
 					'css/custom.css': 'css/custom.scss'
 				}
 			}
-		},
+		},    
+
+    // SVG min
+    svgmin: {
+			options: {
+				plugins: [
+					{
+					removeViewBox: false
+					}, {
+					removeUselessStrokeAndFill: false
+					}
+				]
+			},
+			dist: {
+				files: {
+				'assets/logo.min.svg': 'assets/logo.svg'
+				}
+			}
+    },
+        
+    // Watch
+    watch: {
+
+      // gruntfile: jshint
+      gruntfile: {
+        files: 'Gruntfile.js',
+        tasks: ['jshint:gruntfile']
+      },
+          
+			// css: sass
+			css: {
+				files: 'css/**/*.scss',
+				tasks: ['sass']
+			},
+			
+      // js: jshint, uglify
+      js: {
+				files: 'js/createAccount.js',
+        tasks: ['jshint', 'uglify']
+      },
+
+      // svg: svgmin
+			svgs: {
+				files: 'assets/logo.svg',
+				tasks: ['svgmin']
+			}    
+            			      
+    },
+		
+		// Copy 
 		copy: {
 			topFiles: {
-				cwd: '.',
-				src: ['*.html', '*.php', '*.txt'],
-				dest: '../../openShift/accountDemo',
-				expand: true 
+				cwd: '.',                              // set working folder / root to copy
+				src: ['*.html', '*.php', '*.txt'],     // copy only selected file types
+				dest: '../../openShift/accountDemo',   // destination folder
+				expand: true                           // required when using cwd
 			},		
 			assetFiles: {
-				cwd: 'assets',                              // set working folder / root to copy
-				src: '**/*',                                // copy all files and subfolders
-				dest: '../../openShift/accountDemo/assets', // destination folder
-				expand: true                                // required when using cwd
+				cwd: 'assets',
+				src: '**/*.min.svg',
+				dest: '../../openShift/accountDemo/assets',
+				expand: true
 			},
 			cssFiles: {
 				cwd: 'css',
@@ -99,19 +126,22 @@ module.exports = function(grunt) {
 				dest: '../../openShift/accountDemo/js',
 				expand: true 
 			}					
-		}		   
+		}
+				   
   });
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  // Load plugins.
+  grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+  grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+  grunt.loadNpmTasks( 'grunt-contrib-sass' );
+  grunt.loadNpmTasks( 'grunt-svgmin' );  
+  grunt.loadNpmTasks( 'grunt-contrib-watch' );  
+  grunt.loadNpmTasks( 'grunt-contrib-copy');
 
   // Default task.
-  //grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass']);
-  grunt.registerTask('default', ['watch', 'sass'], ['copy']);
+  grunt.registerTask( 'default', 'watch' );
+
+  // Copy task.
+  grunt.registerTask( 'copyDemo', 'copy' );  
 
 };
