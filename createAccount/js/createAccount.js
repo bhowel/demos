@@ -2,13 +2,13 @@
 	// ON DOC READY
 	
 	$( document ).ready( function() {
-		$( "#fullname" ).val( "John Smith" );
-		$( "#username" ).val( "John" );
-		$( "#email" ).val( "squigglysmith@yahoo.com" );
-		$( "#city" ).val( "MyTown" );
-		$( "#country" ).val( "MyCountry" );
-		$( "#password" ).val( "password" );
-		$( "#repeatpassword" ).val( "password" );
+// 		$( "#fullname" ).val( "John Smith" );
+// 		$( "#username" ).val( "John" );
+// 		$( "#email" ).val( "squigglysmith@yahoo.com" );
+// 		$( "#city" ).val( "MyTown" );
+// 		$( "#country" ).val( "MyCountry" );
+// 		$( "#password" ).val( "password" );
+// 		$( "#repeatpassword" ).val( "password" );
 
 		$( "#btnSubmit" ).on( "click", function() { 
 			if ( $( "#accountForm" ).parsley().validate({}) ) {

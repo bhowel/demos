@@ -99,7 +99,37 @@ module.exports = function(grunt) {
 			}    
             			      
     },
-		
+
+		// UnCSS
+		uncss: {
+			dist: {
+				options: {
+					ignoreSheets: [/fonts.googleapis/, /normalize.css/]
+				},
+				files: {
+					'css/tidy.css': ['index.html', 'ack.html']
+				}
+			}
+		},
+
+		// CSSComb
+    csscomb: {
+			dist: {
+				files: {
+				  'css/pretty.css': ['css/tidy.css']
+				}
+			}
+    },
+    
+		// CSSMin
+		cssmin: {
+			dist: {
+				files: [
+						{ src: 'css/pretty.css', dest: 'css/createAccount.min.css' }
+				]
+			}
+		},
+                		
 		// Copy 
 		copy: {
 			topFiles: {
@@ -116,7 +146,7 @@ module.exports = function(grunt) {
 			},
 			cssFiles: {
 				cwd: 'css',
-				src: ['**/*.css', '**/*.map'],
+				src: ['**/normalize.css', '**/createAccount.min.css'],
 				dest: '../../openShift/accountDemo/css',
 				expand: true 
 			},
@@ -135,12 +165,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   grunt.loadNpmTasks( 'grunt-contrib-sass' );
   grunt.loadNpmTasks( 'grunt-svgmin' );  
-  grunt.loadNpmTasks( 'grunt-contrib-watch' );  
+  grunt.loadNpmTasks( 'grunt-contrib-watch' );
+  grunt.loadNpmTasks( 'grunt-uncss' );
+  grunt.loadNpmTasks( 'grunt-csscomb' );
+  grunt.loadNpmTasks( 'grunt-contrib-cssmin' );  
   grunt.loadNpmTasks( 'grunt-contrib-copy');
 
   // Default task.
   grunt.registerTask( 'default', 'watch' );
 
+  // Process CSS task.
+  grunt.registerTask( 'cleanPageCSS', ['uncss', 'csscomb', 'cssmin'] ); 
+  
   // Copy task.
   grunt.registerTask( 'copyDemo', 'copy' );  
 
