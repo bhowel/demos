@@ -1,92 +1,94 @@
-/*** uncss> filename: css/createAccount.min.css ***/
+/*** uncss> filename: css/skullExtractRevised.css ***/
 
-.button,
-input:not([type=checkbox]):not([type=radio]):not([type=submit])
-{
-    font-weight: 400;
+/*** uncss> filename: css/skullExtractRevised.css ***/
 
-    box-sizing: border-box;
+/*
 
-    vertical-align: middle;
+  Extract from skull-1.0.0 (Basscss theme).
+  Includes only the basic styles used in the CreateAccount project.
+  Styles for other tags to be added as needed.
 
-    -webkit-appearance: none;
-}
+*/
 
-.button,
-.button:after,
-.button:before
-{
-    box-sizing: border-box;
-}
+/*
 
-.button,
-.button:hover,
-a
-{
-    text-decoration: none;
-}
+  Autoform
+  v1.0.0
 
-.form-row,
-.form-row:after
-{
-    clear: both;
-}
+*/
 
-.cell-button,
-.cell-checkbox,
-.center
-{
-    text-align: center;
-}
+/* Revised by BH */
 
 input:not([type=checkbox]):not([type=radio]):not([type=submit])
 {
     font-family: inherit;
     font-size: 14px;
+    font-weight: normal;
 
     display: block;
 
     width: 100%;
-    height: 45px;
     margin-top: 0;
     margin-bottom: 16px;
-    padding: 8px;
 }
+
+/* Revised by BH */
 
 label
 {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: normal;
 
     display: block;
 
     margin-bottom: 11px;
 }
 
+/* Revised by BH */
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit])
+{
+    box-sizing: border-box;
+    height: 45px;
+    padding: 8px 8px;
+
+    vertical-align: middle;
+
+    -webkit-appearance: none;
+}
+
+/* Revised by BH */
+
 input
 {
-    font-family: inherit;
-    font-size: 100%;
-
     -webkit-transition: box-shadow .2s ease;
             transition: box-shadow .2s ease;
 
-    border: 1px solid rgba(217,217,217,1);
+    border: 1px solid rgba( 217, 217, 217, 1.0 );
     border-radius: 5px;
-    background-color: #fff;
+    background-color: white;
 }
+
+/* Revised by BH */
 
 input:focus
 {
-    border-color: rgba(200,200,200,1);
-    outline: 0;
-    background-color: rgba(250,250,250,1);
+    border-color: rgba( 200, 200, 200, 1.0 );
+    outline: none;
+    background-color: rgba( 250, 250, 250, 1.0 );
 }
 
 input:disabled
 {
     opacity: .625;
 }
+
+/*
+
+  autogrid
+  v1.0.6
+
+*/
 
 .container
 {
@@ -95,25 +97,65 @@ input:disabled
     margin-left: auto;
 }
 
+/*
+ * Skull
+ *
+ * Minimal Basscss theme
+ *
+ */
+
+/* Basscss Modules */
+
+body
+{
+    margin: 0;
+}
+
+input
+{
+    font-family: inherit;
+    font-size: 100%;
+}
+
 img
 {
     max-width: 100%;
 }
 
+/* @import 'basscss-base-forms'; */
+
+/* Basscss Base Buttons */
+
+/* Revised by BH */
+
 .button
 {
+    font-size: 14px;
     font-size: .875rem;
+    font-weight: normal;
     line-height: 30px;
     line-height: 1.875rem;
 
     display: inline-block;
 
+    box-sizing: border-box;
     height: auto;
     margin: 0;
+    padding: 8px 36px 8px 36px;
 
     cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
 
     border: 1px solid transparent;
+
+    -webkit-appearance: none;
+}
+
+.button:after,
+.button:before
+{
+    box-sizing: border-box;
 }
 
 ::-moz-focus-inner
@@ -125,17 +167,23 @@ img
 
 .button:hover
 {
-    box-shadow: inset 0 0 0 20rem rgba(0,0,0,.0625);
+    text-decoration: none;
 }
+
+/* @import 'basscss-base-tables'; */
+
+/* Basscss Base Typography */
+
+/* Revised by BH */
 
 body
 {
-    font-family: Montserrat,Helvetica,sans-serif;
+    font-family: 'Montserrat', Helvetica, sans-serif;
     font-size: 100%;
     line-height: 1.5;
-
-    margin: 0;
 }
+
+/* Revised by BH */
 
 p
 {
@@ -143,6 +191,7 @@ p
     font-size: 1.125rem;
 
     margin-top: 0;
+    margin-bottom: 16px;
     margin-bottom: 1rem;
 }
 
@@ -152,13 +201,25 @@ p
     font-size: 1.125rem;
 }
 
+/* Revised by BH */
+
 .h5
 {
+    font-size: 14px;
     font-size: .875rem;
+}
+
+/* Basscss Utility Typography */
+
+.center
+{
+    text-align: center;
 }
 
 a
 {
+    text-decoration: none;
+
     color: #09d;
 }
 
@@ -167,30 +228,39 @@ a:hover
     text-decoration: underline;
 }
 
+/* Revised by BH */
+
 .button
 {
-    padding: 8px 57px;
-
-    transition: padding .5s;
     -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
     -webkit-transition-duration: .05s;
-    -webkit-transition-property: box-shadow,background-color;
+            transition-duration: .05s;
+    -webkit-transition-property: box-shadow, background-color;
+            transition-property: box-shadow, background-color;
 
-    color: #fff;
+    color: white;
     border-radius: 3px;
-    background-color: rgba(108,198,11,1);
+    background-color: rgba( 108, 198, 11, 1.0 );
+}
+
+.button:hover
+{
+    box-shadow: inset 0 0 0 20rem rgba(0,0,0,.0625);
 }
 
 .button:focus
 {
     border-color: rgba(0,0,0,.125);
-    outline: 0;
+    outline: none;
     box-shadow: 0 0 2px 1px rgba(0,0,0,.25);
 }
 
 .button:active
 {
-    box-shadow: inset 0 0 0 20rem rgba(0,0,0,.125),inset 0 3px 4px 0 rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.125);
+    box-shadow: inset 0 0 0 20rem rgba(0,0,0,.125),
+    inset 0 3px 4px 0 rgba(0,0,0,.25),
+    0 0 1px rgba(0,0,0,.125);
 }
 
 .button:disabled
@@ -198,15 +268,24 @@ a:hover
     opacity: .5;
 }
 
-.textLight
-{
-    color: #c8c8c8;
-}
+/*** uncss> filename: css/custom.css ***/
+
+/*
+
+  Custom styles for the CreateAccount project.
+  Styles for other tags to be added as needed.
+  
+  Grid system based on the Responsive Grid System by Graham Miller.
+  The generated styles have been revised.
+  Web site: http://www.responsivegridsystem.com/
+  License: http://creativecommons.org/licenses/by/3.0/
+
+*/
 
 .textRequired
 {
-    font-family: Helvetica,sans-serif;
-    font-weight: 700;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
 
     color: red;
 }
@@ -214,7 +293,7 @@ a:hover
 input::-moz-placeholder
 {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: normal;
 
     color: #d9d9d9;
 }
@@ -222,7 +301,7 @@ input::-moz-placeholder
 input:-moz-placeholder
 {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: normal;
 
     color: #d9d9d9;
 }
@@ -230,9 +309,48 @@ input:-moz-placeholder
 input:-ms-input-placeholder
 {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: normal;
 
     color: #d9d9d9;
+}
+
+.button
+{
+    padding: 8px 57px 8px 57px;
+
+    transition: padding .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .button
+    {
+        padding: 8px 57px 8px 57px;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .button
+    {
+        padding: 8px 36px 8px 36px;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .button
+    {
+        padding: 8px 36px 8px 36px;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .button
+    {
+        padding: 8px 36px 8px 36px;
+    }
 }
 
 .border-bottom-none
@@ -245,58 +363,38 @@ body
     transition: background-color .5s;
 
     color: #222;
-    background-color: #fff;
+    background-color: white;
 }
 
-@media only screen and (min-width:480px)
+@media only screen and (min-width: 480px)
 {
-    .button
-    {
-        padding: 8px 57px;
-    }
-
     body
     {
-        background-color: #fff;
+        background-color: white;
     }
 }
 
-@media only screen and (min-width:768px)
+@media only screen and (min-width: 768px)
 {
-    .button
-    {
-        padding: 8px 36px;
-    }
-
     body
     {
-        background-color: #f5f5f5;
+        background-color: #e6e6e6;
     }
 }
 
-@media only screen and (min-width:992px)
+@media only screen and (min-width: 992px)
 {
-    .button
-    {
-        padding: 8px 36px;
-    }
-
     body
     {
-        background-color: #f5f5f5;
+        background-color: #e6e6e6;
     }
 }
 
-@media only screen and (min-width:1200px)
+@media only screen and (min-width: 1200px)
 {
-    .button
-    {
-        padding: 8px 36px;
-    }
-
     body
     {
-        background-color: #f5f5f5;
+        background-color: #e6e6e6;
     }
 }
 
@@ -305,7 +403,7 @@ body
     padding: 0;
 }
 
-@media only screen and (min-width:480px)
+@media only screen and (min-width: 480px)
 {
     .container
     {
@@ -313,7 +411,7 @@ body
     }
 }
 
-@media only screen and (min-width:768px)
+@media only screen and (min-width: 768px)
 {
     .container
     {
@@ -321,7 +419,7 @@ body
     }
 }
 
-@media only screen and (min-width:992px)
+@media only screen and (min-width: 992px)
 {
     .container
     {
@@ -329,7 +427,7 @@ body
     }
 }
 
-@media only screen and (min-width:1200px)
+@media only screen and (min-width: 1200px)
 {
     .container
     {
@@ -346,14 +444,14 @@ body
 {
     padding: 0;
 
-    -webkit-transition: background-color .5s,border .5s,border-top .5s,border-left .5s,border-right .5s,border-radius .5s,padding .5s;
-            transition: background-color .5s,border .5s,border-top .5s,border-left .5s,border-right .5s,border-radius .5s,padding .5s;
+    -webkit-transition: background-color .5s,  border .5s, border-top .5s, border-left .5s, border-right .5s, border-radius .5s, padding .5s;
+            transition: background-color .5s,  border .5s, border-top .5s, border-left .5s, border-right .5s, border-radius .5s, padding .5s;
 
     border: none;
     background-color: transparent;
 }
 
-@media only screen and (min-width:480px)
+@media only screen and (min-width: 480px)
 {
     .container-header
     {
@@ -364,113 +462,113 @@ body
     }
 }
 
-@media only screen and (min-width:768px)
+@media only screen and (min-width: 768px)
 {
     .container-header
     {
-        padding: 42px 100px 20px;
+        padding: 42px 100px 20px 100px;
 
         border-top: 1px solid #d9dce3;
         border-right: 1px solid #d9dce3;
         border-left: 1px solid #d9dce3;
         border-radius: 5px 5px 0 0;
-        background-color: #fff;
+        background-color: white;
     }
 }
 
-@media only screen and (min-width:992px)
+@media only screen and (min-width: 992px)
 {
     .container-header
     {
-        padding: 42px 100px 20px;
+        padding: 42px 100px 20px 100px;
 
         border-top: 1px solid #d9dce3;
         border-right: 1px solid #d9dce3;
         border-left: 1px solid #d9dce3;
         border-radius: 5px 5px 0 0;
-        background-color: #fff;
+        background-color: white;
     }
 }
 
-@media only screen and (min-width:1200px)
+@media only screen and (min-width: 1200px)
 {
     .container-header
     {
-        padding: 42px 100px 20px;
+        padding: 42px 100px 20px 100px;
 
         border-top: 1px solid #d9dce3;
         border-right: 1px solid #d9dce3;
         border-left: 1px solid #d9dce3;
         border-radius: 5px 5px 0 0;
-        background-color: #fff;
+        background-color: white;
     }
 }
 
 .container-form
 {
-    padding: 11px 0 0;
+    padding: 11px 0 0 0;
 
-    -webkit-transition: background-color .5s,border .5s,border-top .5s,border-left .5s,border-right .5s,border-bottom .5s,border-radius .5s,padding .5s;
-            transition: background-color .5s,border .5s,border-top .5s,border-left .5s,border-right .5s,border-bottom .5s,border-radius .5s,padding .5s;
+    -webkit-transition: background-color .5s,  border .5s, border-top .5s, border-left .5s, border-right .5s, border-bottom .5s, border-radius .5s, padding .5s;
+            transition: background-color .5s,  border .5s, border-top .5s, border-left .5s, border-right .5s, border-bottom .5s, border-radius .5s, padding .5s;
 
     border: none;
     border-top: 1px solid #e6e9ed;
     background-color: transparent;
 }
 
-@media only screen and (min-width:480px)
+@media only screen and (min-width: 480px)
 {
     .container-form
     {
-        padding: 11px 0 0;
+        padding: 11px 0 0 0;
 
         border: none;
         background-color: transparent;
     }
 }
 
-@media only screen and (min-width:768px)
+@media only screen and (min-width: 768px)
 {
     .container-form
     {
-        padding: 38px 100px 45px;
+        padding: 38px 100px 45px 100px;
 
         border-top: 1px solid #e6e9ed;
         border-right: 1px solid #d9dce3;
         border-bottom: 1px solid #e6e9ed;
         border-left: 1px solid #d9dce3;
         border-radius: 0 0 5px 5px;
-        background-color: #fff;
+        background-color: white;
     }
 }
 
-@media only screen and (min-width:992px)
+@media only screen and (min-width: 992px)
 {
     .container-form
     {
-        padding: 38px 100px 45px;
+        padding: 38px 100px 45px 100px;
 
         border-top: 1px solid #e6e9ed;
         border-right: 1px solid #d9dce3;
         border-bottom: 1px solid #e6e9ed;
         border-left: 1px solid #d9dce3;
         border-radius: 0 0 5px 5px;
-        background-color: #fff;
+        background-color: white;
     }
 }
 
-@media only screen and (min-width:1200px)
+@media only screen and (min-width: 1200px)
 {
     .container-form
     {
-        padding: 38px 100px 45px;
+        padding: 38px 100px 45px 100px;
 
         border-top: 1px solid #e6e9ed;
         border-right: 1px solid #d9dce3;
         border-bottom: 1px solid #e6e9ed;
         border-left: 1px solid #d9dce3;
         border-radius: 0 0 5px 5px;
-        background-color: #fff;
+        background-color: white;
     }
 }
 
@@ -479,90 +577,142 @@ body
     margin-top: 32px;
     padding: 0;
 
-    -webkit-transition: margin .5s,padding .5s;
-            transition: margin .5s,padding .5s;
+    -webkit-transition: margin .5s, padding .5s;
+            transition: margin .5s, padding .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .container-signin
+    {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .container-signin
+    {
+        padding: 0 100px 46px 100px;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .container-signin
+    {
+        padding: 0 100px 46px 100px;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .container-signin
+    {
+        padding: 0 100px 46px 100px;
+    }
 }
 
 .logo
 {
     width: 50px;
     height: 100%;
-    margin: 19px 0 0;
+    margin: 19px 0 0 0;
 
-    -webkit-transition: margin .5s,width .5s;
-            transition: margin .5s,width .5s;
+    -webkit-transition: margin .5s, width .5s;
+            transition: margin .5s, width .5s;
 }
 
-@media only screen and (min-width:480px)
+@media only screen and (min-width: 480px)
 {
-    .container-signin
+    .logo
     {
-        padding: 0;
+        margin: 19px 0 0 0;
     }
+}
 
+@media only screen and (min-width: 768px)
+{
+    .logo
+    {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .logo
+    {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .logo
+    {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 480px)
+{
     .logo
     {
         width: 50px;
-        margin: 19px 0 0;
     }
 }
 
-@media only screen and (min-width:768px)
+@media only screen and (min-width: 768px)
 {
-    .container-signin
-    {
-        padding: 0 100px 46px;
-    }
-
     .logo
     {
         width: 75px;
-        margin: 0 auto;
     }
 }
 
-@media only screen and (min-width:992px)
+@media only screen and (min-width: 992px)
 {
-    .container-signin
-    {
-        padding: 0 100px 46px;
-    }
-
     .logo
     {
         width: 75px;
-        margin: 0 auto;
     }
 }
 
-@media only screen and (min-width:1200px)
+@media only screen and (min-width: 1200px)
 {
-    .container-signin
-    {
-        padding: 0 100px 46px;
-    }
-
     .logo
     {
         width: 75px;
-        margin: 0 auto;
     }
 }
 
 .form-row
 {
-    zoom: 1;
+    clear: both;
 
-    margin: 0 0 11px;
+    margin: 0;
+    margin-bottom: 11px;
     padding: 0;
 }
 
-.form-row:after,
-.form-row:before
+.form-row:before,
+.form-row:after
 {
     display: table;
 
     content: '';
+}
+
+.form-row:after
+{
+    clear: both;
+}
+
+.form-row
+{
+    zoom: 1;
+    /* For IE 6/7 */
 }
 
 .column
@@ -572,8 +722,48 @@ body
 
     margin-left: 3%;
 
-    -webkit-transition: margin .5s,float .5s;
+    -webkit-transition: margin .5s, float .5s;
             transition: margin .5s float .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .column
+    {
+        float: none;
+
+        margin-left: 3%;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .column
+    {
+        float: left;
+
+        margin-left: 3%;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .column
+    {
+        float: left;
+
+        margin-left: 3%;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .column
+    {
+        float: left;
+
+        margin-left: 3%;
+    }
 }
 
 .column-with-12
@@ -584,60 +774,32 @@ body
             transition: width .5s;
 }
 
-@media only screen and (min-width:480px)
+@media only screen and (min-width: 480px)
 {
-    .column
-    {
-        float: none;
-
-        margin-left: 3%;
-    }
-
     .column-with-12
     {
         width: 94%;
     }
 }
 
-@media only screen and (min-width:768px)
+@media only screen and (min-width: 768px)
 {
-    .column
-    {
-        float: left;
-
-        margin-left: 3%;
-    }
-
     .column-with-12
     {
         width: 97%;
     }
 }
 
-@media only screen and (min-width:992px)
+@media only screen and (min-width: 992px)
 {
-    .column
-    {
-        float: left;
-
-        margin-left: 3%;
-    }
-
     .column-with-12
     {
         width: 97%;
     }
 }
 
-@media only screen and (min-width:1200px)
+@media only screen and (min-width: 1200px)
 {
-    .column
-    {
-        float: left;
-
-        margin-left: 3%;
-    }
-
     .column-with-12
     {
         width: 97%;
@@ -652,12 +814,76 @@ body
             transition: width .5s;
 }
 
+@media only screen and (min-width: 480px)
+{
+    .column-with-6
+    {
+        width: 94%;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .column-with-6
+    {
+        width: 47%;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .column-with-6
+    {
+        width: 47%;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .column-with-6
+    {
+        width: 47%;
+    }
+}
+
 .cell-logo
 {
     float: left;
 
     -webkit-transition: float .5s;
             transition: float .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .cell-logo
+    {
+        float: left;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .cell-logo
+    {
+        float: none;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .cell-logo
+    {
+        float: none;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .cell-logo
+    {
+        float: none;
+    }
 }
 
 .cell-header
@@ -669,104 +895,79 @@ body
             transition: max-width .5s;
 }
 
-.cell-checkbox
+@media only screen and (min-width: 480px)
 {
-    padding-top: 10px;
-}
-
-.cell-button
-{
-    padding: 22px 0 0;
-
-    transition: padding .5s;
-}
-
-@media only screen and (min-width:480px)
-{
-    .column-with-6
-    {
-        width: 94%;
-    }
-
-    .cell-logo
-    {
-        float: left;
-    }
-
     .cell-header
     {
         max-width: 410px;
     }
-
-    .cell-button
-    {
-        padding: 22px 0 0;
-    }
 }
 
-@media only screen and (min-width:768px)
+@media only screen and (min-width: 768px)
 {
-    .column-with-6
-    {
-        width: 47%;
-    }
-
-    .cell-logo
-    {
-        float: none;
-    }
-
     .cell-header
     {
         max-width: 490px;
     }
+}
 
+@media only screen and (min-width: 992px)
+{
+    .cell-header
+    {
+        max-width: 490px;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .cell-header
+    {
+        max-width: 490px;
+    }
+}
+
+.cell-checkbox
+{
+    padding-top: 10px;
+
+    text-align: center;
+}
+
+.cell-button
+{
+    padding: 22px 0 0 0;
+
+    transition: padding .5s;
+    text-align: center;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .cell-button
+    {
+        padding: 22px 0 0 0;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
     .cell-button
     {
         padding: 0;
     }
 }
 
-@media only screen and (min-width:992px)
+@media only screen and (min-width: 992px)
 {
-    .column-with-6
-    {
-        width: 47%;
-    }
-
-    .cell-logo
-    {
-        float: none;
-    }
-
-    .cell-header
-    {
-        max-width: 490px;
-    }
-
     .cell-button
     {
         padding: 0;
     }
 }
 
-@media only screen and (min-width:1200px)
+@media only screen and (min-width: 1200px)
 {
-    .column-with-6
-    {
-        width: 47%;
-    }
-
-    .cell-logo
-    {
-        float: none;
-    }
-
-    .cell-header
-    {
-        max-width: 490px;
-    }
-
     .cell-button
     {
         padding: 0;
@@ -788,10 +989,15 @@ body
     margin-bottom: 24px;
 }
 
+.medium-gray
+{
+    color: #c8c8c8;
+}
+
 .errorMessage
 {
     font-size: 1.2em;
-    font-weight: 400;
+    font-weight: normal;
 
     display: block;
 
@@ -799,3 +1005,745 @@ body
 
     color: #222;
 }
+
+/*# sourceMappingURL=custom.css.map */
+
+/*** uncss> filename: css/custom.css ***/
+
+/*
+
+  Custom styles for the CreateAccount project.
+  Styles for other tags to be added as needed.
+  
+  Grid system based on the Responsive Grid System by Graham Miller.
+  The generated styles have been revised.
+  Web site: http://www.responsivegridsystem.com/
+  License: http://creativecommons.org/licenses/by/3.0/
+
+*/
+
+.textRequired
+{
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+
+    color: red;
+}
+
+input::-moz-placeholder
+{
+    font-size: 14px;
+    font-weight: normal;
+
+    color: #d9d9d9;
+}
+
+input:-moz-placeholder
+{
+    font-size: 14px;
+    font-weight: normal;
+
+    color: #d9d9d9;
+}
+
+input:-ms-input-placeholder
+{
+    font-size: 14px;
+    font-weight: normal;
+
+    color: #d9d9d9;
+}
+
+.button
+{
+    padding: 8px 57px 8px 57px;
+
+    transition: padding .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .button
+    {
+        padding: 8px 57px 8px 57px;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .button
+    {
+        padding: 8px 36px 8px 36px;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .button
+    {
+        padding: 8px 36px 8px 36px;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .button
+    {
+        padding: 8px 36px 8px 36px;
+    }
+}
+
+.border-bottom-none
+{
+    border-bottom: none;
+}
+
+body
+{
+    transition: background-color .5s;
+
+    color: #222;
+    background-color: white;
+}
+
+@media only screen and (min-width: 480px)
+{
+    body
+    {
+        background-color: white;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    body
+    {
+        background-color: #e6e6e6;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    body
+    {
+        background-color: #e6e6e6;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    body
+    {
+        background-color: #e6e6e6;
+    }
+}
+
+.container
+{
+    padding: 0;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .container
+    {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .container
+    {
+        padding: 30px;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .container
+    {
+        padding: 30px;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .container
+    {
+        padding: 30px;
+    }
+}
+
+.container-med
+{
+    max-width: 490px;
+}
+
+.container-header
+{
+    padding: 0;
+
+    -webkit-transition: background-color .5s,  border .5s, border-top .5s, border-left .5s, border-right .5s, border-radius .5s, padding .5s;
+            transition: background-color .5s,  border .5s, border-top .5s, border-left .5s, border-right .5s, border-radius .5s, padding .5s;
+
+    border: none;
+    background-color: transparent;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .container-header
+    {
+        padding: 0;
+
+        border: none;
+        background-color: transparent;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .container-header
+    {
+        padding: 42px 100px 20px 100px;
+
+        border-top: 1px solid #d9dce3;
+        border-right: 1px solid #d9dce3;
+        border-left: 1px solid #d9dce3;
+        border-radius: 5px 5px 0 0;
+        background-color: white;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .container-header
+    {
+        padding: 42px 100px 20px 100px;
+
+        border-top: 1px solid #d9dce3;
+        border-right: 1px solid #d9dce3;
+        border-left: 1px solid #d9dce3;
+        border-radius: 5px 5px 0 0;
+        background-color: white;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .container-header
+    {
+        padding: 42px 100px 20px 100px;
+
+        border-top: 1px solid #d9dce3;
+        border-right: 1px solid #d9dce3;
+        border-left: 1px solid #d9dce3;
+        border-radius: 5px 5px 0 0;
+        background-color: white;
+    }
+}
+
+.container-form
+{
+    padding: 11px 0 0 0;
+
+    -webkit-transition: background-color .5s,  border .5s, border-top .5s, border-left .5s, border-right .5s, border-bottom .5s, border-radius .5s, padding .5s;
+            transition: background-color .5s,  border .5s, border-top .5s, border-left .5s, border-right .5s, border-bottom .5s, border-radius .5s, padding .5s;
+
+    border: none;
+    border-top: 1px solid #e6e9ed;
+    background-color: transparent;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .container-form
+    {
+        padding: 11px 0 0 0;
+
+        border: none;
+        background-color: transparent;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .container-form
+    {
+        padding: 38px 100px 45px 100px;
+
+        border-top: 1px solid #e6e9ed;
+        border-right: 1px solid #d9dce3;
+        border-bottom: 1px solid #e6e9ed;
+        border-left: 1px solid #d9dce3;
+        border-radius: 0 0 5px 5px;
+        background-color: white;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .container-form
+    {
+        padding: 38px 100px 45px 100px;
+
+        border-top: 1px solid #e6e9ed;
+        border-right: 1px solid #d9dce3;
+        border-bottom: 1px solid #e6e9ed;
+        border-left: 1px solid #d9dce3;
+        border-radius: 0 0 5px 5px;
+        background-color: white;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .container-form
+    {
+        padding: 38px 100px 45px 100px;
+
+        border-top: 1px solid #e6e9ed;
+        border-right: 1px solid #d9dce3;
+        border-bottom: 1px solid #e6e9ed;
+        border-left: 1px solid #d9dce3;
+        border-radius: 0 0 5px 5px;
+        background-color: white;
+    }
+}
+
+.container-signin
+{
+    margin-top: 32px;
+    padding: 0;
+
+    -webkit-transition: margin .5s, padding .5s;
+            transition: margin .5s, padding .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .container-signin
+    {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .container-signin
+    {
+        padding: 0 100px 46px 100px;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .container-signin
+    {
+        padding: 0 100px 46px 100px;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .container-signin
+    {
+        padding: 0 100px 46px 100px;
+    }
+}
+
+.logo
+{
+    width: 50px;
+    height: 100%;
+    margin: 19px 0 0 0;
+
+    -webkit-transition: margin .5s, width .5s;
+            transition: margin .5s, width .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .logo
+    {
+        margin: 19px 0 0 0;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .logo
+    {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .logo
+    {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .logo
+    {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 480px)
+{
+    .logo
+    {
+        width: 50px;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .logo
+    {
+        width: 75px;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .logo
+    {
+        width: 75px;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .logo
+    {
+        width: 75px;
+    }
+}
+
+.form-row
+{
+    clear: both;
+
+    margin: 0;
+    margin-bottom: 11px;
+    padding: 0;
+}
+
+.form-row:before,
+.form-row:after
+{
+    display: table;
+
+    content: '';
+}
+
+.form-row:after
+{
+    clear: both;
+}
+
+.form-row
+{
+    zoom: 1;
+    /* For IE 6/7 */
+}
+
+.column
+{
+    display: block;
+    float: none;
+
+    margin-left: 3%;
+
+    -webkit-transition: margin .5s, float .5s;
+            transition: margin .5s float .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .column
+    {
+        float: none;
+
+        margin-left: 3%;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .column
+    {
+        float: left;
+
+        margin-left: 3%;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .column
+    {
+        float: left;
+
+        margin-left: 3%;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .column
+    {
+        float: left;
+
+        margin-left: 3%;
+    }
+}
+
+.column-with-12
+{
+    width: 94%;
+
+    -webkit-transition: width .5s;
+            transition: width .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .column-with-12
+    {
+        width: 94%;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .column-with-12
+    {
+        width: 97%;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .column-with-12
+    {
+        width: 97%;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .column-with-12
+    {
+        width: 97%;
+    }
+}
+
+.column-with-6
+{
+    width: 94%;
+
+    -webkit-transition: width .5s;
+            transition: width .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .column-with-6
+    {
+        width: 94%;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .column-with-6
+    {
+        width: 47%;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .column-with-6
+    {
+        width: 47%;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .column-with-6
+    {
+        width: 47%;
+    }
+}
+
+.cell-logo
+{
+    float: left;
+
+    -webkit-transition: float .5s;
+            transition: float .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .cell-logo
+    {
+        float: left;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .cell-logo
+    {
+        float: none;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .cell-logo
+    {
+        float: none;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .cell-logo
+    {
+        float: none;
+    }
+}
+
+.cell-header
+{
+    max-width: 410px;
+    padding-top: 22px;
+
+    -webkit-transition: max-width .5s;
+            transition: max-width .5s;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .cell-header
+    {
+        max-width: 410px;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .cell-header
+    {
+        max-width: 490px;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .cell-header
+    {
+        max-width: 490px;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .cell-header
+    {
+        max-width: 490px;
+    }
+}
+
+.cell-checkbox
+{
+    padding-top: 10px;
+
+    text-align: center;
+}
+
+.cell-button
+{
+    padding: 22px 0 0 0;
+
+    transition: padding .5s;
+    text-align: center;
+}
+
+@media only screen and (min-width: 480px)
+{
+    .cell-button
+    {
+        padding: 22px 0 0 0;
+    }
+}
+
+@media only screen and (min-width: 768px)
+{
+    .cell-button
+    {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .cell-button
+    {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .cell-button
+    {
+        padding: 0;
+    }
+}
+
+.margin-top-0
+{
+    margin-top: 0;
+}
+
+.margin-bottom-0
+{
+    margin-bottom: 0;
+}
+
+.skip-next-row
+{
+    margin-bottom: 24px;
+}
+
+.medium-gray
+{
+    color: #c8c8c8;
+}
+
+.errorMessage
+{
+    font-size: 1.2em;
+    font-weight: normal;
+
+    display: block;
+
+    margin-top: 11px;
+
+    color: #222;
+}
+
+/*# sourceMappingURL=custom.css.map */

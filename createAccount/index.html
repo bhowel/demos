@@ -10,7 +10,8 @@
   <!-- STYLES //-->  
   <link rel="stylesheet" href="css/normalize.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/createAccount.min.css">
+  <link rel="stylesheet" href="css/skullExtractRevised.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 
@@ -26,10 +27,10 @@
 				  <img src="assets/logo.min.svg" class="logo" />
 				</div>
 				<div class="cell-header">
-					<p class="h4 margin-bottom-0">
+					<h3>
 						Create new account
-					</p>			
-					<p class="h5 textLight margin-top-0">
+					</h3>			
+					<p class="medium-gray">
 						Enter your credentials below
 					</p>
 				</div>					
@@ -45,7 +46,7 @@
 
 			<div class="form-row">
 				<div class="column column-with-6">
-					<label for="fullname"><span class="textRequired">*</span> Full name</label>
+					<label for="fullname"><span class="font-family-basic bold red">*</span> Full name</label>
 					<input type="text" 
 					       class="form-control" 
 					       placeholder="Name and surname" 
@@ -53,7 +54,7 @@
 					       required="" />		
 				</div>
 				<div class="column column-with-6">
-					<label for="username"><span class="textRequired">*</span> Username</label>
+					<label for="username"><span class="font-family-basic bold red">*</span> Username</label>
 					<input type="text" 
 					       class="form-control"
 					       placeholder="Username"
@@ -64,7 +65,7 @@
 
 			<div class="form-row">
 				<div class="column column-with-12">
-					<label for="email"><span class="textRequired">*</span> Email address</label>
+					<label for="email"><span class="font-family-basic bold red">*</span> Email address</label>
 					<input type="text" 
 					       class="form-control"
 					       placeholder="Email address"
@@ -76,7 +77,7 @@
 
 			<div class="form-row">
 				<div class="column column-with-6">
-					<label for="city"><span class="textRequired">*</span> City</label>
+					<label for="city"><span class="font-family-basic bold red">*</span> City</label>
 					<input type="text" 
 					       class="form-control"
 					       placeholder="City"
@@ -84,7 +85,7 @@
 					       required="" />		
 				</div>			
 				<div class="column column-with-6">
-					<label for="country"><span class="textRequired">*</span> Country</label>
+					<label for="country"><span class="font-family-basic bold red">*</span> Country</label>
 					<input type="text" 
 					       class="form-control"
 					       placeholder="Country"
@@ -95,7 +96,7 @@
 
 			<div class="form-row margin-bottom-0">
 				<div class="column column-with-12">
-					<label for="password"><span class="textRequired">*</span> Password</label>
+					<label for="password"><span class="font-family-basic bold red">*</span> Password</label>
 					<!-- Can't get margin bottom = 0 without using style. //-->
 					<input type="password" 
 					       class="form-control border-bottom-none"
@@ -107,7 +108,7 @@
 				</div>
 			</div>
 
-			<div class="form-row skip-next-row">
+			<div class="form-row margin-bottom-24">
 				<div class="column column-with-12">
 					<input type="password" 
 					       class="form-control"
@@ -121,7 +122,7 @@
 		</form>
 		
 			<div class="form-row">
-				<div class="column cell-checkbox h5 textLight">
+				<div class="column cell-checkbox medium-gray">
 					<form id="termsForm">
 					<input id="terms" 
 					       type="checkbox" 
@@ -130,7 +131,7 @@
 					       data-parsley-mincheck="1"
 					       data-parsley-error-message="Please check the box."
 					       data-parsley-errors-container="#termsMessage" /> I accept the <a href="">Terms &amp; Conditions</a>
-					<p id="termsMessage" class="errorMessage"></p>
+					<p id="termsMessage" class="block margin-top-11 font-size-14 dark-gray"></p>
 					</form>
 				</div>	
 				<div class="column cell-button">
@@ -144,8 +145,8 @@
 	<div class="container-signin container-med">
 
     <div class="form-row">
-			<div class="column column-with-12 center">
-				<p class="h5 textLight">
+			<div class="column column-with-12 center medium-gray">
+				<p class="font-size-14">
 					Have an account already? <a href="">Sign in</a>
 				</p>	
 			</div>

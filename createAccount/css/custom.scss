@@ -23,10 +23,10 @@ $screenXLarge: 1200px;
 // COLOR
 // ============================================================================
 	
-$gray3: rgba( 34, 34, 34, 1.0 );
-$gray2: rgba( 200, 200, 200, 1.0 );
-$gray1: rgba( 217, 217, 217, 1.0 );
-$gray0: rgba( 245, 245, 245, 1.0 );
+$dark-gray   : rgba( 34, 34, 34, 1.0 );
+$medium-gray : rgba( 160, 160, 160, 1.0 );
+$light-gray  : rgba( 217, 217, 217, 1.0 );
+$lighter-gray: rgba( 245, 245, 245, 1.0 );
 
 $gray-border1: rgba( 217, 220, 227, 1.0 );
 $gray-border0: rgba( 230, 233, 237, 1.0 );
@@ -99,39 +99,69 @@ $gray-border0: rgba( 230, 233, 237, 1.0 );
 }
 
 // ============================================================================
-// TEXT
+// BASIC TAGS
 // ============================================================================
 
-.textLight {
-	color: $gray2;
+body {
+  @include bg-color-set( white, $lighter-gray );
+  font-family: 'Montserrat', Helvetica, sans-serif; 
+  font-size: 14px; 
+  line-height: 1.25;    
+  color: $dark-gray;
+  transition: background-color 0.5s;
 }
 
-.textRequired {
-	color: red;
-	font-family: Helvetica, sans-serif;
-	font-weight: bold;
+h1 { 
+  font-size: 36px; 
+  margin-top: 32px;
+  margin-bottom: 34px;  
 }
 
-input::-webkit-input-placeholder {
-	color: $gray1;
-	font-size: 14px;
-	font-weight: normal;
+h2 { 
+  font-size: 28px; 
+  margin-top: 24px;
+  margin-bottom: 26px;  
 }
-input::-moz-placeholder {
-	color: $gray1;
-	font-size: 14px;
-	font-weight: normal;
+
+h3 { 
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 4px;
+  margin-bottom: 8px;   
 }
-input:-moz-placeholder {   // Older versions of Firefox
-	color: $gray1;
-	font-size: 14px;
-	font-weight: normal;
+
+h4 { 
+  font-size: 18px;
+  margin-top: 14px;
+  margin-bottom: 16px;   
 }
-input:-ms-input-placeholder { 
-	color: $gray1;
-	font-size: 14px;
-	font-weight: normal;
+
+h5 { 
+  font-size: 14px; 
+  margin-top: 10px;
+  margin-bottom: 12px;  
 }
+
+h6 { 
+  font-size: 12px; 
+  margin-top: 8px;
+  margin-bottom: 10px;  
+}
+
+p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+// ============================================================================
+// INPUT PLACEHOLDER
+// ============================================================================
+
+input::-webkit-input-placeholder { color: $light-gray; }
+input::-moz-placeholder          { color: $light-gray; }
+input:-moz-placeholder           { color: $light-gray; }
+input:-ms-input-placeholder      { color: $light-gray; }
 
 // ============================================================================
 // BUTTON
@@ -152,16 +182,6 @@ button,
 
 .border-bottom-none {
   border-bottom: none;
-}
-
-// ============================================================================
-// BODY
-// ============================================================================
-
-body {
-  @include bg-color-set( white, $gray0 ); 
-  color: $gray3;
-  transition: background-color 0.5s;
 }
 
 // ============================================================================
@@ -364,20 +384,35 @@ $paddingCellButtonFull : 0;
 }
 
 // ============================================================================
-// MARGIN Must be last section in sheet.
+// CSS HELPERS
 // ============================================================================
 
-.margin-top-0 {
-	margin-top: 0;
-}
+.block             { display: block; }
 
-.margin-bottom-0 {
-	margin-bottom: 0;
-}
+.margin-top-0      { margin-top: 0; }
+.margin-top-11     { margin-top: 11px; }
+.margin-bottom-0   { margin-bottom: 0; }
+.margin-bottom-24  { margin-bottom: 24px; }
 
-.skip-next-row {
-	margin-bottom: 24px;
-}
+.left              { float: left; }
+.right             { float: right; }
+
+.font-family-basic { font-family: Helvetica, sans-serif; }
+
+.font-size-14      { font-size: 14px; }
+
+.bold              { font-weight: bold; }
+.normal            { font-weight: normal; }
+
+.text-left         { text-align: left; }
+.text-right        { text-align: right; }
+.text-center       { text-align: center; }
+
+.lighter-gray      { color: $lighter-gray; }	
+.light-gray        { color: $light-gray; }
+.medium-gray       { color: $medium-gray; }
+.dark-gray         { color: $dark-gray; }
+.red               { color: red; }
 
 // ============================================================================
 // PARSLEY OVERRIDES
@@ -411,12 +446,4 @@ textarea.parsley-error {
 
 .parsley-errors-list.filled {
   opacity: 1;
-}
-
-.errorMessage {
-  color: $gray3;
-  font-size: 1.2em;
-  font-weight: normal;
-  display: block;
-  margin-top: 11px;
 }
