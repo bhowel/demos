@@ -10,7 +10,7 @@
 
 */
 body {
-  background-color: white;
+  background-color: #fff;
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.25;
@@ -18,7 +18,7 @@ body {
   transition: background-color 0.5s; }
   @media only screen and (min-width: 480px) {
     body {
-      background-color: white; } }
+      background-color: #fff; } }
   @media only screen and (min-width: 768px) {
     body {
       background-color: whitesmoke; } }
@@ -98,9 +98,6 @@ button,
     .button {
       padding: 8px 36px 8px 36px; } }
 
-.border-bottom-none {
-  border-bottom: none; }
-
 .container {
   padding: 0; }
   @media only screen and (min-width: 480px) {
@@ -119,6 +116,24 @@ button,
 .container-med {
   max-width: 490px; }
 
+.container-child {
+  padding: 0;
+  max-width: 490px;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .container-child {
+      padding: 0; } }
+  @media only screen and (min-width: 768px) {
+    .container-child {
+      padding: 0px 100px 0px 100px; } }
+  @media only screen and (min-width: 992px) {
+    .container-child {
+      padding: 0px 100px 0px 100px; } }
+  @media only screen and (min-width: 1200px) {
+    .container-child {
+      padding: 0px 100px 0px 100px; } }
+
 .container-header {
   background-color: transparent;
   border: none;
@@ -132,36 +147,36 @@ button,
       padding: 0; } }
   @media only screen and (min-width: 768px) {
     .container-header {
-      background-color: white;
-      border-top: 1px solid #d9dce3;
-      border-left: 1px solid #d9dce3;
-      border-right: 1px solid #d9dce3;
+      background-color: #fff;
+      border-top: 1px solid #d9d9d9;
+      border-left: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
       border-radius: 5px 5px 0 0;
       padding: 42px 100px 20px 100px; } }
   @media only screen and (min-width: 992px) {
     .container-header {
-      background-color: white;
-      border-top: 1px solid #d9dce3;
-      border-left: 1px solid #d9dce3;
-      border-right: 1px solid #d9dce3;
+      background-color: #fff;
+      border-top: 1px solid #d9d9d9;
+      border-left: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
       border-radius: 5px 5px 0 0;
       padding: 42px 100px 20px 100px; } }
   @media only screen and (min-width: 1200px) {
     .container-header {
-      background-color: white;
-      border-top: 1px solid #d9dce3;
-      border-left: 1px solid #d9dce3;
-      border-right: 1px solid #d9dce3;
+      background-color: #fff;
+      border-top: 1px solid #d9d9d9;
+      border-left: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
       border-radius: 5px 5px 0 0;
       padding: 42px 100px 20px 100px; } }
 
 .container-form {
   background-color: transparent;
   border: none;
-  border-top: 1px solid #e6e9ed;
+  border-top: 1px solid #d9d9d9;
   padding: 11px 0 0 0;
-  -webkit-transition: background-color 0.5s,  border 0.5s, border-top 0.5s, border-left 0.5s, border-right 0.5s, border-bottom 0.5s, border-radius 0.5s, padding 0.5s;
-  transition: background-color 0.5s,  border 0.5s, border-top 0.5s, border-left 0.5s, border-right 0.5s, border-bottom 0.5s, border-radius 0.5s, padding 0.5s; }
+  -webkit-transition: background-color 0.5s,  border 0.5s, border-radius 0.5s, padding 0.5s;
+  transition: background-color 0.5s,  border 0.5s, border-radius 0.5s, padding 0.5s; }
   @media only screen and (min-width: 480px) {
     .container-form {
       background-color: transparent;
@@ -169,49 +184,22 @@ button,
       padding: 11px 0 0 0; } }
   @media only screen and (min-width: 768px) {
     .container-form {
-      background-color: white;
-      border-top: 1px solid #e6e9ed;
-      border-left: 1px solid #d9dce3;
-      border-right: 1px solid #d9dce3;
-      border-bottom: 1px solid #e6e9ed;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
       border-radius: 0 0 5px 5px;
       padding: 38px 100px 45px 100px; } }
   @media only screen and (min-width: 992px) {
     .container-form {
-      background-color: white;
-      border-top: 1px solid #e6e9ed;
-      border-left: 1px solid #d9dce3;
-      border-right: 1px solid #d9dce3;
-      border-bottom: 1px solid #e6e9ed;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
       border-radius: 0 0 5px 5px;
       padding: 38px 100px 45px 100px; } }
   @media only screen and (min-width: 1200px) {
     .container-form {
-      background-color: white;
-      border-top: 1px solid #e6e9ed;
-      border-left: 1px solid #d9dce3;
-      border-right: 1px solid #d9dce3;
-      border-bottom: 1px solid #e6e9ed;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
       border-radius: 0 0 5px 5px;
       padding: 38px 100px 45px 100px; } }
-
-.container-signin {
-  padding: 0;
-  margin-top: 32px;
-  -webkit-transition: margin 0.5s, padding 0.5s;
-  transition: margin 0.5s, padding 0.5s; }
-  @media only screen and (min-width: 480px) {
-    .container-signin {
-      padding: 0; } }
-  @media only screen and (min-width: 768px) {
-    .container-signin {
-      padding: 0px 100px 46px 100px; } }
-  @media only screen and (min-width: 992px) {
-    .container-signin {
-      padding: 0px 100px 46px 100px; } }
-  @media only screen and (min-width: 1200px) {
-    .container-signin {
-      padding: 0px 100px 46px 100px; } }
 
 .logo {
   margin: 19px 0 0 0;
@@ -354,35 +342,23 @@ button,
     .cell-header {
       max-width: 490px; } }
 
-.cell-checkbox {
-  text-align: center;
-  padding-top: 10px; }
-
-.cell-button {
-  padding: 22px 0 0 0;
-  text-align: center;
-  transition: padding 0.5s; }
-  @media only screen and (min-width: 480px) {
-    .cell-button {
-      padding: 22px 0 0 0; } }
-  @media only screen and (min-width: 768px) {
-    .cell-button {
-      padding: 0; } }
-  @media only screen and (min-width: 992px) {
-    .cell-button {
-      padding: 0; } }
-  @media only screen and (min-width: 1200px) {
-    .cell-button {
-      padding: 0; } }
+.inline {
+  display: inline; }
 
 .block {
   display: block; }
 
+.inline-block {
+  display: inline-block; }
+
+.hide {
+  display: none; }
+
 .margin-top-0 {
   margin-top: 0; }
 
-.margin-top-11 {
-  margin-top: 11px; }
+.margin-top-32 {
+  margin-top: 32px; }
 
 .margin-bottom-0 {
   margin-bottom: 0; }
@@ -390,11 +366,26 @@ button,
 .margin-bottom-24 {
   margin-bottom: 24px; }
 
+.padding-top-10 {
+  padding-top: 10px; }
+
+.align-top {
+  vertical-align: top; }
+
+.align-bottom {
+  vertical-align: bottom; }
+
+.align-middle {
+  vertical-align: middle; }
+
 .left {
   float: left; }
 
 .right {
   float: right; }
+
+.line-height-45 {
+  line-height: 45px; }
 
 .font-family-basic {
   font-family: Helvetica, sans-serif; }
@@ -408,6 +399,9 @@ button,
 .normal {
   font-weight: normal; }
 
+.italic {
+  font-style: italic; }
+
 .text-left {
   text-align: left; }
 
@@ -416,6 +410,18 @@ button,
 
 .text-center {
   text-align: center; }
+
+.text-just {
+  text-align: justify; }
+
+.no-wrap {
+  white-space: nowrap; }
+
+.border-bottom-none {
+  border-bottom: none; }
+
+.white {
+  color: #fff; }
 
 .lighter-gray {
   color: whitesmoke; }

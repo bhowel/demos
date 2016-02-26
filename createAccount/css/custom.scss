@@ -22,14 +22,12 @@ $screenXLarge: 1200px;
 // ============================================================================
 // COLOR
 // ============================================================================
-	
+
+$white       :   #fff;	
 $dark-gray   : rgba( 34, 34, 34, 1.0 );
 $medium-gray : rgba( 160, 160, 160, 1.0 );
 $light-gray  : rgba( 217, 217, 217, 1.0 );
 $lighter-gray: rgba( 245, 245, 245, 1.0 );
-
-$gray-border1: rgba( 217, 220, 227, 1.0 );
-$gray-border0: rgba( 230, 233, 237, 1.0 );
 
 @mixin bg-color-set( $bgShort, $bgFull ) {
   background-color: $bgShort;
@@ -103,7 +101,7 @@ $gray-border0: rgba( 230, 233, 237, 1.0 );
 // ============================================================================
 
 body {
-  @include bg-color-set( white, $lighter-gray );
+  @include bg-color-set( $white, $lighter-gray );
   font-family: 'Montserrat', Helvetica, sans-serif; 
   font-size: 14px; 
   line-height: 1.25;    
@@ -177,14 +175,6 @@ button,
 }
 
 // ============================================================================
-// BORDER
-// ============================================================================
-
-.border-bottom-none {
-  border-bottom: none;
-}
-
-// ============================================================================
 // CONTAINER
 // ============================================================================
 
@@ -196,6 +186,15 @@ $container-width: 490px;
 
 .container-med {
   max-width: $container-width;
+}
+
+$paddingChildFull: 0px 100px 0px 100px;
+
+.container-child {
+  @include padding-set( 0, $paddingChildFull );
+  max-width: $container-width;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s; 
 }
 
 // ============================================================================
@@ -210,10 +209,10 @@ $container-width: 490px;
 }
 
 @mixin container-header-prop-full {
-  background-color: white;
-  border-top: 1px solid $gray-border1;
-  border-left: 1px solid $gray-border1;
-  border-right: 1px solid $gray-border1;
+  background-color: $white;
+  border-top: 1px solid $light-gray;
+  border-left: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
   border-radius: 5px 5px 0 0;
   padding: 42px 100px 20px 100px;
   @content;
@@ -243,7 +242,7 @@ $container-width: 490px;
 @mixin container-form-prop-short {
   background-color: transparent;
   border: none;
-  border-top: 1px solid $gray-border0;  
+  border-top: 1px solid $light-gray;  
   padding: 11px 0 0 0;
   @content;
 }
@@ -256,11 +255,8 @@ $container-width: 490px;
 }
 
 @mixin container-form-prop-full {
-  background-color: white;
-  border-top: 1px solid $gray-border0;
-  border-left: 1px solid $gray-border1;
-  border-right: 1px solid $gray-border1;
-  border-bottom: 1px solid $gray-border0;
+  background-color: $white;
+  border: 1px solid $light-gray;
   border-radius: 0 0 5px 5px;
   padding: 38px 100px 45px 100px;
   @content;
@@ -279,21 +275,10 @@ $container-width: 490px;
   @include container-form-set(); 
   -webkit-transition: background-color 0.5s, 
                       border 0.5s,
-                      border-top 0.5s, border-left 0.5s, border-right 0.5s, border-bottom 0.5s,
                       border-radius 0.5s, padding 0.5s;
   transition: background-color 0.5s, 
                       border 0.5s,
-                      border-top 0.5s, border-left 0.5s, border-right 0.5s, border-bottom 0.5s,
                       border-radius 0.5s, padding 0.5s;  
-}
-
-$paddingSigninFull : 0px 100px 46px 100px;
-
-.container-signin {
-  @include padding-set( 0, $paddingSigninFull );
-  margin-top: 32px; 
-  -webkit-transition: margin 0.5s, padding 0.5s;
-  transition: margin 0.5s, padding 0.5s; 
 }
 
 // ============================================================================
@@ -369,50 +354,54 @@ $marginLogoFull : 0 auto;
   transition: max-width 0.5s;   
 }
 
-.cell-checkbox {
-  text-align: center; 
-  padding-top: 10px;
-}
-
-$paddingCellButtonShort: 22px 0 0 0;
-$paddingCellButtonFull : 0;
-
-.cell-button {
-  @include padding-set( $paddingCellButtonShort, $paddingCellButtonFull );
-  text-align: center;
-  transition: padding 0.5s;  
-}
-
 // ============================================================================
 // CSS HELPERS
 // ============================================================================
 
-.block             { display: block; }
+.inline             { display: inline; }
+.block              { display: block; }
+.inline-block       { display: inline-block; }
+.hide               { display: none; }
 
-.margin-top-0      { margin-top: 0; }
-.margin-top-11     { margin-top: 11px; }
-.margin-bottom-0   { margin-bottom: 0; }
-.margin-bottom-24  { margin-bottom: 24px; }
+.margin-top-0       { margin-top: 0; }
+.margin-top-32      { margin-top: 32px; }
+.margin-bottom-0    { margin-bottom: 0; }
+.margin-bottom-24   { margin-bottom: 24px; }
 
-.left              { float: left; }
-.right             { float: right; }
+.padding-top-10     { padding-top: 10px; }
 
-.font-family-basic { font-family: Helvetica, sans-serif; }
+.align-top          { vertical-align: top; }
+.align-bottom       { vertical-align: bottom; }
+.align-middle       { vertical-align: middle; }
 
-.font-size-14      { font-size: 14px; }
+.left               { float: left; }
+.right              { float: right; }
 
-.bold              { font-weight: bold; }
-.normal            { font-weight: normal; }
+.line-height-45     { line-height: 45px; }
 
-.text-left         { text-align: left; }
-.text-right        { text-align: right; }
-.text-center       { text-align: center; }
+.font-family-basic  { font-family: Helvetica, sans-serif; }
 
-.lighter-gray      { color: $lighter-gray; }	
-.light-gray        { color: $light-gray; }
-.medium-gray       { color: $medium-gray; }
-.dark-gray         { color: $dark-gray; }
-.red               { color: red; }
+.font-size-14       { font-size: 14px; }
+
+.bold               { font-weight: bold; }
+.normal             { font-weight: normal; }
+.italic             { font-style: italic; }
+
+.text-left          { text-align: left; }
+.text-right         { text-align: right; }
+.text-center        { text-align: center; }
+.text-just          { text-align: justify; }
+
+.no-wrap            { white-space: nowrap; }
+
+.border-bottom-none { border-bottom: none; }
+
+.white              { color: $white; }
+.lighter-gray       { color: $lighter-gray; }	
+.light-gray         { color: $light-gray; }
+.medium-gray        { color: $medium-gray; }
+.dark-gray          { color: $dark-gray; }
+.red                { color: red; }
 
 // ============================================================================
 // PARSLEY OVERRIDES
