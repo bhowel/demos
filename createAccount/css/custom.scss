@@ -7,7 +7,7 @@
   The generated styles have been revised.
   Web site: http://www.responsivegridsystem.com/
   License: http://creativecommons.org/licenses/by/3.0/
-
+  
 */
 
 // ============================================================================
@@ -23,77 +23,162 @@ $screenXLarge: 1200px;
 // COLOR
 // ============================================================================
 
-$white       :   #fff;	
+$white       : #fff;	
 $dark-gray   : rgba( 34, 34, 34, 1.0 );
 $medium-gray : rgba( 160, 160, 160, 1.0 );
 $light-gray  : rgba( 217, 217, 217, 1.0 );
 $lighter-gray: rgba( 245, 245, 245, 1.0 );
 
-@mixin bg-color-set( $bgShort, $bgFull ) {
-  background-color: $bgShort;
-
-  @media only screen and ( min-width: $screenSmall )  { background-color: $bgShort; }
-  @media only screen and ( min-width: $screenMed )    { background-color: $bgFull; }
-  @media only screen and ( min-width: $screenLarge )  { background-color: $bgFull; }
-  @media only screen and ( min-width: $screenXLarge ) { background-color: $bgFull; }
-}
-
 // ============================================================================
-// WIDTH, PADDING, MARGIN, DISPLAY, FLOAT
+// MIXINS
 // ============================================================================
 
-@mixin width-set( $widthShort, $widthFull ) {
-  width: $widthShort;
+// =========== MARGIN
 
-  @media only screen and ( min-width: $screenSmall )  { width: $widthShort;}
-  @media only screen and ( min-width: $screenMed )    { width: $widthFull; }
-  @media only screen and ( min-width: $screenLarge )  { width: $widthFull; }
-  @media only screen and ( min-width: $screenXLarge ) { width: $widthFull; }
-}
+@mixin margin-set( $marginDefault, $marginSmall, $marginFull ) {
+  margin: $marginDefault;
 
-@mixin max-width-set( $widthShort, $widthFull ) {
-  max-width: $widthShort;
-
-  @media only screen and ( min-width: $screenSmall )  { max-width: $widthShort;}
-  @media only screen and ( min-width: $screenMed )    { max-width: $widthFull; }
-  @media only screen and ( min-width: $screenLarge )  { max-width: $widthFull; }
-  @media only screen and ( min-width: $screenXLarge ) { max-width: $widthFull; }
-}
-
-@mixin padding-set( $paddingShort, $paddingFull ) {
-  padding: $paddingShort;
-
-  @media only screen and ( min-width: $screenSmall )  { padding: $paddingShort; }
-  @media only screen and ( min-width: $screenMed )    { padding: $paddingFull; }
-  @media only screen and ( min-width: $screenLarge )  { padding: $paddingFull; }
-  @media only screen and ( min-width: $screenXLarge ) { padding: $paddingFull; }
-}	
-
-@mixin margin-set( $marginShort, $marginFull ) {
-  margin: $marginShort;
-
-  @media only screen and ( min-width: $screenSmall )  { margin: $marginShort; }
+  -webkit-transition: margin 0.5s;
+  transition: margin 0.5s;
+  
+  @media only screen and ( min-width: $screenSmall )  { margin: $marginSmall; }
   @media only screen and ( min-width: $screenMed )    { margin: $marginFull; }
   @media only screen and ( min-width: $screenLarge )  { margin: $marginFull; }
   @media only screen and ( min-width: $screenXLarge ) { margin: $marginFull; }
 }
 
-@mixin display-set( $displayShort, $displayFull ) {
-  display: $displayShort;
+// =========== PADDING
 
-  @media only screen and ( min-width: $screenSmall )  { display: $displayShort; }
-  @media only screen and ( min-width: $screenMed )    { display: $displayFull; }
-  @media only screen and ( min-width: $screenLarge )  { display: $displayFull; }
-  @media only screen and ( min-width: $screenXLarge ) { display: $displayFull; }
+@mixin padding-set( $paddingDefault, $paddingSmall, $paddingFull ) {
+  padding: $paddingDefault;
+
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+  
+  @media only screen and ( min-width: $screenSmall )  { padding: $paddingSmall; }
+  @media only screen and ( min-width: $screenMed )    { padding: $paddingFull; }
+  @media only screen and ( min-width: $screenLarge )  { padding: $paddingFull; }
+  @media only screen and ( min-width: $screenXLarge ) { padding: $paddingFull; }
 }
 
-@mixin float-set( $floatShort, $floatFull ) {
-  float: $floatShort;
+// =========== FLOAT
 
-  @media only screen and ( min-width: $screenSmall )  { float: $floatShort; }
+@mixin float-set( $floatDefault, $floatSmall, $floatFull ) {
+  float: $floatDefault;
+
+  -webkit-transition: float 0.5s;
+  transition: float 0.5s; 
+  
+  @media only screen and ( min-width: $screenSmall )  { float: $floatSmall; }
   @media only screen and ( min-width: $screenMed )    { float: $floatFull; }
   @media only screen and ( min-width: $screenLarge )  { float: $floatFull; }
   @media only screen and ( min-width: $screenXLarge ) { float: $floatFull; }
+}
+
+// =========== WIDTH
+
+$container-width        : 490px;
+$container-width-default: 410px;
+
+@mixin width-set( $widthDefault, $widthSmall, $widthFull ) {
+  width: $widthDefault;
+
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s; 
+  
+  @media only screen and ( min-width: $screenSmall )  { width: $widthSmall;}
+  @media only screen and ( min-width: $screenMed )    { width: $widthFull; }
+  @media only screen and ( min-width: $screenLarge )  { width: $widthFull; }
+  @media only screen and ( min-width: $screenXLarge ) { width: $widthFull; }
+}
+
+@mixin max-width-set( $widthDefault, $widthSmall, $widthFull ) {
+  max-width: $widthDefault;
+
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s;
+  
+  @media only screen and ( min-width: $screenSmall )  { max-width: $widthSmall;}
+  @media only screen and ( min-width: $screenMed )    { max-width: $widthFull; }
+  @media only screen and ( min-width: $screenLarge )  { max-width: $widthFull; }
+  @media only screen and ( min-width: $screenXLarge ) { max-width: $widthFull; }
+}
+
+// =========== BORDER
+
+$border-1-light-gray: 1px solid $light-gray;
+$borderNone: none;
+              
+@mixin border-set( $border, $radius ) {
+	$borderTopDefault   : map-get( $border, "topDefault" );
+	$borderRightDefault : map-get( $border, "rightDefault" );
+	$borderBottomDefault: map-get( $border, "bottomDefault" );
+	$borderLeftDefault  : map-get( $border, "leftDefault" );
+	
+	$borderTopSmall     : map-get( $border, "topSmall" );
+	$borderRightSmall   : map-get( $border, "rightSmall" );
+	$borderBottomSmall  : map-get( $border, "bottomSmall" );
+	$borderLeftSmall    : map-get( $border, "leftSmall" );
+
+	$borderTopFull      : map-get( $border, "topFull" );
+	$borderRightFull    : map-get( $border, "rightFull" );
+	$borderBottomFull   : map-get( $border, "bottomFull" );
+	$borderLeftFull     : map-get( $border, "leftFull" );
+
+	border-top   : $borderTopDefault;
+	border-right : $borderRightDefault;
+	border-bottom: $borderBottomDefault;
+	border-left  : $borderLeftDefault;
+	border-radius: $radius;
+
+  -webkit-transition: border 0.5s, border-radius 0.5s,;
+  transition: border 0.5s, border-radius 0.5s;
+                      
+  @media only screen and ( min-width: $screenSmall ) { 
+		border-top   : $borderTopSmall;
+		border-right : $borderRightSmall;
+		border-bottom: $borderBottomSmall;
+		border-left  : $borderLeftSmall;
+		border-radius: $radius;
+  }
+  
+  @media only screen and ( min-width: $screenMed ) { 
+		border-top   : $borderTopFull;
+		border-right : $borderRightFull;
+		border-bottom: $borderBottomFull;
+		border-left  : $borderLeftFull;
+		border-radius: $radius; 
+  }
+  
+  @media only screen and ( min-width: $screenLarge ) { 
+		border-top   : $borderTopFull;
+		border-right : $borderRightFull;
+		border-bottom: $borderBottomFull;
+		border-left  : $borderLeftFull;
+		border-radius: $radius;  
+  }
+  
+  @media only screen and ( min-width: $screenXLarge ) { 
+		border-top   : $borderTopFull;
+		border-right : $borderRightFull;
+		border-bottom: $borderBottomFull;
+		border-left  : $borderLeftFull;
+		border-radius: $radius; 
+  }
+}
+
+// =========== COLOR
+
+@mixin bg-color-set( $bgDefault, $bgSmall, $bgFull ) {
+  background-color: $bgDefault;
+
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;  
+  
+  @media only screen and ( min-width: $screenSmall )  { background-color: $bgSmall; }
+  @media only screen and ( min-width: $screenMed )    { background-color: $bgFull; }
+  @media only screen and ( min-width: $screenLarge )  { background-color: $bgFull; }
+  @media only screen and ( min-width: $screenXLarge ) { background-color: $bgFull; }
 }
 
 // ============================================================================
@@ -101,12 +186,11 @@ $lighter-gray: rgba( 245, 245, 245, 1.0 );
 // ============================================================================
 
 body {
-  @include bg-color-set( $white, $lighter-gray );
+  @include bg-color-set( $white, $white, $lighter-gray );
   font-family: 'Montserrat', Helvetica, sans-serif; 
   font-size: 14px; 
   line-height: 1.25;    
   color: $dark-gray;
-  transition: background-color 0.5s;
 }
 
 h1 { 
@@ -153,6 +237,17 @@ p {
 }
 
 // ============================================================================
+// BUTTON
+// ============================================================================
+
+button,
+.button {
+  $paddingDefault: 8px 57px 8px 57px;
+  $paddingFull   : 8px 36px 8px 36px;
+  @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );          	
+}
+
+// ============================================================================
 // INPUT PLACEHOLDER
 // ============================================================================
 
@@ -162,213 +257,122 @@ input:-moz-placeholder           { color: $light-gray; }
 input:-ms-input-placeholder      { color: $light-gray; }
 
 // ============================================================================
-// BUTTON
+// RESPONSIVE CONTAINER
 // ============================================================================
 
-$paddingButtonShort: 8px 57px 8px 57px;
-$paddingButtonFull : 8px 36px 8px 36px;
+.container-parent {
+  $paddingFull: 30px;
+  @include padding-set( 0, 0, $paddingFull ); 
 
-button,
-.button {
-  @include padding-set( $paddingButtonShort, $paddingButtonFull );
-  transition: padding 0.5s;            	
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto  
 }
-
-// ============================================================================
-// CONTAINER
-// ============================================================================
-
-$container-width: 490px;
 
 .container {
-  @include padding-set( 0, 30px ); 
-}
-
-.container-med {
   max-width: $container-width;
 }
 
-$paddingChildFull: 0px 100px 0px 100px;
-
-.container-child {
-  @include padding-set( 0, $paddingChildFull );
-  max-width: $container-width;
-  -webkit-transition: padding 0.5s;
-  transition: padding 0.5s; 
-}
-
-// ============================================================================
-// CONTAINERS FOR FORMS
-// ============================================================================
-
-@mixin container-header-prop-short {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  @content;
-}
-
-@mixin container-header-prop-full {
-  background-color: $white;
-  border-top: 1px solid $light-gray;
-  border-left: 1px solid $light-gray;
-  border-right: 1px solid $light-gray;
-  border-radius: 5px 5px 0 0;
-  padding: 42px 100px 20px 100px;
-  @content;
-}
-
-@mixin container-header-set() {
-  @include container-header-prop-short;
-
-  @media only screen and ( min-width: $screenSmall )  { @include container-header-prop-short; }
-  @media only screen and ( min-width: $screenMed )    { @include container-header-prop-full; }
-  @media only screen and ( min-width: $screenLarge )  { @include container-header-prop-full; }
-  @media only screen and ( min-width: $screenXLarge ) { @include container-header-prop-full; }
-}	            
-
-.container-header {
-  @include container-header-set(); 
-  -webkit-transition: background-color 0.5s, 
-                      border 0.5s,
-                      border-top 0.5s, border-left 0.5s, border-right 0.5s,
-                      border-radius 0.5s, padding 0.5s;
-  transition: background-color 0.5s, 
-                      border 0.5s,
-                      border-top 0.5s, border-left 0.5s, border-right 0.5s,
-                      border-radius 0.5s, padding 0.5s;  
-}
-
-@mixin container-form-prop-short {
-  background-color: transparent;
-  border: none;
-  border-top: 1px solid $light-gray;  
-  padding: 11px 0 0 0;
-  @content;
-}
-
-@mixin container-form-prop-med {
-  background-color: transparent;
-  border: none;
-  padding: 11px 0 0 0;
-  @content;
-}
-
-@mixin container-form-prop-full {
-  background-color: $white;
-  border: 1px solid $light-gray;
-  border-radius: 0 0 5px 5px;
-  padding: 38px 100px 45px 100px;
-  @content;
-}
-
-@mixin container-form-set() {
-  @include container-form-prop-short;
-
-  @media only screen and ( min-width: $screenSmall )  { @include container-form-prop-med; }
-  @media only screen and ( min-width: $screenMed )    { @include container-form-prop-full; }
-  @media only screen and ( min-width: $screenLarge )  { @include container-form-prop-full; }
-  @media only screen and ( min-width: $screenXLarge ) { @include container-form-prop-full; }
-}	
-
-.container-form {
-  @include container-form-set(); 
-  -webkit-transition: background-color 0.5s, 
-                      border 0.5s,
-                      border-radius 0.5s, padding 0.5s;
-  transition: background-color 0.5s, 
-                      border 0.5s,
-                      border-radius 0.5s, padding 0.5s;  
-}
-
-// ============================================================================
-// LOGO
-// ============================================================================
-
-$marginLogoShort: 19px 0 0 0;
-$marginLogoFull : 0 auto;
-
-.logo {
-  @include margin-set( $marginLogoShort, $marginLogoFull );
-  @include width-set( 50px, 75px );
-  height: 100%;
-  -webkit-transition: margin 0.5s, width 0.5s;
-  transition: margin 0.5s, width 0.5s;      
-}
-
-// ============================================================================
-// FORM
-// ============================================================================
-
-.form-row {
+.row {
 	clear: both;
 	padding: 0px;
 	margin: 0px;
 	margin-bottom: 11px;
 }
 
-.form-row:before,
-.form-row:after { content: ""; display: table; }
-.form-row:after { clear: both; }
-.form-row { zoom: 1; /* For IE 6/7 */ }
-
-@mixin column-set() {
-  margin-left: 3%;
-  float: none;
-
-  @media only screen and ( min-width: $screenSmall )  { margin-left: 3%; float: none; }
-  @media only screen and ( min-width: $screenMed )    { margin-left: 3%; float: left; }
-  @media only screen and ( min-width: $screenLarge )  { margin-left: 3%; float: left; }
-  @media only screen and ( min-width: $screenXLarge ) { margin-left: 3%; float: left; }
-}
+.row:before,
+.row:after { content: ""; display: table; }
+.row:after { clear: both; }
+.row { zoom: 1; /* For IE 6/7 */ }
 
 .column {
-  @include column-set();
-  display: block;	
-  -webkit-transition: margin 0.5s, float 0.5s;
-  transition: margin 0.5s float 0.5s;  
+  @include float-set( none, none, left );
+
+  margin-left: 3%;
+  display: block;
 }
 
 .column-with-12 {
-  @include width-set( 94%, 97% );
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;   	
+  $widthDefault: 94%;
+  $widthFull   : 97%; 
+  @include width-set( $widthDefault, $widthDefault, $widthFull );   	
 }
 
 .column-with-6 {
-  @include width-set( 94%, 47% );	
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;   	
+  $widthDefault: 94%;
+  $widthFull   : 47%; 
+  @include width-set( $widthDefault, $widthDefault, $widthFull );    	
 }
 
-.cell-logo {  
-  @include float-set( left, none );
-  -webkit-transition: float 0.5s;
-  transition: float 0.5s;  
-}
+// ============================================================================
+// LOGO
+// ============================================================================
 
-.cell-header {
-  @include max-width-set( 410px, $container-width );
-  padding-top: 22px; 
-  -webkit-transition: max-width 0.5s;
-  transition: max-width 0.5s;   
+.logo {
+  $widthDefault: 50px;
+  $widthFull   : 75px; 
+  @include width-set( $widthDefault, $widthDefault, $widthFull );
+
+  $marginDefault: 19px 0 0 0;
+  $marginFull   : 0 auto; 
+  @include margin-set( $marginDefault, $marginDefault, $marginFull );       
 }
 
 // ============================================================================
 // CSS HELPERS
 // ============================================================================
 
+// =========== DISPLAY.
+
 .inline             { display: inline; }
 .block              { display: block; }
 .inline-block       { display: inline-block; }
 .hide               { display: none; }
+
+// =========== MARGIN.
 
 .margin-top-0       { margin-top: 0; }
 .margin-top-32      { margin-top: 32px; }
 .margin-bottom-0    { margin-bottom: 0; }
 .margin-bottom-24   { margin-bottom: 24px; }
 
+// =========== PADDING.
+
 .padding-top-10     { padding-top: 10px; }
+.padding-top-22     { padding-top: 22px; }
+
+/* 
+  Default screen: no padding.
+  Small screen  : no padding.
+  Full screen   : padding is 0px on top; 100px on right, left; 0px on bottom.
+*/
+.padding-none-to-0-100-0 {
+  $paddingFull: 0px 100px 0px 100px;
+  @include padding-set( 0, 0, $paddingFull );  
+}
+
+/* 
+  Default screen: no padding.
+  Small screen  : no padding.
+  Full screen   : padding is 42px on top; 100px on right, left; 20px on bottom.
+*/
+.padding-none-to-42-100-20 {
+  $paddingFull: 42px 100px 20px 100px;
+  @include padding-set( 0, 0, $paddingFull );
+}
+
+/* 
+  Default screen: padding is 11px on top.
+  Small screen  : padding is 11px on top.
+  Full screen   : padding is 38px on top; 100px on right, left; 38px on bottom.
+*/
+.padding-11-to-38-100-38 {
+  $paddingDefault: 11px 0 0 0;
+  $paddingFull   : 38px 100px 38px 100px;
+  @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );
+}
+
+// =========== ALIGNMENT.
 
 .align-top          { vertical-align: top; }
 .align-bottom       { vertical-align: bottom; }
@@ -377,7 +381,42 @@ $marginLogoFull : 0 auto;
 .left               { float: left; }
 .right              { float: right; }
 
+/* 
+  Default screen: no float.
+  Small screen  : no float.
+  Full screen   : float left.
+*/
+.float-none-to-left {
+  @include float-set( none, none, left );
+}
+
+/* 
+  Default screen: float left.
+  Small screen  : float left.
+  Full screen   : no float.
+*/
+.float-left-to-none {
+  @include float-set( left, left, none );
+}
+ 
+// =========== WIDTH/HEIGHT.
+
 .line-height-45     { line-height: 45px; }
+.fit-height         { height: 100%; }
+.fit-width          { width: 100%; }
+
+/* 
+  Default screen: width is $container-width-default.
+  Small screen  : width is $container-width-default.
+  Full screen   : width is $container-width.
+*/
+.width-default-to-container {
+  $maxWidthDefault: $container-width-default;
+  $maxWidthFull   : $container-width;
+  @include max-width-set( $maxWidthDefault, $maxWidthDefault, $maxWidthFull );  
+}
+
+// =========== TEXT.
 
 .font-family-basic  { font-family: Helvetica, sans-serif; }
 
@@ -394,7 +433,37 @@ $marginLogoFull : 0 auto;
 
 .no-wrap            { white-space: nowrap; }
 
+// =========== BORDER.
+
 .border-bottom-none { border-bottom: none; }
+
+/* 
+  Default screen: no border.
+  Small screen  : no border.
+  Full screen   : border on top, right, left; rounded corners on upper left and right.
+*/
+.border-none-to-topR-rightR-left {
+  $border: ( topDefault: $borderNone,          rightDefault: $borderNone,          bottomDefault: $borderNone, leftDefault: $borderNone, 
+             topSmall  : $borderNone,          rightSmall  : $borderNone,          bottomSmall  : $borderNone, leftSmall  : $borderNone,
+             topFull   : $border-1-light-gray, rightFull   : $border-1-light-gray, bottomFull   : $borderNone, leftFull   : $border-1-light-gray );
+  $radius: 5px 5px 0 0;
+  @include border-set( $border, $radius );
+}
+
+/* 
+  Default screen: border on top.
+  Small screen  : no border.
+  Full screen   : border on top, right, bottom, left; rounded corners on lower left and right.
+*/
+.border-top-to-none-to-top-right-bottomR-leftR {
+  $border: ( topDefault: $border-1-light-gray, rightDefault: $borderNone,          bottomDefault: $borderNone,          leftDefault: $borderNone, 
+             topSmall  : $borderNone,          rightSmall  : $borderNone,          bottomSmall  : $borderNone,          leftSmall  : $borderNone,
+             topFull   : $border-1-light-gray, rightFull   : $border-1-light-gray, bottomFull   : $border-1-light-gray, leftFull   : $border-1-light-gray );
+  $radius: 0 0 5px 5px;
+  @include border-set( $border, $radius );
+}
+
+// =========== COLOR.
 
 .white              { color: $white; }
 .lighter-gray       { color: $lighter-gray; }	
@@ -402,6 +471,15 @@ $marginLogoFull : 0 auto;
 .medium-gray        { color: $medium-gray; }
 .dark-gray          { color: $dark-gray; }
 .red                { color: red; }
+
+/* 
+  Default screen: transparent.
+  Small screen  : transparent.
+  Full screen   : white.
+*/
+.bg-trans-to-white {
+  @include bg-color-set( transparent, transparent, $white );
+}
 
 // ============================================================================
 // PARSLEY OVERRIDES

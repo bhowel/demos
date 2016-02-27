@@ -16,17 +16,20 @@
 <body>
 
 <!-- ========== MAIN CONTAINER //-->
-<div class="container">
+<div class="container-parent">
 
 	<!-- ========== HEADER //-->
-	<div class="container-header container-med">
+	<div class="container 
+	            padding-none-to-42-100-20 
+	            border-none-to-topR-rightR-left
+	            bg-trans-to-white">
 		
-		<div class="form-row">
-			<div class="column column-with-12 center">
-				<div class="cell-logo">
-				  <img src="assets/logo.min.svg" class="logo" />
+		<div class="row">
+			<div class="column column-with-12 text-center">
+				<div class="float-left-to-none">
+				  <img src="assets/logo.min.svg" class="logo fit-height" />
 				</div>
-				<div class="cell-header">
+				<div class="width-default-to-container padding-top-22">
 					<h3>
 						Create new account
 					</h3>			
@@ -40,11 +43,14 @@
 	</div>
 
 	<!-- ========== FORM //-->
-	<div class="container-form container-med">
+	<div class="container 
+	            padding-11-to-38-100-38
+	            border-top-to-none-to-top-right-bottomR-leftR
+	            bg-trans-to-white">
 
 		<form id="accountForm">
 
-			<div class="form-row">
+			<div class="row">
 				<div class="column column-with-6">
 					<label for="fullname"><span class="font-family-basic bold red">*</span> Full name</label>
 					<input type="text" 
@@ -63,7 +69,7 @@
 				</div>
 			</div>
 
-			<div class="form-row">
+			<div class="row">
 				<div class="column column-with-12">
 					<label for="email"><span class="font-family-basic bold red">*</span> Email address</label>
 					<input type="text" 
@@ -75,7 +81,7 @@
 				</div>
 			</div>
 
-			<div class="form-row">
+			<div class="row">
 				<div class="column column-with-6">
 					<label for="city"><span class="font-family-basic bold red">*</span> City</label>
 					<input type="text" 
@@ -94,7 +100,7 @@
 				</div>
 			</div>
 
-			<div class="form-row margin-bottom-0">
+			<div class="row margin-bottom-0">
 				<div class="column column-with-12">
 					<label for="password"><span class="font-family-basic bold red">*</span> Password</label>
 					<!-- Can't get margin bottom = 0 without using style. //-->
@@ -108,7 +114,7 @@
 				</div>
 			</div>
 
-			<div class="form-row margin-bottom-24">
+			<div class="row margin-bottom-24">
 				<div class="column column-with-12">
 					<input type="password" 
 					       class="form-control"
@@ -121,8 +127,13 @@
 
 		</form>
 		
-			<div class="form-row">
-				<div class="column column-with-6 line-height-45 text-center medium-gray no-wrap">
+			<div class="row">
+				<div class="column 
+				            column-with-6 
+				            line-height-45 
+				            text-center 
+				            medium-gray 
+				            no-wrap">
 					<form id="termsForm">
 						<input id="terms" 
 									 type="checkbox" 
@@ -134,7 +145,10 @@
 						<p id="termsMessage" class="block font-size-14 dark-gray"></p>
 					</form>
 				</div>	
-				<div class="column column-with-6 line-height-45 text-center">
+				<div class="column 
+				            column-with-6 
+				            line-height-45 
+				            text-center">
 					<input id="btnSubmit" type="submit" class="button" value="Create account">			
 				</div>
 			</div>
@@ -142,9 +156,12 @@
 	</div>
 
 	<!-- ========== SIGN-IN //-->
-	<div class="container-child margin-top-32 text-center">
+	<div class="container 
+	            margin-top-32
+	            padding-none-to-0-100-0
+	            text-center">
 
-    <div class="form-row">
+    <div class="row">
 			<div class="column column-with-12 medium-gray">
 				<p class="font-size-14">
 					Have an account already? <a href="">Sign in</a>

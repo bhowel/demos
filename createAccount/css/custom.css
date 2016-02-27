@@ -7,15 +7,16 @@
   The generated styles have been revised.
   Web site: http://www.responsivegridsystem.com/
   License: http://creativecommons.org/licenses/by/3.0/
-
+  
 */
 body {
   background-color: #fff;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.25;
-  color: #222222;
-  transition: background-color 0.5s; }
+  color: #222222; }
   @media only screen and (min-width: 480px) {
     body {
       background-color: #fff; } }
@@ -65,21 +66,10 @@ p {
   margin-top: 0;
   margin-bottom: 12px; }
 
-input::-webkit-input-placeholder {
-  color: #d9d9d9; }
-
-input::-moz-placeholder {
-  color: #d9d9d9; }
-
-input:-moz-placeholder {
-  color: #d9d9d9; }
-
-input:-ms-input-placeholder {
-  color: #d9d9d9; }
-
 button,
 .button {
   padding: 8px 57px 8px 57px;
+  -webkit-transition: padding 0.5s;
   transition: padding 0.5s; }
   @media only screen and (min-width: 480px) {
     button,
@@ -98,179 +88,76 @@ button,
     .button {
       padding: 8px 36px 8px 36px; } }
 
-.container {
-  padding: 0; }
+input::-webkit-input-placeholder {
+  color: #d9d9d9; }
+
+input::-moz-placeholder {
+  color: #d9d9d9; }
+
+input:-moz-placeholder {
+  color: #d9d9d9; }
+
+input:-ms-input-placeholder {
+  color: #d9d9d9; }
+
+.container-parent {
+  padding: 0;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto; }
   @media only screen and (min-width: 480px) {
-    .container {
+    .container-parent {
       padding: 0; } }
   @media only screen and (min-width: 768px) {
-    .container {
+    .container-parent {
       padding: 30px; } }
   @media only screen and (min-width: 992px) {
-    .container {
+    .container-parent {
       padding: 30px; } }
   @media only screen and (min-width: 1200px) {
-    .container {
+    .container-parent {
       padding: 30px; } }
 
-.container-med {
+.container {
   max-width: 490px; }
 
-.container-child {
-  padding: 0;
-  max-width: 490px;
-  -webkit-transition: padding 0.5s;
-  transition: padding 0.5s; }
-  @media only screen and (min-width: 480px) {
-    .container-child {
-      padding: 0; } }
-  @media only screen and (min-width: 768px) {
-    .container-child {
-      padding: 0px 100px 0px 100px; } }
-  @media only screen and (min-width: 992px) {
-    .container-child {
-      padding: 0px 100px 0px 100px; } }
-  @media only screen and (min-width: 1200px) {
-    .container-child {
-      padding: 0px 100px 0px 100px; } }
-
-.container-header {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  -webkit-transition: background-color 0.5s,  border 0.5s, border-top 0.5s, border-left 0.5s, border-right 0.5s, border-radius 0.5s, padding 0.5s;
-  transition: background-color 0.5s,  border 0.5s, border-top 0.5s, border-left 0.5s, border-right 0.5s, border-radius 0.5s, padding 0.5s; }
-  @media only screen and (min-width: 480px) {
-    .container-header {
-      background-color: transparent;
-      border: none;
-      padding: 0; } }
-  @media only screen and (min-width: 768px) {
-    .container-header {
-      background-color: #fff;
-      border-top: 1px solid #d9d9d9;
-      border-left: 1px solid #d9d9d9;
-      border-right: 1px solid #d9d9d9;
-      border-radius: 5px 5px 0 0;
-      padding: 42px 100px 20px 100px; } }
-  @media only screen and (min-width: 992px) {
-    .container-header {
-      background-color: #fff;
-      border-top: 1px solid #d9d9d9;
-      border-left: 1px solid #d9d9d9;
-      border-right: 1px solid #d9d9d9;
-      border-radius: 5px 5px 0 0;
-      padding: 42px 100px 20px 100px; } }
-  @media only screen and (min-width: 1200px) {
-    .container-header {
-      background-color: #fff;
-      border-top: 1px solid #d9d9d9;
-      border-left: 1px solid #d9d9d9;
-      border-right: 1px solid #d9d9d9;
-      border-radius: 5px 5px 0 0;
-      padding: 42px 100px 20px 100px; } }
-
-.container-form {
-  background-color: transparent;
-  border: none;
-  border-top: 1px solid #d9d9d9;
-  padding: 11px 0 0 0;
-  -webkit-transition: background-color 0.5s,  border 0.5s, border-radius 0.5s, padding 0.5s;
-  transition: background-color 0.5s,  border 0.5s, border-radius 0.5s, padding 0.5s; }
-  @media only screen and (min-width: 480px) {
-    .container-form {
-      background-color: transparent;
-      border: none;
-      padding: 11px 0 0 0; } }
-  @media only screen and (min-width: 768px) {
-    .container-form {
-      background-color: #fff;
-      border: 1px solid #d9d9d9;
-      border-radius: 0 0 5px 5px;
-      padding: 38px 100px 45px 100px; } }
-  @media only screen and (min-width: 992px) {
-    .container-form {
-      background-color: #fff;
-      border: 1px solid #d9d9d9;
-      border-radius: 0 0 5px 5px;
-      padding: 38px 100px 45px 100px; } }
-  @media only screen and (min-width: 1200px) {
-    .container-form {
-      background-color: #fff;
-      border: 1px solid #d9d9d9;
-      border-radius: 0 0 5px 5px;
-      padding: 38px 100px 45px 100px; } }
-
-.logo {
-  margin: 19px 0 0 0;
-  width: 50px;
-  height: 100%;
-  -webkit-transition: margin 0.5s, width 0.5s;
-  transition: margin 0.5s, width 0.5s; }
-  @media only screen and (min-width: 480px) {
-    .logo {
-      margin: 19px 0 0 0; } }
-  @media only screen and (min-width: 768px) {
-    .logo {
-      margin: 0 auto; } }
-  @media only screen and (min-width: 992px) {
-    .logo {
-      margin: 0 auto; } }
-  @media only screen and (min-width: 1200px) {
-    .logo {
-      margin: 0 auto; } }
-  @media only screen and (min-width: 480px) {
-    .logo {
-      width: 50px; } }
-  @media only screen and (min-width: 768px) {
-    .logo {
-      width: 75px; } }
-  @media only screen and (min-width: 992px) {
-    .logo {
-      width: 75px; } }
-  @media only screen and (min-width: 1200px) {
-    .logo {
-      width: 75px; } }
-
-.form-row {
+.row {
   clear: both;
   padding: 0px;
   margin: 0px;
   margin-bottom: 11px; }
 
-.form-row:before,
-.form-row:after {
+.row:before,
+.row:after {
   content: "";
   display: table; }
 
-.form-row:after {
+.row:after {
   clear: both; }
 
-.form-row {
+.row {
   zoom: 1;
   /* For IE 6/7 */ }
 
 .column {
-  margin-left: 3%;
   float: none;
-  display: block;
-  -webkit-transition: margin 0.5s, float 0.5s;
-  transition: margin 0.5s float 0.5s; }
+  -webkit-transition: float 0.5s;
+  transition: float 0.5s;
+  margin-left: 3%;
+  display: block; }
   @media only screen and (min-width: 480px) {
     .column {
-      margin-left: 3%;
       float: none; } }
   @media only screen and (min-width: 768px) {
     .column {
-      margin-left: 3%;
       float: left; } }
   @media only screen and (min-width: 992px) {
     .column {
-      margin-left: 3%;
       float: left; } }
   @media only screen and (min-width: 1200px) {
     .column {
-      margin-left: 3%;
       float: left; } }
 
 .column-with-12 {
@@ -307,40 +194,37 @@ button,
     .column-with-6 {
       width: 47%; } }
 
-.cell-logo {
-  float: left;
-  -webkit-transition: float 0.5s;
-  transition: float 0.5s; }
+.logo {
+  width: 50px;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  margin: 19px 0 0 0;
+  -webkit-transition: margin 0.5s;
+  transition: margin 0.5s; }
   @media only screen and (min-width: 480px) {
-    .cell-logo {
-      float: left; } }
+    .logo {
+      width: 50px; } }
   @media only screen and (min-width: 768px) {
-    .cell-logo {
-      float: none; } }
+    .logo {
+      width: 75px; } }
   @media only screen and (min-width: 992px) {
-    .cell-logo {
-      float: none; } }
+    .logo {
+      width: 75px; } }
   @media only screen and (min-width: 1200px) {
-    .cell-logo {
-      float: none; } }
-
-.cell-header {
-  max-width: 410px;
-  padding-top: 22px;
-  -webkit-transition: max-width 0.5s;
-  transition: max-width 0.5s; }
+    .logo {
+      width: 75px; } }
   @media only screen and (min-width: 480px) {
-    .cell-header {
-      max-width: 410px; } }
+    .logo {
+      margin: 19px 0 0 0; } }
   @media only screen and (min-width: 768px) {
-    .cell-header {
-      max-width: 490px; } }
+    .logo {
+      margin: 0 auto; } }
   @media only screen and (min-width: 992px) {
-    .cell-header {
-      max-width: 490px; } }
+    .logo {
+      margin: 0 auto; } }
   @media only screen and (min-width: 1200px) {
-    .cell-header {
-      max-width: 490px; } }
+    .logo {
+      margin: 0 auto; } }
 
 .inline {
   display: inline; }
@@ -369,6 +253,75 @@ button,
 .padding-top-10 {
   padding-top: 10px; }
 
+.padding-top-22 {
+  padding-top: 22px; }
+
+/* 
+  Default screen: no padding.
+  Small screen  : no padding.
+  Full screen   : padding is 0px on top; 100px on right, left; 0px on bottom.
+*/
+.padding-none-to-0-100-0 {
+  padding: 0;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .padding-none-to-0-100-0 {
+      padding: 0; } }
+  @media only screen and (min-width: 768px) {
+    .padding-none-to-0-100-0 {
+      padding: 0px 100px 0px 100px; } }
+  @media only screen and (min-width: 992px) {
+    .padding-none-to-0-100-0 {
+      padding: 0px 100px 0px 100px; } }
+  @media only screen and (min-width: 1200px) {
+    .padding-none-to-0-100-0 {
+      padding: 0px 100px 0px 100px; } }
+
+/* 
+  Default screen: no padding.
+  Small screen  : no padding.
+  Full screen   : padding is 42px on top; 100px on right, left; 20px on bottom.
+*/
+.padding-none-to-42-100-20 {
+  padding: 0;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .padding-none-to-42-100-20 {
+      padding: 0; } }
+  @media only screen and (min-width: 768px) {
+    .padding-none-to-42-100-20 {
+      padding: 42px 100px 20px 100px; } }
+  @media only screen and (min-width: 992px) {
+    .padding-none-to-42-100-20 {
+      padding: 42px 100px 20px 100px; } }
+  @media only screen and (min-width: 1200px) {
+    .padding-none-to-42-100-20 {
+      padding: 42px 100px 20px 100px; } }
+
+/* 
+  Default screen: padding is 11px on top.
+  Small screen  : padding is 11px on top.
+  Full screen   : padding is 38px on top; 100px on right, left; 38px on bottom.
+*/
+.padding-11-to-38-100-38 {
+  padding: 11px 0 0 0;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .padding-11-to-38-100-38 {
+      padding: 11px 0 0 0; } }
+  @media only screen and (min-width: 768px) {
+    .padding-11-to-38-100-38 {
+      padding: 38px 100px 38px 100px; } }
+  @media only screen and (min-width: 992px) {
+    .padding-11-to-38-100-38 {
+      padding: 38px 100px 38px 100px; } }
+  @media only screen and (min-width: 1200px) {
+    .padding-11-to-38-100-38 {
+      padding: 38px 100px 38px 100px; } }
+
 .align-top {
   vertical-align: top; }
 
@@ -384,8 +337,80 @@ button,
 .right {
   float: right; }
 
+/* 
+  Default screen: no float.
+  Small screen  : no float.
+  Full screen   : float left.
+*/
+.float-none-to-left {
+  float: none;
+  -webkit-transition: float 0.5s;
+  transition: float 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .float-none-to-left {
+      float: none; } }
+  @media only screen and (min-width: 768px) {
+    .float-none-to-left {
+      float: left; } }
+  @media only screen and (min-width: 992px) {
+    .float-none-to-left {
+      float: left; } }
+  @media only screen and (min-width: 1200px) {
+    .float-none-to-left {
+      float: left; } }
+
+/* 
+  Default screen: float left.
+  Small screen  : float left.
+  Full screen   : no float.
+*/
+.float-left-to-none {
+  float: left;
+  -webkit-transition: float 0.5s;
+  transition: float 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .float-left-to-none {
+      float: left; } }
+  @media only screen and (min-width: 768px) {
+    .float-left-to-none {
+      float: none; } }
+  @media only screen and (min-width: 992px) {
+    .float-left-to-none {
+      float: none; } }
+  @media only screen and (min-width: 1200px) {
+    .float-left-to-none {
+      float: none; } }
+
 .line-height-45 {
   line-height: 45px; }
+
+.fit-height {
+  height: 100%; }
+
+.fit-width {
+  width: 100%; }
+
+/* 
+  Default screen: width is $container-width-default.
+  Small screen  : width is $container-width-default.
+  Full screen   : width is $container-width.
+*/
+.width-default-to-container {
+  max-width: 410px;
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .width-default-to-container {
+      max-width: 410px; } }
+  @media only screen and (min-width: 768px) {
+    .width-default-to-container {
+      max-width: 490px; } }
+  @media only screen and (min-width: 992px) {
+    .width-default-to-container {
+      max-width: 490px; } }
+  @media only screen and (min-width: 1200px) {
+    .width-default-to-container {
+      max-width: 490px; } }
 
 .font-family-basic {
   font-family: Helvetica, sans-serif; }
@@ -420,6 +445,90 @@ button,
 .border-bottom-none {
   border-bottom: none; }
 
+/* 
+  Default screen: no border.
+  Small screen  : no border.
+  Full screen   : border on top, right, left; rounded corners on upper left and right.
+*/
+.border-none-to-topR-rightR-left {
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  border-radius: 5px 5px 0 0;
+  -webkit-transition: border 0.5s, border-radius 0.5s;
+  transition: border 0.5s, border-radius 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .border-none-to-topR-rightR-left {
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+      border-left: none;
+      border-radius: 5px 5px 0 0; } }
+  @media only screen and (min-width: 768px) {
+    .border-none-to-topR-rightR-left {
+      border-top: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      border-bottom: none;
+      border-left: 1px solid #d9d9d9;
+      border-radius: 5px 5px 0 0; } }
+  @media only screen and (min-width: 992px) {
+    .border-none-to-topR-rightR-left {
+      border-top: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      border-bottom: none;
+      border-left: 1px solid #d9d9d9;
+      border-radius: 5px 5px 0 0; } }
+  @media only screen and (min-width: 1200px) {
+    .border-none-to-topR-rightR-left {
+      border-top: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      border-bottom: none;
+      border-left: 1px solid #d9d9d9;
+      border-radius: 5px 5px 0 0; } }
+
+/* 
+  Default screen: border on top.
+  Small screen  : no border.
+  Full screen   : border on top, right, bottom, left; rounded corners on lower left and right.
+*/
+.border-top-to-none-to-top-right-bottomR-leftR {
+  border-top: 1px solid #d9d9d9;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  border-radius: 0 0 5px 5px;
+  -webkit-transition: border 0.5s, border-radius 0.5s;
+  transition: border 0.5s, border-radius 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .border-top-to-none-to-top-right-bottomR-leftR {
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+      border-left: none;
+      border-radius: 0 0 5px 5px; } }
+  @media only screen and (min-width: 768px) {
+    .border-top-to-none-to-top-right-bottomR-leftR {
+      border-top: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      border-bottom: 1px solid #d9d9d9;
+      border-left: 1px solid #d9d9d9;
+      border-radius: 0 0 5px 5px; } }
+  @media only screen and (min-width: 992px) {
+    .border-top-to-none-to-top-right-bottomR-leftR {
+      border-top: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      border-bottom: 1px solid #d9d9d9;
+      border-left: 1px solid #d9d9d9;
+      border-radius: 0 0 5px 5px; } }
+  @media only screen and (min-width: 1200px) {
+    .border-top-to-none-to-top-right-bottomR-leftR {
+      border-top: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      border-bottom: 1px solid #d9d9d9;
+      border-left: 1px solid #d9d9d9;
+      border-radius: 0 0 5px 5px; } }
+
 .white {
   color: #fff; }
 
@@ -437,6 +546,28 @@ button,
 
 .red {
   color: red; }
+
+/* 
+  Default screen: transparent.
+  Small screen  : transparent.
+  Full screen   : white.
+*/
+.bg-trans-to-white {
+  background-color: transparent;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .bg-trans-to-white {
+      background-color: transparent; } }
+  @media only screen and (min-width: 768px) {
+    .bg-trans-to-white {
+      background-color: #fff; } }
+  @media only screen and (min-width: 992px) {
+    .bg-trans-to-white {
+      background-color: #fff; } }
+  @media only screen and (min-width: 1200px) {
+    .bg-trans-to-white {
+      background-color: #fff; } }
 
 input.parsley-error,
 select.parsley-error,
