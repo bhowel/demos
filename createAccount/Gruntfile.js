@@ -104,8 +104,9 @@ module.exports = function(grunt) {
 		uncss: {
 			dist: {
 				options: {
-					ignoreSheets: [/fonts.googleapis/, /normalize.css/]
-				},
+					ignoreSheets: [/fonts.googleapis/, /normalize.css/, /animate.css/],
+					ignore: ['input.parsley-success', 'select.parsley-success', 'textarea.parsley-success', 'input.parsley-error', 'select.parsley-error', 'textarea.parsley-error', '.parsley-errors-list', '.parsley-errors-list.filled']
+				},		
 				files: {
 					'css/tidy.css': ['index.html', 'ack.html']
 				}
@@ -146,7 +147,7 @@ module.exports = function(grunt) {
 			},
 			cssFiles: {
 				cwd: 'css',
-				src: ['**/normalize.css', '**/createAccount.min.css'],
+				src: ['**/normalize.css', '**/animate.css', '**/createAccount.min.css'],
 				dest: '../../openShift/accountDemo/css',
 				expand: true 
 			},
@@ -156,8 +157,18 @@ module.exports = function(grunt) {
 				dest: '../../openShift/accountDemo/js',
 				expand: true 
 			}					
-		}
-				   
+		},
+
+		// HTML refs
+    htmlrefs: {
+      dist: {
+				files: [
+						{ src: '../../openShift/accountDemo/index.html', dest: '../../openShift/accountDemo/index.html' },
+						{ src: '../../openShift/accountDemo/ack.html', dest: '../../openShift/accountDemo/ack.html' }
+				]
+      }
+    }
+      				   
   });
 
   // Load plugins.
@@ -170,14 +181,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks( 'grunt-csscomb' );
   grunt.loadNpmTasks( 'grunt-contrib-cssmin' );  
   grunt.loadNpmTasks( 'grunt-contrib-copy');
+  grunt.loadNpmTasks( 'grunt-htmlrefs' );
 
   // Default task.
   grunt.registerTask( 'default', 'watch' );
 
   // Process CSS task.
-  grunt.registerTask( 'cleanPageCSS', ['uncss', 'csscomb', 'cssmin'] ); 
+  grunt.registerTask( 'processCSS', ['uncss', 'csscomb', 'cssmin'] ); 
   
   // Copy task.
   grunt.registerTask( 'copyDemo', 'copy' );  
+
+  // HTML refs task.
+  grunt.registerTask( 'fixHTMLRefs', 'htmlrefs' );    
 
 };

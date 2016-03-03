@@ -1,12 +1,15 @@
 /*
 
   Custom styles for the CreateAccount project.
-  Styles for other tags to be added as needed.
   
   Grid system based on the Responsive Grid System by Graham Miller.
   The generated styles have been revised.
   Web site: http://www.responsivegridsystem.com/
   License: http://creativecommons.org/licenses/by/3.0/
+  
+  Input fields and button styles from skull-1.0.0 (Basscss theme).
+  [Basscss](http://basscss.com). 
+  License: MIT
   
 */
 
@@ -23,11 +26,15 @@ $screenXLarge: 1200px;
 // COLOR
 // ============================================================================
 
-$white       : #fff;	
-$dark-gray   : rgba( 34, 34, 34, 1.0 );
-$medium-gray : rgba( 160, 160, 160, 1.0 );
-$light-gray  : rgba( 217, 217, 217, 1.0 );
-$lighter-gray: rgba( 245, 245, 245, 1.0 );
+$lime-green   : rgba( 108, 198, 11, 1.0 );
+$medium-blue  : #0099dd;
+$dark-gray    : rgba( 34, 34, 34, 1.0 );
+$medium-gray  : rgba( 160, 160, 160, 1.0 );
+$light-gray   : rgba( 200, 200, 200, 1.0 );
+$lighter-gray : rgba( 217, 217, 217, 1.0 );
+$lightest-gray: rgba( 245, 245, 245, 1.0 );
+$off-white    : rgba( 250, 250, 250, 1.0 );
+$white        : #fff;	
 
 // ============================================================================
 // MIXINS
@@ -106,8 +113,8 @@ $container-width-default: 410px;
 
 // =========== BORDER
 
-$border-1-light-gray: 1px solid $light-gray;
-$borderNone: none;
+$border-1-lighter-gray: 1px solid $lighter-gray;
+$borderNone           : none;
               
 @mixin border-set( $border, $radius ) {
 	$borderTopDefault   : map-get( $border, "topDefault" );
@@ -186,7 +193,8 @@ $borderNone: none;
 // ============================================================================
 
 body {
-  @include bg-color-set( $white, $white, $lighter-gray );
+  @include bg-color-set( $white, $white, $lightest-gray );
+  margin: 0;
   font-family: 'Montserrat', Helvetica, sans-serif; 
   font-size: 14px; 
   line-height: 1.25;    
@@ -236,25 +244,153 @@ p {
   margin-bottom: 12px;
 }
 
+a {
+  color: $medium-blue;
+  text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 // ============================================================================
-// BUTTON
+// INPUT/SELECT/TEXTAREA/LABEL
+// Styles taken from skull-1.0.0 (Basscss theme) Autoform v1.0.0. 
+// Revised by BH, with additional styles.
 // ============================================================================
 
-button,
+input:not([type=checkbox]):not([type=radio]):not([type=submit]), select, textarea {
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]) {
+  box-sizing: border-box;
+  height: 45px;
+  padding: 8px 8px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+select {
+  box-sizing: border-box;
+  padding: 8px 8px;
+  line-height: 1.75;
+}
+
+select:not([multiple]) {
+  height: 40px;
+  vertical-align: middle;
+}
+
+textarea {
+  box-sizing: border-box;
+  padding: 8px 8px;
+  line-height: 1.75;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  border: 1px solid $lighter-gray;
+  border-radius: 5px;
+  background-color: $white;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: $light-gray;
+  background-color: $off-white;
+}
+input:disabled, select:disabled, textarea:disabled {
+  opacity: 0.625;
+}
+input:read-only, select:read-only, textarea:read-only {
+}
+input:invalid, select:invalid, textarea:invalid {
+}
+
+input::-webkit-input-placeholder { color: $lighter-gray; }
+input::-moz-placeholder          { color: $lighter-gray; }
+input:-moz-placeholder           { color: $lighter-gray; }
+input:-ms-input-placeholder      { color: $lighter-gray; }
+
+label {
+  font-size: 14px;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 11px;
+}
+
+// ============================================================================
+// BUTTON// Styles taken from skull-1.0.0 (Basscss theme). 
+// Revised by BH, with additional styles.
+// ============================================================================
+
+button, .button {
+  font-size: 14px;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 30px;
+  padding: 8px 36px 8px 36px;
+  margin: 0;
+  height: auto;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+button:after,
+button:before,
+.button:after,
+.button:before {
+  box-sizing: border-box;
+}
+
+.button:hover { text-decoration: none }
+
 .button {
+  color: $white;
+  background-color: $lime-green;
+  border-radius: 3px;
+  -webkit-transition-duration: .05s;
+          transition-duration: .05s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  -webkit-transition-property: box-shadow, background-color;
+          transition-property: box-shadow, background-color;
+}
+
+.button:hover {
+  box-shadow: inset 0 0 0 20rem rgba(0,0,0,.0625);
+}
+.button:focus {
+  outline: none;
+  border-color: rgba(0,0,0,.125);
+  box-shadow: 0 0 2px 1px rgba(0,0,0,.25);
+}
+.button:active, .button.is-active {
+  box-shadow: inset 0 0 0 20rem rgba(0,0,0,.125),
+    inset 0 3px 4px 0 rgba(0,0,0,.25),
+    0 0 1px rgba(0,0,0,.125);
+}
+.button:disabled, .button.is-disabled {
+  opacity: .5;
+}
+
+button, .button {
   $paddingDefault: 8px 57px 8px 57px;
   $paddingFull   : 8px 36px 8px 36px;
   @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );          	
 }
-
-// ============================================================================
-// INPUT PLACEHOLDER
-// ============================================================================
-
-input::-webkit-input-placeholder { color: $light-gray; }
-input::-moz-placeholder          { color: $light-gray; }
-input:-moz-placeholder           { color: $light-gray; }
-input:-ms-input-placeholder      { color: $light-gray; }
 
 // ============================================================================
 // RESPONSIVE CONTAINER
@@ -263,7 +399,6 @@ input:-ms-input-placeholder      { color: $light-gray; }
 .container-parent {
   $paddingFull: 30px;
   @include padding-set( 0, 0, $paddingFull ); 
-
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto  
@@ -287,7 +422,6 @@ input:-ms-input-placeholder      { color: $light-gray; }
 
 .column {
   @include float-set( none, none, left );
-
   margin-left: 3%;
   display: block;
 }
@@ -398,6 +532,11 @@ input:-ms-input-placeholder      { color: $light-gray; }
 .float-left-to-none {
   @include float-set( left, left, none );
 }
+
+.text-left          { text-align: left; }
+.text-right         { text-align: right; }
+.text-center        { text-align: center; }
+.text-just          { text-align: justify; }
  
 // =========== WIDTH/HEIGHT.
 
@@ -419,18 +558,11 @@ input:-ms-input-placeholder      { color: $light-gray; }
 // =========== TEXT.
 
 .font-family-basic  { font-family: Helvetica, sans-serif; }
-
 .font-size-14       { font-size: 14px; }
-
 .bold               { font-weight: bold; }
 .normal             { font-weight: normal; }
 .italic             { font-style: italic; }
-
-.text-left          { text-align: left; }
-.text-right         { text-align: right; }
-.text-center        { text-align: center; }
-.text-just          { text-align: justify; }
-
+.caps               { text-transform: uppercase; letter-spacing: .2em; }
 .no-wrap            { white-space: nowrap; }
 
 // =========== BORDER.
@@ -443,9 +575,9 @@ input:-ms-input-placeholder      { color: $light-gray; }
   Full screen   : border on top, right, left; rounded corners on upper left and right.
 */
 .border-none-to-topR-rightR-left {
-  $border: ( topDefault: $borderNone,          rightDefault: $borderNone,          bottomDefault: $borderNone, leftDefault: $borderNone, 
-             topSmall  : $borderNone,          rightSmall  : $borderNone,          bottomSmall  : $borderNone, leftSmall  : $borderNone,
-             topFull   : $border-1-light-gray, rightFull   : $border-1-light-gray, bottomFull   : $borderNone, leftFull   : $border-1-light-gray );
+  $border: ( topDefault: $borderNone,            rightDefault: $borderNone,            bottomDefault: $borderNone, leftDefault: $borderNone, 
+             topSmall  : $borderNone,            rightSmall  : $borderNone,            bottomSmall  : $borderNone, leftSmall  : $borderNone,
+             topFull   : $border-1-lighter-gray, rightFull   : $border-1-lighter-gray, bottomFull   : $borderNone, leftFull   : $border-1-lighter-gray );
   $radius: 5px 5px 0 0;
   @include border-set( $border, $radius );
 }
@@ -456,21 +588,25 @@ input:-ms-input-placeholder      { color: $light-gray; }
   Full screen   : border on top, right, bottom, left; rounded corners on lower left and right.
 */
 .border-top-to-none-to-top-right-bottomR-leftR {
-  $border: ( topDefault: $border-1-light-gray, rightDefault: $borderNone,          bottomDefault: $borderNone,          leftDefault: $borderNone, 
-             topSmall  : $borderNone,          rightSmall  : $borderNone,          bottomSmall  : $borderNone,          leftSmall  : $borderNone,
-             topFull   : $border-1-light-gray, rightFull   : $border-1-light-gray, bottomFull   : $border-1-light-gray, leftFull   : $border-1-light-gray );
+  $border: ( topDefault: $border-1-lighter-gray, rightDefault: $borderNone,            bottomDefault: $borderNone,            leftDefault: $borderNone, 
+             topSmall  : $borderNone,            rightSmall  : $borderNone,            bottomSmall  : $borderNone,            leftSmall  : $borderNone,
+             topFull   : $border-1-lighter-gray, rightFull   : $border-1-lighter-gray, bottomFull   : $border-1-lighter-gray, leftFull   : $border-1-lighter-gray );
   $radius: 0 0 5px 5px;
   @include border-set( $border, $radius );
 }
 
 // =========== COLOR.
 
-.white              { color: $white; }
-.lighter-gray       { color: $lighter-gray; }	
-.light-gray         { color: $light-gray; }
-.medium-gray        { color: $medium-gray; }
-.dark-gray          { color: $dark-gray; }
+.lime-green         { color: $lime-green; }
+.medium-blue        { color: $medium-blue; }
 .red                { color: red; }
+.dark-gray          { color: $dark-gray; }
+.medium-gray        { color: $medium-gray; }
+.light-gray         { color: $light-gray; }
+.lighter-gray       { color: $lighter-gray; }
+.lightest-gray      { color: $lightest-gray; }
+.off-white          { color: $off-white; }	
+.white              { color: $white; }
 
 /* 
   Default screen: transparent.
