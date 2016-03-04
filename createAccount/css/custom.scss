@@ -199,6 +199,7 @@ body {
   font-size: 14px; 
   line-height: 1.25;    
   color: $dark-gray;
+  cursor: default;
 }
 
 h1 { 
@@ -650,3 +651,9 @@ textarea.parsley-error {
 .parsley-errors-list.filled {
   opacity: 1;
 }
+
+// ============================================================================
+// MATERIAL ICONS OVERRIDES
+// ============================================================================
+
+.material-icons.md-48 { font-size: 48px; }

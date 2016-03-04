@@ -23,6 +23,7 @@ body
 
     margin: 0;
 
+    cursor: default;
     -webkit-transition: background-color .5s;
             transition: background-color .5s;
 
@@ -1067,6 +1068,11 @@ textarea.parsley-error
 .parsley-errors-list.filled
 {
     opacity: 1;
+}
+
+.material-icons.md-48
+{
+    font-size: 48px;
 }
 
 /*# sourceMappingURL=custom.css.map */

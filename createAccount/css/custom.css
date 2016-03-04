@@ -20,7 +20,8 @@ body {
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.25;
-  color: #222222; }
+  color: #222222;
+  cursor: default; }
   @media only screen and (min-width: 480px) {
     body {
       background-color: #fff; } }
@@ -710,5 +711,8 @@ textarea.parsley-error {
 
 .parsley-errors-list.filled {
   opacity: 1; }
+
+.material-icons.md-48 {
+  font-size: 48px; }
 
 /*# sourceMappingURL=custom.css.map */
