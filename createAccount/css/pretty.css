@@ -163,7 +163,7 @@ label
     margin-bottom: 11px;
 }
 
-.button
+button
 {
     font-size: 14px;
     font-weight: normal;
@@ -174,75 +174,31 @@ label
     box-sizing: border-box;
     height: auto;
     margin: 0;
-    padding: 8px 36px 8px 36px;
+    padding: 8px 57px 8px 57px;
 
     cursor: pointer;
-    vertical-align: middle;
-    text-decoration: none;
-
-    border: 1px solid transparent;
-
-    -webkit-appearance: none;
-}
-
-.button:after,
-.button:before
-{
-    box-sizing: border-box;
-}
-
-.button:hover
-{
-    text-decoration: none;
-}
-
-.button
-{
+    -webkit-transition: padding .5s;
+            transition: padding .5s;
     -webkit-transition-timing-function: ease-out;
             transition-timing-function: ease-out;
     -webkit-transition-duration: .05s;
             transition-duration: .05s;
     -webkit-transition-property: box-shadow, background-color;
             transition-property: box-shadow, background-color;
+    vertical-align: middle;
+    text-decoration: none;
 
     color: #fff;
+    border: 1px solid transparent;
     border-radius: 3px;
     background-color: #6cc60b;
-}
 
-.button:hover
-{
-    box-shadow: inset 0 0 0 20rem rgba(0, 0, 0, .0625);
-}
-
-.button:focus
-{
-    border-color: rgba(0, 0, 0, .125);
-    outline: none;
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, .25);
-}
-
-.button:active
-{
-    box-shadow: inset 0 0 0 20rem rgba(0, 0, 0, .125), inset 0 3px 4px 0 rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .125);
-}
-
-.button:disabled
-{
-    opacity: .5;
-}
-
-.button
-{
-    padding: 8px 57px 8px 57px;
-
-    -webkit-transition: padding .5s;
-            transition: padding .5s;
+    -webkit-appearance: none;
 }
 
 @media only screen and (min-width: 480px)
 {
-    .button
+    button
     {
         padding: 8px 57px 8px 57px;
     }
@@ -250,7 +206,7 @@ label
 
 @media only screen and (min-width: 768px)
 {
-    .button
+    button
     {
         padding: 8px 36px 8px 36px;
     }
@@ -258,7 +214,7 @@ label
 
 @media only screen and (min-width: 992px)
 {
-    .button
+    button
     {
         padding: 8px 36px 8px 36px;
     }
@@ -266,10 +222,30 @@ label
 
 @media only screen and (min-width: 1200px)
 {
-    .button
+    button
     {
         padding: 8px 36px 8px 36px;
     }
+}
+
+button:after,
+button:before
+{
+    box-sizing: border-box;
+}
+
+button:hover
+{
+    text-decoration: none;
+
+    box-shadow: inset 0 0 0 20rem rgba(0, 0, 0, .0625);
+}
+
+button:focus
+{
+    border-color: rgba(0, 0, 0, .125);
+    outline: none;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, .25);
 }
 
 .container-parent
@@ -549,6 +525,11 @@ label
 .block
 {
     display: block;
+}
+
+.hide
+{
+    display: none;
 }
 
 .margin-top-32
@@ -1073,6 +1054,11 @@ textarea.parsley-error
 .material-icons.md-48
 {
     font-size: 48px;
+}
+
+.material-icons.md-dark
+{
+    color: #6cc60b;
 }
 
 /*# sourceMappingURL=custom.css.map */

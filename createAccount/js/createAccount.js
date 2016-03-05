@@ -2,6 +2,8 @@
 	// ON DOC READY
 	
 	$( document ).ready( function() {
+		// Hide icon used in submit animation.
+		$( "#divEmailIcon" ).hide();
 		$( "#emailIcon" ).hide();
 		
 		// Test data. Comment out for production.
@@ -17,23 +19,25 @@
 		$( "#btnSubmit" ).on( "click", function() { 
 			if ( $( "#accountForm" ).parsley().validate({}) ) {
 				if ( $( "#termsForm" ).parsley().validate({}) ) {
-				  // Play animation. Hide submit button, show email icon, play icon animation.
-					$( "#btnSubmit" ).fadeOut( "slow", function() {
-					  $( "#emailIcon" ).fadeIn( "slow", function() {
-							$( "#emailIcon" ).addClass( "magictime magic" );
+				  // Show email icon, play animation, then send email.
+					$( "#divEmailIcon" ).fadeIn( "slow", function() {
+					  $( "#emailIcon" ).slideDown( "slow", function() {
+							$( "#emailIcon" ).addClass( "magictime spaceOutUp" );
 
-							// Animation takes 1s. Send email after .5s.
+							// Animation takes 1s. After 0.5s, hide icon and form, then send email.
 							setInterval( function() { 
-								sendAccountMail();
+								$( "#divEmailIcon" ).fadeOut( "slow", function() {
+								  $( "#mainContainer" ).fadeOut( "slow", function() {
+								    sendAccountMail();
+								  });
+								});
 							}, 500 );								  
 					  });
-					});				  
-
-				  				  
+					});		  
 				}// if termsForm validate    
 			}// if accountForm validate
 		});//btnSubmit on click
-
+		
 		// Send email with new account data.
 		function sendAccountMail() {	    
 			var fullname = $( "#fullname" ).val();

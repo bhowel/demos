@@ -329,11 +329,15 @@ label {
 }
 
 // ============================================================================
-// BUTTON// Styles taken from skull-1.0.0 (Basscss theme). 
+// BUTTON Styles taken from skull-1.0.0 (Basscss theme). 
 // Revised by BH, with additional styles.
 // ============================================================================
 
-button, .button {
+button {
+  $paddingDefault: 8px 57px 8px 57px;
+  $paddingFull   : 8px 36px 8px 36px;
+  @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );
+  
   font-size: 14px;
   font-weight: normal;
   text-decoration: none;
@@ -341,12 +345,20 @@ button, .button {
   display: inline-block;
   box-sizing: border-box;
   line-height: 30px;
-  padding: 8px 36px 8px 36px;
   margin: 0;
   height: auto;
   border: 1px solid transparent;
   vertical-align: middle;
   -webkit-appearance: none;
+  color: $white;
+  background-color: $lime-green;
+  border-radius: 3px;
+  -webkit-transition-duration: .05s;
+          transition-duration: .05s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  -webkit-transition-property: box-shadow, background-color;
+          transition-property: box-shadow, background-color;  
 }
 
 button:after,
@@ -356,41 +368,17 @@ button:before,
   box-sizing: border-box;
 }
 
-.button:hover { text-decoration: none }
-
-.button {
-  color: $white;
-  background-color: $lime-green;
-  border-radius: 3px;
-  -webkit-transition-duration: .05s;
-          transition-duration: .05s;
-  -webkit-transition-timing-function: ease-out;
-          transition-timing-function: ease-out;
-  -webkit-transition-property: box-shadow, background-color;
-          transition-property: box-shadow, background-color;
-}
-
-.button:hover {
+button:hover {
+  text-decoration: none;
   box-shadow: inset 0 0 0 20rem rgba(0,0,0,.0625);
 }
-.button:focus {
+button:focus {
   outline: none;
   border-color: rgba(0,0,0,.125);
   box-shadow: 0 0 2px 1px rgba(0,0,0,.25);
 }
-.button:active, .button.is-active {
-  box-shadow: inset 0 0 0 20rem rgba(0,0,0,.125),
-    inset 0 3px 4px 0 rgba(0,0,0,.25),
-    0 0 1px rgba(0,0,0,.125);
-}
-.button:disabled, .button.is-disabled {
+.button:disabled {
   opacity: .5;
-}
-
-button, .button {
-  $paddingDefault: 8px 57px 8px 57px;
-  $paddingFull   : 8px 36px 8px 36px;
-  @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );          	
 }
 
 // ============================================================================
@@ -657,3 +645,4 @@ textarea.parsley-error {
 // ============================================================================
 
 .material-icons.md-48 { font-size: 48px; }
+.material-icons.md-dark { color: $lime-green; }

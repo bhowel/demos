@@ -21,7 +21,7 @@
 <body>
 
 <!-- ========== MAIN CONTAINER //-->
-<div class="container-parent">
+<div id="mainContainer" class="container-parent">
 
 	<!-- ========== HEADER //-->
 	<div class="container 
@@ -154,11 +154,19 @@
 				            column-with-6 
 				            line-height-45 
 				            text-center">
-					<input id="btnSubmit" type="submit" class="button" value="Create account">
-					<i id="emailIcon" class="material-icons md-48">email</i>		
-				</div>				
+					<button id="btnSubmit">Create account</button>
+				</div>							
 			</div>
 
+			<div class="row">
+				<div id="divEmailIcon" class="column 
+				            column-with-12 
+				            line-height-45 
+				            text-center">
+					<i id="emailIcon" class="material-icons md-48 md-dark hide">email</i>		
+				</div>								
+			</div>
+			
 	</div>
 
 	<!-- ========== SIGN-IN //-->
