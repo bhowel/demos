@@ -39,9 +39,7 @@ if ( isset( $_GET["fullname"] ) &&
 
   $sendgrid_apikey = $_ENV["ACCOUNTDEMO_EMAIL_KEY"];
   $sendgrid = new SendGrid( $sendgrid_apikey );
-	
 	$emailAccount = new SendGrid\Email();
-
 	$emailAccount->addTo( "barbara.howell.ms@gmail.com" )
 	             ->addTo( $email )
 				       ->setFrom( "barbara.howell.ms@gmail.com" )

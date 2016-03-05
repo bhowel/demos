@@ -23,15 +23,7 @@
 					$( "#divEmailIcon" ).fadeIn( "slow", function() {
 					  $( "#emailIcon" ).slideDown( "slow", function() {
 							$( "#emailIcon" ).addClass( "magictime spaceOutUp" );
-
-							// Animation takes 1s. After 0.5s, hide icon and form, then send email.
-							setInterval( function() { 
-								$( "#divEmailIcon" ).fadeOut( "slow", function() {
-								  $( "#mainContainer" ).fadeOut( "slow", function() {
-								    sendAccountMail();
-								  });
-								});
-							}, 500 );								  
+							  sendAccountMail();							  
 					  });
 					});		  
 				}// if termsForm validate    
@@ -39,7 +31,7 @@
 		});//btnSubmit on click
 		
 		// Send email with new account data.
-		function sendAccountMail() {	    
+		function sendAccountMail() {   
 			var fullname = $( "#fullname" ).val();
 			var username = $( "#username" ).val();
 			var email    = $( "#email" ).val();
@@ -57,8 +49,15 @@
 																 "&password=" + password,
 				dataType: "json",
 				complete: function( data ) {
-					window.location.href = "ack.html";
-					window.console.log( JSON.stringify( data ) );
+				// Hide icon and form, then show ack page.
+				setInterval( function() { 
+					$( "#divEmailIcon" ).fadeOut( "slow", function() {
+						$( "#mainContainer" ).fadeOut( "slow", function() {
+						  window.location.href = "ack.html";
+						  window.console.log( JSON.stringify( data ) );
+						});
+					});
+				}, 500 );
 				}                     
 			});//ajax
 		}//sendAccountMail	
