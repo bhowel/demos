@@ -432,6 +432,8 @@ button:focus {
 // ============================================================================
 
 .logo {
+  width: 50px;
+  
   $widthDefault: 50px;
   $widthFull   : 75px; 
   @include width-set( $widthDefault, $widthDefault, $widthFull );

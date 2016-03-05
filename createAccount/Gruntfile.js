@@ -104,7 +104,7 @@ module.exports = function(grunt) {
 		uncss: {
 			dist: {
 				options: {
-					ignoreSheets: [/fonts.googleapis/, /normalize.css/, /magic.min.css/],
+					ignoreSheets: [/fonts.googleapis/, /normalize.min.css/, /magic.min.css/],
 					ignore: ['input.parsley-success', 'select.parsley-success', 'textarea.parsley-success', 'input.parsley-error', 'select.parsley-error', 'textarea.parsley-error', '.parsley-errors-list', '.parsley-errors-list.filled']
 				},		
 				files: {
@@ -147,7 +147,7 @@ module.exports = function(grunt) {
 			},
 			cssFiles: {
 				cwd: 'css',
-				src: ['**/normalize.css', '**/magic.min.css', '**/createAccount.min.css'],
+				src: ['**/normalize.min.css', '**/magic.min.css', '**/createAccount.min.css'],
 				dest: '../../openShift/accountDemo/css',
 				expand: true 
 			},

@@ -2,6 +2,26 @@
 LICENSES for third-party code, plugins, libraries, fonts.
 
 ============================================================================
+ GOOGLE FONTS
+============================================================================
+
+============SITE
+https://www.google.com/fonts
+
+============LICENSE
+http://creativecommons.org/licenses/by/3.0/
+
+============================================================================
+ GOOGLE MATERIAL ICONS
+============================================================================
+
+============SITE
+https://design.google.com/icons/
+
+============LICENSE
+https://creativecommons.org/licenses/by/4.0/
+
+============================================================================
  JQUERY 1.12.0
 ============================================================================
 
@@ -75,3 +95,15 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+============================================================================
+ MAGIC ANIMATIONS CSS3
+============================================================================
+
+http://www.minimamente.com/example/magic_animations/
+
+============CODE
+https://github.com/miniMAC/magic
+
+============LICENSE
+Not found.

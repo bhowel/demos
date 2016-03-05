@@ -7,13 +7,13 @@
 		$( "#emailIcon" ).hide();
 		
 		// Test data. Comment out for production.
-		$( "#fullname" ).val( "John Smith" );
-		$( "#username" ).val( "John" );
-		$( "#email" ).val( "squigglysmith@yahoo.com" );
-		$( "#city" ).val( "MyTown" );
-		$( "#country" ).val( "MyCountry" );
-		$( "#password" ).val( "password" );
-		$( "#repeatpassword" ).val( "password" );
+// 		$( "#fullname" ).val( "John Smith" );
+// 		$( "#username" ).val( "John" );
+// 		$( "#email" ).val( "squigglysmith@yahoo.com" );
+// 		$( "#city" ).val( "MyTown" );
+// 		$( "#country" ).val( "MyCountry" );
+// 		$( "#password" ).val( "password" );
+// 		$( "#repeatpassword" ).val( "password" );
 
 		// When user clicks Submit, validate form and send email with new account data.
 		$( "#btnSubmit" ).on( "click", function() { 
