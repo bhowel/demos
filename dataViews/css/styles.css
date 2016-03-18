@@ -1,0 +1,1425 @@
+/* CSS Document */
+
+/* ========== GLOBAL */
+
+/* ========== COLORS */
+/* ========== List all colors used in this file here except for #000000 and #FFFFFF and colors for stops in gradients. */
+/* ========== Only use colors from static.js. Make any changes in both files. */
+/* BASIC COLORS */
+/* ========== #eeeeee s_grayE */
+/* ========== #dddddd s_grayD */
+/* ========== #cccccc s_grayC */
+/* ========== #bbbbbb s_grayB */
+/* ========== #aaaaaa s_grayA */
+/* ========== #999999 s_gray9 */
+/* ========== #666666 s_gray6 */
+/* ========== #333333 s_gray3 */
+/* INTERFACE COLORS */
+/* ========== #FBFBFB s_color.whiteNear_ */
+/* ========== #FFFF99 s_color.yellowLight_ */
+/* ========== #C6C2A1 s_color.tan_ */
+/* ========== #7C9799 s_color.turquoiseGray_ */
+/* HEAT COLORS */
+/* ========== #0000DD s_colorHeat.cold_ */
+/* ========== #6600CC s_colorHeat.cool_ */
+/* ========== #CC0099 s_colorHeat.warm_ */
+/* ========== #FF0033 s_colorHeat.hot_ */
+
+  body {
+    color: #000000;
+    font-size: 14pt;
+    font-family: Calibri, sans-serif;
+    font-weight: normal;
+    text-align: left;
+    line-height: 1.3;
+    cursor: default;
+  }
+
+/* ========== BUTTONS/ICONS */
+
+  button {
+	  padding: 4px 12px;
+	  font-size: 9pt;
+	  color: #ffffff;
+	  text-align: center;
+	  vertical-align: middle;
+	  cursor: default;
+	  background-color: #bbbbbb;
+	  border: none;
+	  -webkit-border-radius: 12px;
+	     -moz-border-radius: 12px;
+	          border-radius: 12px;
+  }
+
+  button:hover {
+    color: #666666;
+    background-color: #e1e1e1;
+  }
+
+  .icon {}
+
+  .iconText {
+    font-size: 6pt;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .iconDisabled {
+    opacity: 0.5;
+  }
+
+/* ========== TEXT */
+
+  h1 {
+		font-size: 300%;
+		margin: 0;
+		padding: 0;
+	}
+
+	h1, h2 {
+		line-height: 1;
+  }
+
+	table h2, h3 {
+		margin: 0;
+		padding: 0;
+	}
+
+/* ========== ALIGNMENT */
+
+	.centerAll {
+	  position: absolute;
+	  left:50%; top:50%;
+	  -webkit-transform: translate(-50%,-50%);
+	     -moz-transform: translate(-50%,-50%);
+	          transform: translate(-50%,-50%);
+	}
+
+	.centerVertLeft {
+	  position: absolute;
+	  left:0%; top:50%;
+	  -webkit-transform: translate( 0%,-50%);
+	     -moz-transform: translate( 0%,-50%);
+	          transform: translate( 0%,-50%);
+	}
+
+	.centerVertRight {
+	  position:absolute;
+	  right:0%; top:50%;
+	  -webkit-transform: translate( 0%,-50%);
+	     -moz-transform: translate( 0%,-50%);
+	          transform: translate( 0%,-50%);
+	}
+
+/* ========== FLUID CONTENT */
+
+  .contentFluid {
+		padding-top: 220px;
+		width: 700px;
+		margin: 0px auto;
+	}
+
+	.rowFluid {
+	  display: table;
+	}
+
+	.cellFluid {
+		display: inline;
+		float: left;
+		margin-left: 10px;
+	}
+
+	.cellFluidSeparator {
+    clear: both;
+    float: left;
+    margin-top: 5px;
+    height: 10px;
+	}
+
+/* ========== STEPS */
+
+  .stepContainer {
+		padding-top: 100px;
+		width: 1142px;
+		margin: 0px auto;
+	}
+
+  .stepContainerHeader {
+		width: 1134px;
+		margin: 0px auto;  
+		margin-top: 120px;
+  }
+  
+  .stepContainerContent {
+		width: 1134px;
+		margin: 0px auto;
+		margin-top: 30px;
+  }
+
+  .stepForm {
+		margin-top: 20px;
+		margin-bottom: 30px;
+		display: inline;
+		float: left;
+		position: relative;
+		font-size: 11pt;
+		font-weight: normal;
+  }
+
+  .stepFormLeft {
+		width: 250px;
+    margin-left: 229px;
+    text-align: right;
+    border-left: 1px solid #cccccc;
+  }
+
+  .stepFormRight {
+		width: 435px;
+    margin-left: 10px;
+    text-align: left;
+    border-right: 1px solid #cccccc;
+  }
+
+	.stepCellSmall {
+		height: 100px;
+		display: inline;
+		float: left;
+		margin-left: 10px;
+		position: relative;
+	}
+
+  .stepRow {
+    background-color: #ffffff;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+    color: #000000;
+  }
+
+	.stepCell {
+		height: 180px;
+		display: inline;
+		float: left;
+		margin-left: 10px;
+		position: relative;
+	}
+
+	.stepCellIcon       { width: 70px; }
+	.stepCellHeader     { width: 130px; }
+	.stepCellHeaderLong { width: 170px; }
+	.stepCellText       { width: 330px; }
+	.stepCellTextShort  { width: 290px; }
+	.stepCellNextStep   { width: 200px; }
+
+	.stepHeader { font-size: 16pt; font-weight: bold; }
+	.stepText   { font-size: 11pt; font-weight: normal; }
+	.stepNext   { font-size: 16pt; font-weight: bold; }
+
+  .stepDivider {
+    height: 180px;
+    border-right: 1px solid #cccccc;
+  }
+
+  .stepDividerSmall {
+    height: 100px;
+    border-right: 1px solid #cccccc;
+  }
+
+/* ========== FORMS */
+
+  .labelFormFirst {
+    float: right; margin-top: 3px;
+  }
+
+  .labelForm {
+    clear: both;
+    float: right;
+    margin-top: 10.5px;
+  }
+
+  .fieldFormFirst {
+    float: left;
+  }
+
+  .fieldForm {
+    clear: both;
+    float: left;
+    margin-top: 5px;
+  }
+
+  .fieldFormSmall { margin-top: 6px; }
+
+  select {
+	  color: #666666;
+	  text-align: left;
+	  vertical-align: middle;
+	  cursor: pointer;
+	  background-color: #eeeeee;
+	  border: 1px solid #eeeeee;
+	  -webkit-border-radius: 15px;
+	     -moz-border-radius: 15px;
+	          border-radius: 15px;
+  }
+
+  .selectLarge { padding: 4px 12px; font-size: 11pt; }
+  .selectSmall { padding: 3px 8px; font-size: 9pt; }
+
+  input {
+	  color: #666666;
+	  text-align: left;
+	  vertical-align: middle;
+	  background-color: #eeeeee;
+	  border: 1px solid #eeeeee;
+	  -webkit-border-radius: 15px;
+	     -moz-border-radius: 15px;
+	          border-radius: 15px;
+  }
+
+  .inputLarge { padding: 4px 12px; font-size: 11pt; }
+  .inputSmall { padding: 3px 8px; font-size: 9pt; }
+
+  .inputTree {
+	  color: #000000;
+	  text-align: left;
+	  vertical-align: middle;
+	  padding: 3px 3px;
+	  font-size: 9pt;
+	  font-weight: bold;
+	  background-color: transparent;
+	  border: 1px solid #eeeeee;
+	  -webkit-border-radius: 10px;
+	     -moz-border-radius: 10px;
+	          border-radius: 10px;
+  }
+
+  .inputTreeReadonly {
+	  color: #000000;
+	  text-align: left;
+	  vertical-align: middle;
+	  padding: 3px 3px;
+	  font-size: 9pt;
+	  font-weight: bold;
+	  background-color: #eeeeee;
+	  border: 1px solid #c6c2a1;
+	  -webkit-border-radius: 10px;
+	     -moz-border-radius: 10px;
+	          border-radius: 10px;
+  }
+
+  textarea {
+	  padding: 4px 12px;
+	  font-size: 13pt;
+	  color: #666666;
+	  font-family: Calibri, sans-serif;
+	  text-align: left;
+	  vertical-align: middle;
+	  background-color: #fbfbfb;
+	  border: 1px solid #cccccc;
+	  -webkit-border-radius: 15px;
+	     -moz-border-radius: 15px;
+	          border-radius: 15px;
+  }
+
+  .textareaMessage {
+	  padding: 4px 12px;
+	  font-size: 11pt;
+	  color: #666666;
+	  text-align: left;
+	  vertical-align: middle;
+	  cursor: default;
+	  margin-right: 10px;
+	  width: 85%;
+	  background-color: transparent;
+	  border: 1px solid #ffffff;
+	  -webkit-border-radius: 15px;
+	     -moz-border-radius: 15px;
+	          border-radius: 15px;
+  }
+
+  .textareaSmall { padding: 8px; font-size: 10pt; }
+
+/* ========== BACKGROUNDS */
+
+  .splash {
+    position: absolute; top: 0px; left: 0px;
+    width:100%!important;
+    height:100%!important;
+    color: #666666;
+    font-size: 14pt;
+    background-color: #bbbbbb;
+    background-image: url( "../img/backgroundSplash.png" );
+    background-repeat: no-repeat;
+  }
+
+	.bgBasic {
+    position: absolute; top: 0px; left: 0px;
+    width:99%!important;
+    height:99%!important;
+		background-color: #cccccc;
+	  color: #333333;
+	  cursor: default;
+	  font-size: 10pt;
+	}
+
+  .bgDividedGray {
+    position: absolute; top: 0px; left: 0px;
+    width:100%!important;
+    height:100%!important;
+		background: #cccccc; /* Old browsers */
+		background: -moz-linear-gradient(top,  #cccccc 0%, #dddddd 51%, #cccccc 51%, #aaaaaa 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(51%,#dddddd), color-stop(51%,#cccccc), color-stop(100%,#aaaaaa)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #cccccc 0%,#dddddd 51%,#cccccc 51%,#aaaaaa 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #cccccc 0%,#dddddd 51%,#cccccc 51%,#aaaaaa 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #cccccc 0%,#dddddd 51%,#cccccc 51%,#aaaaaa 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #cccccc 0%,#dddddd 51%,#cccccc 51%,#aaaaaa 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#aaaaaa',GradientType=0 ); /* IE6-9 */
+  }
+
+	.bgDividedTurquiose {
+    position: absolute; top: 0px; left: 0px;
+    width:100%!important;
+    height:100%!important;
+		background: #87b8bc; /* Old browsers */
+		background: -moz-linear-gradient(top,  #87b8bc 0%, #ffffff 49%, #eeeeee 49%, #41b2c3 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87b8bc), color-stop(49%,#ffffff), color-stop(49%,#eeeeee), color-stop(100%,#41b2c3)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #87b8bc 0%,#ffffff 49%,#eeeeee 49%,#41b2c3 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #87b8bc 0%,#ffffff 49%,#eeeeee 49%,#41b2c3 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #87b8bc 0%,#ffffff 49%,#eeeeee 49%,#41b2c3 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #87b8bc 0%,#ffffff 49%,#eeeeee 49%,#41b2c3 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87b8bc', endColorstr='#41b2c3',GradientType=0 ); /* IE6-9 */
+	}
+
+  .bgTransBorderedTan {
+	  background-color: transparent;
+	  border: 1px solid #c6c2a1;
+  }
+
+  .bgWhite {
+	  background-color: #ffffff;
+  }
+
+  .bgWhiteBordered {
+	  background-color: #ffffff;
+	  border: 1px solid #ffffff;
+  }
+
+  .bgNearWhiteBorderedGray {
+	  background-color: #fbfbfb;
+	  border: 1px solid #aaaaaa;
+  }
+
+  .bgGrayBlueMed {
+    background-color: #7c9799;
+  }
+
+  .bgError {
+	  background-color: #ffffff;
+	  border: 1px solid #FF0033;
+  }
+
+  .bgHighlight {
+	  background-color: #FFFF99;
+  }
+
+  .bgFieldReadonly {
+	  background-color: #eeeeee;
+	  border: 1px solid #aaaaaa;
+  }
+
+  .bgFieldDisabled {
+	  color: #999999;
+	  background-color: #eeeeee;
+	  border: 1px solid #aaaaaa;
+  }
+
+  .bgHelper {
+    height: 24px;
+    width: 200px;
+	  font-size: 10pt;
+	  padding-top: 7px; padding-left: 7px;
+    background-color: #ffffff;
+	  -webkit-border-radius: 10px;
+	     -moz-border-radius: 10px;
+	          border-radius: 10px;
+  }
+
+/* ========== BOXES */
+
+  .boxRoundCorner {
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+  }
+
+  .boxResize {
+	  padding: 4px 12px;
+	  font-size: 11pt;
+	  text-align: left;
+	  vertical-align: middle;
+	  resize: both;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+  }
+
+  .boxLogo {
+    padding: 40px;
+    color: #000000;
+  }
+
+/* ========== REPORT (PAGED, SCROLLING, NON-RESIZEABLE LIST) */
+
+  .reportFrame {
+    height: 500px; width: 1139px;
+    overflow: hidden;
+  }
+
+  .reportContainer {
+    position: absolute; top: 0px; left: 0px;
+    height: 500px; width: 1139px;
+    background-color: #ffffff;
+    border: none;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+		overflow: hidden;
+  }
+
+	.reportContainerFloating {
+    height: 500px; width: 1139px;
+		display: inline;
+		float: left;
+		position: relative;
+    background-color: #ffffff;
+    border: none;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+		overflow: hidden;
+	}
+
+  .reportSelections {
+    position: absolute; top: 81px; left: 20px;
+  }
+
+	.reportSelectionsRow {
+	  height: 24px;
+	}
+
+	.reportSelectionsCell {
+	  font-size: 11pt;
+	  vertical-align: middle;
+	  padding: 4px;
+	}
+
+  .rContainerOuter {
+    position: absolute; top: 20px; left: 115px;
+    height: 420px; width: 1026px;
+		overflow: hidden;
+  }
+
+  .rContainerHeader {
+    position: absolute; top: 0px; left: 0px;
+    height: 40px; width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #666666;
+    cursor: default;
+  }
+
+  .rTitle {
+    position: absolute; top: 10px; left: 10px;
+    font-weight: bold;
+    font-size: 14pt;
+  }
+
+  .rContainerInner {
+    position: absolute; top: 45px; left: 10px;
+    height: 97%; width: 97%;
+    background-color: transparent;
+    overflow-y: auto; overflow-x: hidden;
+  }
+
+	.rTable {
+    table-layout: fixed;
+    width: 100%;
+    font-size: 11pt;
+    margin-bottom: 50px;
+	}
+
+	.rTable th, td {
+	  vertical-align: top;
+	  white-space: wrap;
+	  border-top-color: #dddddd;
+	  border-right-color: #dddddd;
+	  border-left-color: #dddddd;
+	  border-bottom-color: #dddddd;
+	  padding: 4px;
+	}
+
+	.rTable th  {
+	  vertical-align: middle;
+	  font-style: bold;
+	}
+
+  .rIcons {
+    position: absolute;
+    right: 8px;
+    bottom: 4px;
+  }
+
+  .rContainerOuterFull {
+    position: absolute; top: 20px; left: 20px;
+    height: 100%; width: 100%;
+		overflow: hidden;
+  }
+
+  .rContainerInnerFull {
+    position: absolute; top: 0px; left: 0px;
+    height: 90%; width: 97%;
+    background-color: transparent;
+    overflow-y: auto; overflow-x: hidden;
+  }
+
+/* ========== LIST P (PAGED, NON-SCROLLING, NON-RESIZEABLE LIST) */
+
+  .lpContainerMain {
+    margin: 75px auto;
+    display: table;
+  }
+
+  .lpContainerList {
+    height: 450px; width: 545px;
+    margin-top: 20px; margin-left: 20px;
+    float: left;
+    vertical-align: top;
+	  background-color: #eeeeee;
+    overflow: hidden;
+    padding-bottom: 10px;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+  }
+
+  .lpIcons {
+    float: right;
+    margin-right: 8px;
+  }
+
+	.lpControls {
+	}
+
+	.lpControls td {
+	  vertical-align: middle;
+	  padding: 8px;
+	  font-size: 11pt;
+	  font-weight: normal;
+	}
+
+  .lpContainer {
+    height: 370px; width: 537px;
+    vertical-align: top;
+    background-color: #eeeeee;
+    overflow: hidden;
+    // For non-paging lists: overflow-y: auto; overflow-x: hidden;
+  }
+
+	.lpTable {
+    width: 545px;
+	}
+
+	.lpTable td {
+	  vertical-align: middle;
+	  border-top: 1px solid #dddddd;
+	  border-right: 1px solid #dddddd;
+	  padding-top: 4px; padding-left: 4px;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
+	}
+
+	.lpRow {
+	  background-color: #eeeeee;
+	  height: 20px;
+	}
+
+	.lpHeat0 {
+	  background-color: #0000DD;
+	  height: 100%;
+	}
+
+	.lpHeat1 {
+	  background-color: #6600CC;
+	  height: 100%;
+	}
+
+	.lpHeat2 {
+	  background-color: #CC0099;
+	  height: 100%;
+	}
+
+	.lpHeat3 {
+	  background-color: #FF0033;
+	  height: 100%;
+	}
+
+/* ========== LIST S (NON-PAGED, SCROLLING, RESIZEABLE LIST) */
+
+  .lsContainerView {
+    margin: 75px auto;
+    padding-top: 20px;
+    display: table;
+    width: 100%;
+  }
+
+  .lsControlsView {
+    width: 96%;
+    margin-left: 20px;
+    padding-left: 20px;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
+	  border-bottom: 1px solid #dddddd;
+  }
+
+	.lsControlsViewTable {
+	}
+
+	.lsControlsViewTable td {
+	  border-right: 1px solid #dddddd;
+	  padding: 8px;
+	  white-space: nowrap;
+	}
+
+	.lsControlsViewTable td:first-child {
+	  border-right: 1px solid #dddddd;
+	  padding-left: 0px;
+	  padding-right: 8px; padding-top: 8px; padding-bottom: 8px;
+	  white-space: nowrap;
+	}
+
+  .lsContainer {
+    height: 310px; width: 97%;
+    margin-top: 20px; margin-left: 20px; margin-bottom: 20px;
+    padding-left: 10px;
+    vertical-align: top;
+	  background-color: #dddddd;
+    overflow: hidden;
+    resize: both;
+	  -webkit-border-top-right-radius: 20px;
+	     -moz-border-top-right-radius: 20px;
+	          border-top-right-radius: 20px;
+	  -webkit-border-top-left-radius: 20px;
+	     -moz-border-top-left-radius: 20px;
+	          border-top-left-radius: 20px;
+  }
+
+	.lsControls {
+	}
+
+	.lsControls td {
+	  vertical-align: middle;
+	  padding: 8px;
+	  white-space: nowrap;
+	}
+
+  .lsContainerHeader {
+    height: 40px; width: 100%;
+    vertical-align: top;
+    background-color: #dddddd;
+    overflow-y: auto; overflow-x: hidden;
+  }
+
+  .lsContainerTable {
+    height: 100%; width: 100%;
+    vertical-align: top;
+    background-color: #dddddd;
+    overflow-y: scroll; overflow-x: hidden;
+  }
+
+	.lsHeader {
+    table-layout: fixed;
+    width: 100%;
+	}
+
+	.lsHeader tr {
+	  background-color: #cccccc;
+	  height: 40px;
+	}
+
+	.lsHeader td {
+	  vertical-align: top;
+	  font-size: 9pt;
+	  font-weight: bold;
+	  border-top-color: #dddddd;
+	  border-right-color: #dddddd;
+	  border-left-color: #dddddd;
+	  border-bottom-color: #dddddd;
+	  padding: 4px;
+	}
+
+	.lsHeader td div {
+	  height: 100%;
+	  width: 100%;
+	  overflow: hidden;
+	}
+
+	.lsHeader td:first-child {
+	  border-left: 1px solid #dddddd;
+	}
+
+	.lsTable {
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 150px;
+	}
+
+	.lsTable tr {
+	  background-color: #dddddd;
+	  color: #000000;
+	}
+
+	.lsTable td {
+	  vertical-align: middle;
+	  border-top-color: #eeeeee;
+	  border-right-color: #eeeeee;
+	  border-left-color: #eeeeee;
+	  border-bottom-color: #eeeeee;
+	  padding: 4px;
+	}
+
+	.lsTable td:first-child {
+	  text-decoration: underline;
+	}
+
+  .clickForDrillDown a {
+    color: #000000;
+  }
+
+  .clickForDrillDown a:hover {
+    color: #000000;
+    opacity: 0.5;
+  }
+
+  .clickForDrillDown a:visited {
+    color: #000000;
+  }
+
+	.lsTableAccesories {
+    table-layout: fixed;
+    width: 97%;
+	}
+
+/* ========== TOOLTIP */
+
+  .tooltip {
+    position: absolute; top: 0px; left: 0px;
+    background-color: #ffffff; opacity: 0.7;
+    padding: 5px; white-space: nowrap;
+    color: #000000;
+    font-size: 9pt;
+    overflow: hidden; visibility: hidden;
+	  -webkit-border-radius: 12px;
+	     -moz-border-radius: 12px;
+	          border-radius: 12px;
+  }
+
+/* ========== GENERIC DIALOG */
+
+  .containerDialog {
+    position: absolute; top: 0px; left: 0px;
+    height: 260px; width: 320px;
+    background-color: #eeeeee;
+    border: none;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+		visibility: hidden;
+		overflow: hidden;
+		resize: both; min-height: 30px; min-width: 200px;
+  }
+
+  .containerHelp { background-color: #ffffff; }
+
+  .handleDialog{
+    position: absolute; top: 0px; left: 0px;
+    height: 40px; width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #666666;
+    cursor: move;
+  }
+
+  .titleDialog {
+    position: absolute; top: 11px; left: 10px;
+    font-weight: bold;
+    font-size: 11pt;
+  }
+
+  .iconsDialog {
+    position: absolute; top: 8px; right: 10px;
+  }
+
+  .divDialog {
+    position: absolute; top: 45px; left: 10px;
+    height: 85%; width: 93%;
+    background-color: transparent;
+    overflow-y: auto; overflow-x: auto;
+  }
+
+	.textDialog {
+    height: 100%;
+    width: 100%;
+    font-weight: normal;
+    font-size: 11pt;
+	}
+
+/* ========== QUERY LIST */
+
+  .listQuery {
+    position: absolute; top: 0px; left: 0px;
+    height: 245px; width: 320px;
+    background-color: #c6c2a1;
+    border: none;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+		visibility: hidden;
+  }
+
+  .handleQuery {
+    position: absolute; top: 0px; left: 0px;
+    height: 40px; width: 320px;
+    background-color: transparent;
+    border-bottom: 1px solid #666666;
+    cursor: move;
+  }
+
+  .titleQueryList {
+    position: absolute; top: 11px; left: 10px;
+    font-weight: bold;
+    font-size: 10pt;
+  }
+
+  .iconsQuery {
+    position: absolute; top: 8px; right: 10px;
+  }
+
+  .canvasQuery {
+    position: absolute; top: 45px; left: 10px;
+    height: 185px; width: 300px;
+    background-color: transparent;
+    overflow-y: auto; overflow-x: hidden;
+  }
+
+/* ========== TREE */
+
+  .treeContainer {
+    position: absolute; top: 0px; left: 0px;
+    height: 260px; width: 320px;
+    background-color: #dddddd;
+    border: none;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+		visibility: hidden;
+		overflow: hidden;
+		resize: both; min-height: 260px; min-width: 300px;
+  }
+
+  .handleTree {
+    position: absolute; top: 0px; left: 0px;
+    height: 40px; width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #666666;
+    cursor: move;
+  }
+
+  .titleTree {
+    position: absolute; top: 11px; left: 10px;
+    font-weight: bold;
+    font-size: 11pt;
+  }
+
+  .iconsTree {
+    position: absolute; top: 8px; right: 10px;
+  }
+
+  .tree {
+    position: absolute; top: 45px; left: 10px;
+    height: 85%; width: 93%;
+    background-color: transparent;
+    overflow-y: auto; overflow-x: hidden;
+  }
+
+	.divTree {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 50px;
+	}
+
+	.rowTree {
+	  background-color: #dddddd;
+	  color: #000000;
+	  height: 24px;
+	  width: 100%;
+	}
+
+	.rowRoot {
+	  background-color: #dddddd;
+	  color: #000000;
+	  height: 24px;
+	  width: 100%;
+	}
+
+	.cellTree {
+	  font-size: 10pt;
+	  vertical-align: middle;
+	  padding: 4px;
+	  width: 100%;
+	}
+
+/* ========== CHARTS */
+
+  .chartContainerMain {
+    position: absolute; top: 0px; left: 0px;
+    height: 300px; width: 470px;
+	  -webkit-border-radius: 12px;
+	     -moz-border-radius: 12px;
+	          border-radius: 12px;
+	  background-color: #c6c2a1;
+    visibility: hidden;
+  }
+
+  .chartContainer {
+	  position: absolute; top: 50px; left: 0px;
+	  height: 250px; width: 470px;
+	  visibility: hidden;
+  }
+
+  .titleChart {
+	  position: absolute; top: 15px; left: 15px;
+	  font-size: 10pt;
+	  color: #ffffff;
+	  visibility: hidden;
+  }
+
+  .iconsChart {
+    position: absolute; top: 8px; right: 10px;
+    visibility: hidden;
+  }
+
+  .chartContainerMainFixed {
+    height: 240px; width: 790px;
+    margin-top: 20px; margin-left: 20px;
+    padding-top: 10px;
+	  -webkit-border-radius: 12px;
+	     -moz-border-radius: 12px;
+	          border-radius: 12px;
+    visibility: hidden;
+  }
+
+  .chartContainerFixed {
+	  margin-top: 10px;
+	  height: 210px; width: 800px;
+	  visibility: hidden;
+  }
+
+  .titleChartFixed {
+	  margin-left: 15px;
+	  font-size: 12pt;
+	  color: #ffffff;
+	  font-family: Calibri, sans-serif;
+	  text-align: left;
+	  visibility: hidden;
+	  float: left;
+  }
+
+/* ========== TIMELINE */
+
+	@font-face {
+    font-family: "Digitaldream";
+    src: local( "Digitaldream" ), url( "../fonts/Digitaldream.ttf" ) format( "truetype" );
+	}
+
+	.dateDigitalContainer {
+		position: absolute; bottom: 72px; left: 1210px; height: 11px; width: 110px;
+		color: #666666; letter-spacing: 2px; padding-top: 3px;
+		font-family: "Digitaldream"; font-weight: bold;
+		font-size: 6pt; text-align: center;
+		visibility: hidden; display: none;
+	}
+
+	.dateDigital {
+		background-color: transparent;
+		cursor: default;
+		display: inline;
+	}
+
+	.clockDigitalContainer {
+		position: absolute; bottom: 72px; left: 1319px; height: 11px; width: 110px;
+		color: #666666; letter-spacing: 2px; padding-top: 3px;
+		font-family: "Digitaldream"; font-weight: bold;
+		font-size: 6pt; text-align: center;
+		visibility: hidden; display: none;
+	}
+
+	.clockDigital {
+		background-color: transparent;
+		cursor: default;
+		display: inline;
+	}
+
+  .timeline {
+    position: absolute; bottom: 5px; left: 10px;
+    overflow: hidden; visibility: hidden; display: none;
+  }
+
+  .hairlineContainer {
+    position: absolute; bottom: 14px; left: 9px;
+    height: 44px; width: 1431px;
+    background-color: transparent;
+    overflow: hidden; visibility: hidden; display: none;
+  }
+
+  .hairline {
+    position: absolute; top: 0px; left: 1425px;
+    height: 44px; width: 6px;
+    background-color: transparent; cursor: ew-resize;
+    overflow: hidden; visibility: hidden;
+  }
+
+  .hairlineCenter {
+    position: absolute; top: 0px; left: 2px;
+    height: 44px; width: 2px;
+    background-color: #FF0033; cursor: ew-resize;
+    overflow: hidden; visibility: hidden; display: none;
+  }
+
+/* ========== INDEX */
+
+/* ========== Initial size for view is height: 710 width: 1430. */
+  .view {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display:block;
+    width:100%!important;
+    height:100%!important;
+    overflow: hidden;
+  }
+
+  .titleModule {
+    font-size: 18pt;
+    font-weight: bold;
+    position: absolute; top: 28px; left: 10px;
+    display: none;
+  }
+
+/* ========== ICONS TOP (show modules and views) left should be same as width but negative */
+  .iconTop {
+    position: absolute; top: 15px; left: -140px;
+    height: 60px; width: 140px;
+    overflow: hidden; visibility: hidden;
+  }
+  .iconTop0     { position: absolute; top: 0px; left: 0px; }
+  .iconTop0Text { position: absolute; top: 52px; left: 0px; width: 50px; }
+
+  .iconTop1     { position: absolute; top: 0px; left: 60px; }
+  .iconTop1Text { position: absolute; top: 52px; left: 60px; width: 50px; }
+
+/* ========== ICONS MODULE top should be same as height but negative */
+  .iconsModule {
+    position: absolute; top: -255px; left: 0px;
+    height: 255px; width: 50px;
+    overflow: hidden; visibility: hidden;
+  }
+
+/* ========== Stats */
+  .iconM0     { position: absolute; top: 0px; left: 0px; }
+  .iconM0Text { position: absolute; top: 52px; left: 0px; width: 50px; }
+
+/* ========== Analyze */
+  .iconM1     { position: absolute; top: 65px; left: 0px; }
+  .iconM1Text { position: absolute; top: 117px; left: 0px; width: 50px; }
+
+/* ========== Manage */
+  .iconM2     { position: absolute; top: 130px; left: 0px; }
+  .iconM2Text { position: absolute; top: 182px; left: 0px; width: 50px; }
+
+/* ========== Preferences */
+  .iconM3     { position: absolute; top: 195px; left: 0px; }
+  .iconM3Text { position: absolute; top: 247px; left: 0px; width: 50px; }
+
+/* ========== ICONS VIEW top should be same as height but negative */
+  .iconsView {
+    position: absolute; top: -195px; left: 0px;
+    height: 195px; width: 52px;
+    overflow: hidden; visibility: hidden;
+  }
+
+/* ========== Stats/Heat Map */
+  .iconView_M0_V0 { position: absolute; top: 0px; left: 0px; }
+  .iconView_M0_V0Text { position: absolute; top: 52px; left: 0px; width: 52px; }
+
+/* ========== Stats/Heat List */
+  .iconView_M0_V1 { position: absolute; top: 65px; left: 0px; }
+  .iconView_M0_V1Text { position: absolute; top: 117px; left: 0px; width: 52px; }
+
+/* ========== Stats/Schema Wheel */
+  .iconView_M0_V2 { position: absolute; top: 130px; left: 0px; }
+  .iconView_M0_V2Text { position: absolute; top: 182px; left: 0px; width: 52px; }
+
+/* ========== Analyze/Receommendations */
+  .iconView_M1_V0 { position: absolute; top: 0px; left: 0px; }
+  .iconView_M1_V0Text { position: absolute; top: 52px; left: 0px; width: 52px; }
+
+/* ========== Analyze/Shard Analysis */
+  .iconView_M1_V1 { position: absolute; top: 65px; left: 0px; }
+  .iconView_M1_V1Text { position: absolute; top: 117px; left: 0px; width: 52px; }
+
+/* ========== Analyze/Stream Analysis */
+  .iconView_M1_V2 { position: absolute; top: 130px; left: 0px; }
+  .iconView_M1_V2Text { position: absolute; top: 182px; left: 0px; width: 52px; }
+
+/* ========== Manage/Agent List */
+  .iconView_M2_V0 { position: absolute; top: 0px; left: 0px; }
+  .iconView_M2_V0Text { position: absolute; top: 52px; left: 0px; width: 52px; }
+
+/* ========== Manage/Client List */
+  .iconView_M2_V1 { position: absolute; top: 65px; left: 0px; }
+  .iconView_M2_V1Text { position: absolute; top: 117px; left: 0px; width: 52px; }
+
+/* ========== Manage/Host List */
+  .iconView_M2_V2 { position: absolute; top: 130px; left: 0px; }
+  .iconView_M2_V2Text { position: absolute; top: 182px; left: 0px; width: 52px; }
+
+/* ========== Manage/Process List */
+  .iconView_M2_V3 { position: absolute; top: 195px; left: 0px; }
+  .iconView_M2_V3Text { position: absolute; top: 247px; left: 0px; width: 52px; }
+
+
+/* ========== ICONS GLOBAL left should be same as width but negative */
+  .iconGlobal {
+    position: absolute; top: 15px; left: -120px;
+    height: 60px; width: 120px;
+    overflow: hidden; visibility: hidden;
+  }
+
+  .iconGlobal0 { position: absolute; top: 0px; left: 0px; }
+  .iconGlobal0Text { position: absolute; top: 52px; left: 0px; width: 50px; }
+
+  .iconGlobal1 { position: absolute; top: 0px; left: 60px; }
+  .iconGlobal1Text { position: absolute; top: 52px; left: 60px; width: 50px; }
+
+/* ========== ICONS MODULE 0 Stats left should be same as width but negative */
+  .iconSetM0 {
+    position: absolute; top: 15px; left: -290px;
+    height: 60px; width: 290px;
+    overflow: hidden; visibility: hidden;
+  }
+
+  .iconM0_0 { position: absolute; top: 0px; left: 0px; }
+  .iconM0_0Text { position: absolute; top: 52px; left: 0px; width: 50px; }
+
+  .iconM0_1 { position: absolute; top: 0px; left: 60px; }
+  .iconM0_1Text { position: absolute; top: 52px; left: 60px; width: 50px; }
+
+  .iconM0_2 { position: absolute; top: 0px; left: 120px; }
+  .iconM0_2Text { position: absolute; top: 52px; left: 120px; width: 50px; }
+
+  .iconM0_3 { position: absolute; top: 0px; left: 180px; }
+  .iconM0_3Text { position: absolute; top: 52px; left: 180px; width: 50px; }
+
+  .iconM0_4 { position: absolute; top: 0px; left: 240px; }
+  .iconM0_4Text { position: absolute; top: 52px; left: 240px; width: 50px; }
+
+/* ========== ICONS MODULE 0 Stats, VIEW 0 Heat Map - left should be same as width but negative */
+  .iconSetM0_V0 {
+    position: absolute; top: 15px; left: -120px;
+    height: 60px; width: 120px;
+    overflow: hidden; visibility: hidden;
+  }
+
+  .iconM0_V0_0 { position: absolute; top: 0px; left: 0px; }
+  .iconM0_V0_0Text { position: absolute; top: 52px; left: 0px; width: 50px; }
+
+  .iconM0_V0_1 { position: absolute; top: 0px; left: 60px; }
+  .iconM0_V0_1Text { position: absolute; top: 52px; left: 60px; width: 50px; }
+
+/* ========== ICONS MODULE 0 Stats, VIEW 1 Heat List - left should be same as width but negative */
+  .iconSetM0_V1 {
+    position: absolute; top: 15px; left: -60px;
+    height: 60px; width: 60px;
+    overflow: hidden; visibility: hidden;
+  }
+
+/* ========== ICONS MODULE 0 Stats, VIEW 2 Schema Wheel - left should be same as width but negative */
+  .iconSetM0_V2 {
+    position: absolute; top: 15px; left: -120px;
+    height: 60px; width: 120px;
+    overflow: hidden; visibility: hidden;
+  }
+
+  .iconM0_V2_0 { position: absolute; top: 0px; left: 0px; }
+  .iconM0_V2_0Text { position: absolute; top: 52px; left: 0px; width: 50px; }
+
+  .iconM0_V2_1 { position: absolute; top: 0px; left: 60px; }
+  .iconM0_V2_1Text { position: absolute; top: 52px; left: 60px; width: 50px; }
+
+/* ========== ICONS MODULE 1 Analyze, VIEW 0 Recommendations - left should be same as width but negative */
+  .iconSetM1_V0 {
+    position: absolute; top: 15px; left: -60px;
+    height: 60px; width: 60px;
+    overflow: hidden; visibility: hidden;
+  }
+
+/* ========== ICONS MODULE 1 Analyze, VIEW 1 Shard Analysis - left should be same as width but negative */
+  .iconSetM1_V1 {
+    position: absolute; top: 15px; left: -240px;
+    height: 60px; width: 240px;
+    overflow: hidden; visibility: hidden;
+  }
+
+  .iconM1_V1_0 { position: absolute; top: 0px; left: 0px; }
+  .iconM1_V1_0Text { position: absolute; top: 52px; left: 0px; width: 50px; }
+
+  .iconM1_V1_1 { position: absolute; top: 0px; left: 60px; }
+  .iconM1_V1_1Text { position: absolute; top: 52px; left: 60px; width: 50px; }
+
+  .iconM1_V1_2 { position: absolute; top: 0px; left: 120px; }
+  .iconM1_V1_2Text { position: absolute; top: 52px; left: 120px; width: 50px; }
+
+  .iconM1_V1_3 { position: absolute; top: 0px; left: 180px; }
+  .iconM1_V1_3Text { position: absolute; top: 52px; left: 180px; width: 50px; }
+
+/* ========== ICONS MODULE 1 Analyze, VIEW 2 Stream Analysis - left should be same as width but negative */
+  .iconSetM1_V2 {
+    position: absolute; top: 15px; left: -60px;
+    height: 60px; width: 60px;
+    overflow: hidden; visibility: hidden;
+  }
+
+/* ========== ICONS MODULE 2 Manage, VIEW 0 Agent List - left should be same as width but negative */
+  .iconSetM2_V0 {
+    position: absolute; top: 15px; left: -60px;
+    height: 60px; width: 60px;
+    overflow: hidden; visibility: hidden;
+  }
+
+/* ========== ICONS MODULE 2 Manage, VIEW 1 Client List - left should be same as width but negative */
+  .iconSetM2_V1 {
+    position: absolute; top: 15px; left: -60px;
+    height: 60px; width: 60px;
+    overflow: hidden; visibility: hidden;
+  }
+
+/* ========== ICONS MODULE 2 Manage, VIEW 2 Host List - left should be same as width but negative */
+  .iconSetM2_V2 {
+    position: absolute; top: 15px; left: -60px;
+    height: 60px; width: 60px;
+    overflow: hidden; visibility: hidden;
+  }
+
+/* ========== ICONS MODULE 2 Manage, VIEW 3 Process List - left should be same as width but negative */
+  .iconSetM2_V3 {
+    position: absolute; top: 15px; left: -60px;
+    height: 60px; width: 60px;
+    overflow: hidden; visibility: hidden;
+  }
+
+  .heatIndicator {
+    position: absolute; bottom: 62px; left: 5px;
+    visibility: hidden;
+  }
+
+  .iconsHeatIndicator {
+    position: absolute; bottom: 162px; left: 121px;
+    visibility: hidden;
+  }
+
+	.footer {
+		position: absolute; bottom: 15px; left: 0px;
+		width: 100%;
+	  background-color: #ffffff;
+	  padding-left: 10px; padding-right: 10px;
+		visibility: hidden;
+	}
+
+	.textFooter {
+		font-size: 10pt;
+		cursor: default;
+		display: inline;
+	}
+
+/* ========== HEAT MAP */
+
+/* ========== Max h/w must be larger than min. */
+/* ========== If min/max changes, must also change g_vals.hNavMin_/hNavMax_/wNavMin_/wNavMax_ in js file. */
+/* ========== g_vals.hNavMax_ must be 30 less than max-height here in css (store this amount in g_vals.hNavMaxPadding_). */
+/* ========== g_vals.wNavMax_ must be same as max-width here in css. */
+/* ========== Set h/w of canvasMini to match max h/w in canvasMiniContainer. */
+  .canvasMiniContainer {
+    position: absolute; top: 15px; left: 860px;
+    height: 180px; width: 350px;
+    background-color: #dddddd;
+    border: none;
+	  -webkit-border-radius: 20px;
+	     -moz-border-radius: 20px;
+	          border-radius: 20px;
+    overflow: hidden;
+    resize: both; min-height: 180px; min-width: 350px; max-height: 300px; max-width: 600px;
+  }
+
+  .canvasMiniInner {
+    position: absolute; top: 0px; left: 0px;
+    height: 100%; width: 100%;
+    overflow: hidden;
+  }
+
+  .handleMini {
+    position: absolute; top: 0px; left: 0px;
+    height: 40px; width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #ffffff;
+    cursor: move;
+  }
+
+  .titleMini {
+    position: absolute; top: 11px; left: 10px;
+    font-weight: bold;
+    font-size: 10pt;
+  }
+
+  .iconsMini {
+    position: absolute; top: 8px; right: 8px;
+  }
+
+/* ========== g_vals.hNavMaxOffset_ must be same as top here in css. */
+  .canvasMini {
+    position: absolute; top: 45px; left: 10px;
+    height: 300px; width: 600px;
+    background-color: transparent;
+  }
+
+/* ========== SCHEMA WHEEL */
+
+	.containerDropPoint {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+
+	.dropPoint {
+		border-radius: 50%;
+		width: 14px;
+		height: 14px;
+		background-color: #ffffff;
+		opacity: 0.8;
+		visibility: hidden;
+		/* width and height can be anything, as long as they're equal */
+	}
+
+/* ========== TESTING */
+
+  .testField {
+    background-color: #ffffff;
+    visibility: hidden;
+  }

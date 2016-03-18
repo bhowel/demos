@@ -37,19 +37,19 @@ if ( isset( $_GET["fullname"] ) &&
 	</html>
 	";
 
-  $sendgrid_apikey = $_ENV["ACCOUNTDEMO_EMAIL_KEY"];
-  $sendgrid = new SendGrid( $sendgrid_apikey );
-	$emailAccount = new SendGrid\Email();
-	$emailAccount->addTo( "barbara.howell.ms@gmail.com" )
-	             ->addTo( $email )
-				       ->setFrom( "barbara.howell.ms@gmail.com" )
-				       ->setSubject( "New Account" )
-				       ->setHtml( $message );
-
-	if ( $sendgrid->send( $emailAccount ) ) {
-		header( "Content-type: application/json" );	
-		$data["complete"]["responseText"] = "Success";
-		echo json_encode($data);
-	}
+//   $sendgrid_apikey = $_ENV["ACCOUNTDEMO_EMAIL_KEY"];
+//   $sendgrid = new SendGrid( $sendgrid_apikey );
+// 	$emailAccount = new SendGrid\Email();
+// 	$emailAccount->addTo( "" )
+// 	             ->addTo( $email )
+// 				       ->setFrom( "" )
+// 				       ->setSubject( "New Account" )
+// 				       ->setHtml( $message );
+// 
+// 	if ( $sendgrid->send( $emailAccount ) ) {
+// 		header( "Content-type: application/json" );	
+// 		$data["complete"]["responseText"] = "Success";
+// 		echo json_encode($data);
+// 	}
 }
 ?>

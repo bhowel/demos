@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Heat Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- ========== STYLESHEETS //-->
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+  <link type="text/css" href="css/3p/jquery.jscrollpane.min.css" rel="stylesheet" media="all" />
+
+  <!-- ================================= HTML5 SHIM //-->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- ================================= JAVASCRIPT //-->
+  <script type="text/javascript">
+  <!--
+
+    // ERROR HANDLING.
+    // Fired automatically by browser on script errors and any errors caught by browser.
+    // Return true prevents default browser action.
+	  // Script errors include Kinetic bug that prevents catching errors when user drags element over another element.
+	  // Allowing application to continue running after error in drag event does not harm functionality or performance.
+	  window.onerror = function( msg_, url_, lineNbr_ ){
+	    return true;
+	  }//window.onerror
+
+  // -->
+  </script>
+
+</head>
+
+<body>
+
+  <!-- ========== MAIN CANVAS //-->
+	<div id="_main" class="bgDividedGray"></div>
+
+  <!-- ========== MINI CANVAS NOTE: Div with class canvasMiniInner curtails mini canvas so it does not interfere with resize control. //-->
+  <div id="_miniContainer" class="canvasMiniContainer">
+    <div class="canvasMiniInner">
+		  <div id="_handleMini" class="handleMini">
+		    <div id="_titleMini" class="titleMini">Navigator
+		    </div>
+			  <div class="iconsMini">
+		      <table cellspacing="0" cellpadding="1">
+		      <tr>
+		      <td><img id="_iconZoomOut"     class="icon" src="img/iconMinusWhite.png" title="Zoom out" style="cursor: default;" /></td>
+		      <td><img id="_iconZoomIn"      class="icon" src="img/iconPlus.png"       title="Zoom in"  style="cursor: default;" /></td>
+		      <td><img id="_iconZoomRestore" class="icon" src="img/iconRestore.png"    title="Restore view to normal size" style="visibility: hidden; cursor: default;" /></td>
+		      <td><img id="_iconInfo"        class="icon" src="img/iconHelp.png"       style="cursor: default;" /></td>
+		      </tr>
+		      </table>
+			  </div>
+		  </div>
+			<div id="_mini" class="canvasMini"></div>
+    </div>
+	</div>
+
+  <!-- ========== TREE //-->
+	<div id="_containerTree" class="treeContainer">
+	  <div id="_handleTree" class="handleTree">
+	    <div id="_titleTree" class="titleTree"></div>
+	    <div id="_iconsTree" class="iconsTree">
+		    <img id="_iconTreeTimer"              src="img/iconTimerGray.png"      title="Flashes for update." style="visibility: hidden; cursor: default;" />
+		    <img id="_iconTreeClose" class="icon" src="img/iconCloseGrayLight.png" title="Close tree"          style="cursor: default;" />
+	    </div>
+	  </div>
+	  <div id="_tree" class="tree">
+	    <div id="_listTree" class="divTree"></div>
+	  </div>
+	</div>
+
+  <!-- ========== CHART //-->
+  <div id="_chartContainerMain" class="chartContainerMain">
+    <div id="_chartContainer" class="chartContainer">
+    </div>
+    <div id="_titleChart" class="titleChart"></div>
+    <div id="_iconsChart" class="iconsChart">
+      <img id="_iconChartAll"   class="icon" src="img/iconChartAll.png"   title="Show stats for all queries of the same type" style="visibility: hidden;" />
+      <img id="_iconChartTimer"              src="img/iconTimerWhite.png" title="Updating in real time." />
+      <img id="_iconChartClose" class="icon" src="img/iconCloseWhite.png" title="Close chart" />
+    </div>
+  </div>
+
+  <!-- ========== QUERY LIST //-->
+	<div id="_listQuery" class="listQuery">
+	  <div id="_handleQuery" class="handleQuery">
+	    <div id="_titleQueryList" class="titleQueryList">Queries
+	    </div>
+	    <div class="iconsQuery">
+		    <img id="_iconQueryAll"    class="icon" src="img/iconAll.png"         title="Show all queries"    style="cursor: default;" />
+		    <img id="_iconQuerySelect" class="icon" src="img/iconQuerySelect.png" title="Show select queries" style="cursor: default;" />
+		    <img id="_iconQueryInsert" class="icon" src="img/iconQueryInsert.png" title="Show insert queries" style="cursor: default;" />
+		    <img id="_iconQueryUpdate" class="icon" src="img/iconQueryUpdate.png" title="Show update queries" style="cursor: default;" />
+		    <img id="_iconQueryDelete" class="icon" src="img/iconQueryDelete.png" title="Show delete queries" style="cursor: default;" />
+		    <img id="_iconQueryOther"  class="icon" src="img/iconQueryOther.png"  title="Show other queries"  style="cursor: default; margin-right: 10px;" />
+		    <img id="_iconQueryClose"  class="icon" src="img/iconCloseWhite.png"  title="Close queries"       style="cursor: default;" />
+	    </div>
+	  </div>
+	  <div id="_canvasQuery" class="canvasQuery"></div>
+	</div>
+
+  <!-- ========== QUERY EDIT //-->
+	<div id="_containerQueryEdit" class="containerDialog containerHelp">
+	  <div id="_handleQueryEdit" class="handleDialog">
+	    <div class="titleDialog">Query Edit</div>
+	    <div class="iconsDialog">
+	      <img id="_iconQueryEditChart" class="icon" src="img/iconChartGrayLight.png" title="Show chart for query"    style="cursor: default;" />
+	      <img id="_iconQueryEditClose" class="icon" src="img/iconCloseGrayLight.png" title="Close query edit dialog" style="cursor: default;" />
+	    </div>
+	  </div>
+	  <div class="divDialog">
+	    <div id="_textQueryEdit" class="textDialog"></div>
+	  </div>
+	</div>
+
+  <!-- ========== TOOLTIP //-->
+	<div id="_tooltip" class="tooltip"></div>
+
+  <!-- ========== TESTING //-->
+	<div id="_testField" class="testField" style="position:absolute; top: 400px; left: 10px;"></div>
+
+  <!-- ========== PAGE NAME //-->
+	<span id="_pageName" style="visibility: hidden;">heatMap</span>
+
+  <!-- ================================= JAVASCRIPT //-->
+  <script src="js/3p/jquery.min.js"></script>
+  <script src="js/3p/jquery-ui.min.js"></script>
+  <script src="js/3p/kinetic-4.6.0.min.js"></script>
+	<script src="js/3p/jquery.mousewheel.min.js"></script>
+	<script src="js/3p/jquery.jscrollpane.min.js"></script>
+  <script src="js/static.js"></script>
+  <script src="js/stats_heatMap.js"></script>
+  <script src="js/tree.js"></script>
+  <script src="js/shape.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/thermometer.js"></script>
+  <script src="test/jsonTree.js"></script>
+  <script src="test/jsonStats.js"></script>
+
+	<noscript>
+	<hr size="4">
+	<h1>This application requires Firefox with javascript enabled</h1>
+	<p>
+	This browser may not support javascript, or javascript may be disabled. If you want to run the application, please upgrade your browser (use Firefox) or enable javascript support.
+	</p>
+	<hr size="4">
+	</noscript>
+
+</body>
+
+</html>

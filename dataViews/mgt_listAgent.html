@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>List Agent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- ========== STYLESHEETS //-->
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+  <!-- ================================= HTML5 SHIM //-->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- ================================= JAVASCRIPT //-->
+  <script type="text/javascript">
+  <!--
+
+    // ERROR HANDLING.
+    // Fired automatically by browser on script errors and any errors caught by browser.
+    // All errors are logged. Function tries to init app, then goes to error page and shows log.
+    // Return true prevents default browser action.
+    window.onerror = function( msg_, url_, lineNbr_ ){
+      var errorMessage_ = msg_ + " URL: " + url_ + " Line Number: " + lineNbr_;
+      parent.logMessage( errorMessage_ );
+      parent.handleError();
+      return true;
+    }//window.onerror
+
+  // -->
+  </script>
+
+</head>
+
+<body class="bgBasic">
+
+	<!-- ========== VIEW CONTAINER: LIST //-->
+	<div id="_viewList" class="lsContainerView" style="visibility: hidden; display: none;">
+
+	  <!-- ========== VIEW CONTROLS //-->
+	  <div class="lsControlsView">
+      <table class="lsControlsViewTable">
+      <tr>
+        <td>
+          <img src="img/iconAgent.png" title="Agents" />
+          <div class="iconText">Agents</div>
+        </td>
+        <td>
+          <h2 id="_serverName0"></h2>
+        </td>
+        <td style="border-right: none;">
+		      <span>Select list type:</span>
+		      <select id="_dropdownListType" class="selectSmall" title="Select type of list to show" size="1" style="width: 170px; cursor: default;">
+		          <option selected value="replication">Replication</option>
+		          <option value="chained-replication" >Chained-replication</option>
+		          <option value="query"               >Query</option>
+		          <option value="procedure"           >Procedure</option>
+		          <option value="stream"              >Stream</option>
+		      </select>
+        </td>
+        <td id="_catCheckboxes">
+          <input type="checkbox" id="_cat0" name="_cat" value="primary" checked>Primary<br>
+          <input type="checkbox" id="_cat1" name="_cat" value="secondary">Secondary
+        </td>
+        <td>
+          <button id="_btnGetList" title="Get selected list(s)">Get List(s)</button>
+        </td>
+      </tr>
+      </table>
+	  </div>
+
+	  <!-- ========== PRIMARY LIST //-->
+	  <div id="_divP" class="lsContainer" style="visibility: hidden; display: none;">
+
+	    <!-- ========== LIST CONTROLS //-->
+	    <table class="lsControls" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <h3 id="_titleListP">List Title</h3>
+	      </td>
+        <td>
+          <button id="_btnSelAllP"   title="Select all rows"           >Select All</button>
+          <button id="_btnUnselAllP" title="Set all rows to unselected">Unselect All</button>
+        </td>
+        <td>
+		      &nbsp;&nbsp;&nbsp;<span>Select message:</span>
+		      <select id="_dropdownMsgTypeP" class="selectSmall" title="Select type of message to send" size="1" style="width: 210px; cursor: default;">
+		          <option selected value="stop_monitoring_process">stop_monitoring_process</option>
+		          <option value="stop_process"                    >stop_process</option>
+		          <option value="start_process"                   >start_process</option>
+		          <option value="restart_process"                 >restart_process</option>
+		          <option value="pause_replication"               >pause_replication</option>
+		          <option value="resume_replication"              >resume_replication</option>
+		          <option value="snapshot_data_logs_full"         >snapshot_data_logs_full</option>
+		          <option value="snapshot_logs_full"              >snapshot_logs_full</option>
+		          <option value="snapshot_logs_incremental"       >snapshot_logs_incremental</option>
+		          <option value="promote_secondary"               >promote_secondary</option>
+		      </select>
+
+          <button id="_btnSendP" title="Send selected message">Send</button>
+        </td>
+	    </tr>
+	    </table>
+
+	    <!-- ========== LIST HEADER //-->
+	    <div class="lsContainerHeader">
+	     <table id="_listHeaderP" class="lsHeader" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	    <!-- ========== LIST TABLE //-->
+	    <div class="lsContainerTable">
+	     <table id="_listP" class="lsTable" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	  </div>
+	  <!-- ========== PRIMARY LIST END //-->
+
+	  <!-- ========== SECONDARY LIST 0 //-->
+	  <div id="_divS0" class="lsContainer" style="visibility: hidden; display: none;">
+
+	    <!-- ========== LIST CONTROLS //-->
+	    <table class="lsControls" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <h3 id="_titleListS0">List Title</h3>
+	      </td>
+        <td>
+          <button id="_btnSelAllS0"   title="Select all rows"           >Select All</button>
+          <button id="_btnUnselAllS0" title="Set all rows to unselected">Unselect All</button>
+        </td>
+        <td>
+		      &nbsp;&nbsp;&nbsp;<span>Select message:</span>
+		      <select id="_dropdownMsgTypeS0" class="selectSmall" title="Select type of message to send" size="1" style="width: 210px; cursor: default;">
+		          <option selected value="stop_monitoring_process">stop_monitoring_process</option>
+		          <option value="stop_process"                    >stop_process</option>
+		          <option value="start_process"                   >start_process</option>
+		          <option value="restart_process"                 >restart_process</option>
+		          <option value="pause_replication"               >pause_replication</option>
+		          <option value="resume_replication"              >resume_replication</option>
+		          <option value="snapshot_data_logs_full"         >snapshot_data_logs_full</option>
+		          <option value="snapshot_logs_full"              >snapshot_logs_full</option>
+		          <option value="snapshot_logs_incremental"       >snapshot_logs_incremental</option>
+		          <option value="promote_secondary"               >promote_secondary</option>
+		      </select>
+
+          <button id="_btnSendS0" title="Send selected message">Send</button>
+        </td>
+	    </tr>
+	    </table>
+
+	    <!-- ========== LIST HEADER //-->
+	    <div class="lsContainerHeader">
+	     <table id="_listHeaderS0" class="lsHeader" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	    <!-- ========== LIST TABLE //-->
+	    <div class="lsContainerTable">
+	     <table id="_listS0" class="lsTable" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	  </div>
+	  <!-- ========== SECONDARY LIST 0 END //-->
+
+	  <!-- ========== SECONDARY LIST 1 //-->
+	  <div id="_divS1" class="lsContainer" style="visibility: hidden; display: none;">
+
+	    <!-- ========== LIST CONTROLS //-->
+	    <table class="lsControls" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <h3 id="_titleListS1">List Title</h3>
+	      </td>
+        <td>
+          <button id="_btnSelAllS1"   title="Select all rows"           >Select All</button>
+          <button id="_btnUnselAllS1" title="Set all rows to unselected">Unselect All</button>
+        </td>
+        <td>
+		      &nbsp;&nbsp;&nbsp;<span>Select message:</span>
+		      <select id="_dropdownMsgTypeS1" class="selectSmall" title="Select type of message to send" size="1" style="width: 210px; cursor: default;">
+		          <option selected value="stop_monitoring_process">stop_monitoring_process</option>
+		          <option value="stop_process"                    >stop_process</option>
+		          <option value="start_process"                   >start_process</option>
+		          <option value="restart_process"                 >restart_process</option>
+		          <option value="pause_replication"               >pause_replication</option>
+		          <option value="resume_replication"              >resume_replication</option>
+		          <option value="snapshot_data_logs_full"         >snapshot_data_logs_full</option>
+		          <option value="snapshot_logs_full"              >snapshot_logs_full</option>
+		          <option value="snapshot_logs_incremental"       >snapshot_logs_incremental</option>
+		          <option value="promote_secondary"               >promote_secondary</option>
+		      </select>
+
+          <button id="_btnSendS1" title="Send selected message">Send</button>
+        </td>
+	    </tr>
+	    </table>
+
+	    <!-- ========== LIST HEADER //-->
+	    <div class="lsContainerHeader">
+	     <table id="_listHeaderS1" class="lsHeader" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	    <!-- ========== LIST TABLE //-->
+	    <div class="lsContainerTable">
+	     <table id="_listS1" class="lsTable" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	  </div>
+	  <!-- ========== SECONDARY LIST 1 END //-->
+
+	</div>
+	<!-- ========== VIEW CONTAINER END: LIST //-->
+
+	<!-- ========== VIEW CONTAINER: DRILL DOWN //-->
+	<div id="_viewDrillDown" class="lsContainerView" style="visibility: hidden; display: none;">
+
+	  <!-- ========== VIEW CONTROLS //-->
+	  <div class="lsControlsView">
+	    <table class="lsControlsViewTable">
+	    <tr>
+        <td>
+          <img src="img/iconAgent.png" title="Agents Detail" />
+          <div class="iconText">Agents Detail</div>
+        </td>
+        <td>
+          <h2 id="_serverName1">Server Name</h2>
+        </td>
+	      <td>
+	        <span id="_agentName">Agent Name</span>
+	      </td>
+        <td>
+          <button id="_btnRefreshDrillDown" title="Refresh lists">Refresh</button>
+          <button id="_btnReturn" title="Return to main view">Return to Main</button>
+        </td>
+	    </tr>
+	    </table>
+	  </div>
+
+		<!-- ========== CHARTS //-->
+		<div>
+			  <!-- ========== CHART 0 //-->
+			  <div id="_chartContainerMain0" class="chartContainerMainFixed" style="float: left;">
+			    <div id="_titleChart0" class="titleChartFixed"></div>
+		      <div>
+		        &nbsp;&nbsp;<img id="_iconChartTimer0" src="img/iconTimerGray.png" title="Updating in real time." style="cursor: default;" />
+		      </div>
+			    <div id="_chartContainer0" class="chartContainerFixed"></div>
+			  </div>
+
+			  <!-- ========== CHART 1 //-->
+			  <div id="_chartContainerMain1" class="chartContainerMainFixed" style="float: left;">
+			    <div id="_titleChart1" class="titleChartFixed"></div>
+		      <div>
+		        &nbsp;&nbsp;<img id="_iconChartTimer1" src="img/iconTimerGray.png" title="Updating in real time." style="cursor: default;" />
+		      </div>
+			    <div id="_chartContainer1" class="chartContainerFixed"></div>
+			  </div>
+		<div style="clear: both;"></div>
+		</div>
+
+	  <!-- ========== DRILL DOWN 0 LIST  //-->
+	  <div id="_divDD0" class="lsContainer" style="height: 200px; width: 60%; visibility: hidden; display: none;">
+
+	    <!-- ========== LIST TITLE //-->
+	    <table class="lsControls" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <h3 id="titleListDD0">List Title</h3>
+	      </td>
+	    </tr>
+	    </table>
+
+	    <!-- ========== LIST HEADER //-->
+	    <div class="lsContainerHeader">
+	     <table id="_listHeaderDD0" class="lsHeader" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	    <!-- ========== LIST TABLE //-->
+	    <div class="lsContainerTable">
+	     <table id="_listDD0" class="lsTable" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	  </div>
+	  <!-- ========== DRILL DOWN 0 LIST END //-->
+
+	  <!-- ========== DRILL DOWN 1 FIELDS //-->
+	  <div id="_divDD1" class="lsContainer" style="height: 160px; width: 60%; visibility: hidden; display: none;">
+
+	    <!-- ========== HEADER //-->
+	    <table class="lsControls" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <h3 id="titleListDD1">List Title</h3>
+	      </td>
+	    </tr>
+	    </table>
+
+	    <!-- ========== MESSAGES //-->
+	    <table class="lsTableAccesories" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <textarea id="_textAreaDD1_0" class="textareaMessage" rows="4" readonly></textarea>
+	      </td>
+	      <td>
+	        <textarea id="_textAreaDD1_1" class="textareaMessage" rows="4" readonly></textarea>
+	      </td>
+	    </tr>
+	    </table>
+
+	  </div>
+	  <!-- ========== DRILL DOWN 1 FIELDS END //-->
+
+	  <!-- ========== DRILL DOWN 2 LIST //-->
+	  <div id="_divDD2" class="lsContainer" style="height: 200px; width: 60%; visibility: hidden; display: none;">
+
+	    <!-- ========== LIST CONTROLS //-->
+	    <table class="lsControls" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <h3 id="titleListDD2">List Title</h3>
+	      </td>
+        <td>
+          <button id="_btnSelAllDD2"   title="Select all rows"           >Select All</button>
+          <button id="_btnUnselAllDD2" title="Set all rows to unselected">Unselect All</button>
+        </td>
+        <td>
+		      &nbsp;&nbsp;&nbsp;<span>Select message:</span>
+		      <select id="_dropdownMsgTypeDD2" class="selectSmall" title="Select type of message to send" size="1" style="width: 210px; cursor: default;">
+		          <option selected value="stop_monitoring_process">stop_monitoring_process</option>
+		          <option value="stop_process"                    >stop_process</option>
+		          <option value="start_process"                   >start_process</option>
+		          <option value="restart_process"                 >restart_process</option>
+		          <option value="pause_replication"               >pause_replication</option>
+		          <option value="resume_replication"              >resume_replication</option>
+		          <option value="snapshot_data_logs_full"         >snapshot_data_logs_full</option>
+		          <option value="snapshot_logs_full"              >snapshot_logs_full</option>
+		          <option value="snapshot_logs_incremental"       >snapshot_logs_incremental</option>
+		          <option value="promote_secondary"               >promote_secondary</option>
+		      </select>
+
+          <button id="_btnSendDD2" title="Send selected message">Send</button>
+        </td>
+	    </tr>
+	    </table>
+
+	    <!-- ========== LIST HEADER //-->
+	    <div class="lsContainerHeader">
+	     <table id="_listHeaderDD2" class="lsHeader" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	    <!-- ========== LIST TABLE //-->
+	    <div class="lsContainerTable">
+	     <table id="_listDD2" class="lsTable" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	  </div>
+	  <!-- ========== DRILL DOWN 2 LIST END //-->
+
+	</div>
+	<!-- ========== VIEW CONTAINER END: DRILL DOWN //-->
+
+  <!-- ========== TOOLTIP //-->
+  <div id="_tooltip" class="tooltip"></div>
+
+  <!-- ========== TESTING //-->
+  <div id="_testField" class="testField" style="position:absolute; top: 200px; left: 10px;"></div>
+
+  <!-- ========== PAGE NAME //-->
+  <span id="_pageName" style="visibility: hidden;">listAgent</span>
+
+  <!-- ================================= JAVASCRIPT //-->
+  <script src="js/3p/jquery.min.js"></script>
+  <script src="js/3p/kinetic-4.6.0.min.js"></script>
+  <script src="js/static.js"></script>
+  <script src="js/mgt_listAgent.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="test/jsonManagement.js"></script>
+
+  <noscript>
+  <hr size="4">
+  <h1>This application requires Firefox with javascript enabled</h1>
+  <p>
+  This browser may not support javascript, or javascript may be disabled. If you want to run the application, please upgrade your browser (use Firefox) or enable javascript support.
+  </p>
+  <hr size="4">
+  </noscript>
+
+</body>
+
+</html>

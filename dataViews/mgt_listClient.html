@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>List Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- ========== STYLESHEETS //-->
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+  <!-- ================================= HTML5 SHIM //-->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- ================================= JAVASCRIPT //-->
+  <script type="text/javascript">
+  <!--
+
+    // ERROR HANDLING.
+    // Fired automatically by browser on script errors and any errors caught by browser.
+    // All errors are logged. Function tries to init app, then goes to error page and shows log.
+    // Return true prevents default browser action.
+    window.onerror = function( msg_, url_, lineNbr_ ){
+      var errorMessage_ = msg_ + " URL: " + url_ + " Line Number: " + lineNbr_;
+      parent.logMessage( errorMessage_ );
+      parent.handleError();
+      return true;
+    }//window.onerror
+
+  // -->
+  </script>
+
+</head>
+
+<body class="bgBasic">
+
+	<!-- ========== VIEW CONTAINER: LIST //-->
+	<div id="_viewList" class="lsContainerView" style="visibility: hidden; display: none;">
+
+	  <!-- ========== VIEW CONTROLS //-->
+	  <div class="lsControlsView">
+      <table class="lsControlsViewTable">
+      <tr>
+        <td>
+          <img src="img/iconClient.png" title="Clients" />
+          <div class="iconText">Clients</div>
+        </td>
+        <td>
+          <h2 id="_serverName0"></h2>
+        </td>
+        <td>
+          <button id="_btnRefresh" title="Refresh list">Refresh</button>
+        </td>
+      </tr>
+      </table>
+	  </div>
+
+	  <!-- ========== CHART 0 //-->
+	  <div id="_chartContainerMain0" class="chartContainerMainFixed">
+	    <div id="_titleChart0" class="titleChartFixed"></div>
+      <div>
+        &nbsp;&nbsp;<img id="_iconChartTimer0" src="img/iconTimerGray.png" title="Updating in real time." style="cursor: default;" />
+      </div>
+	    <div id="_chartContainer0" class="chartContainerFixed"></div>
+	  </div>
+
+	  <!-- ========== CLIENT LIST //-->
+	  <div id="_divClient" class="lsContainer" style="height: 300px; visibility: hidden; display: none;">
+
+	    <!-- ========== LIST CONTROLS //-->
+	    <table class="lsControls" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <h3 id="_titleListClient">List Title</h3>
+	      </td>
+	    </tr>
+	    </table>
+
+	    <!-- ========== LIST HEADER //-->
+	    <div class="lsContainerHeader" style="height: 60px;">
+	     <table id="_listHeaderClient" class="lsHeader" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	    <!-- ========== LIST TABLE //-->
+	    <div class="lsContainerTable">
+	     <table id="_listClient" class="lsTable" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	  </div>
+	  <!-- ========== CLIENT LIST END //-->
+
+	</div>
+	<!-- ========== VIEW CONTAINER END: LIST //-->
+
+	<!-- ========== VIEW CONTAINER: DRILL DOWN //-->
+	<div id="_viewDrillDown" class="lsContainerView" style="visibility: hidden; display: none;">
+
+	  <!-- ========== VIEW CONTROLS //-->
+	  <div class="lsControlsView">
+	    <table class="lsControlsViewTable">
+	    <tr>
+        <td>
+          <img src="img/iconClient.png" title="Clients Detail" />
+          <div class="iconText">Clients Detail</div>
+        </td>
+        <td>
+          <h2 id="_serverName1">Server Name</h2>
+        </td>
+	      <td>
+	        <span id="_clientName">Client Name</span>
+	      </td>
+        <td>
+          <button id="_btnRefreshDrillDown" title="Refresh list">Refresh</button>
+          <button id="_btnReturn" title="Return to main view">Return to Main</button>
+        </td>
+	    </tr>
+	    </table>
+	  </div>
+
+	  <!-- ========== DRILL DOWN 0 LIST  //-->
+	  <div id="_divDD0" class="lsContainer" style="height: 200px; width: 25%; visibility: hidden; display: none;">
+
+	    <!-- ========== LIST TITLE //-->
+	    <table class="lsControls" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td>
+	        <h3 id="titleListDD0">List Title</h3>
+	      </td>
+	    </tr>
+	    </table>
+
+	    <!-- ========== LIST HEADER //-->
+	    <div class="lsContainerHeader">
+	     <table id="_listHeaderDD0" class="lsHeader" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	    <!-- ========== LIST TABLE //-->
+	    <div class="lsContainerTable">
+	     <table id="_listDD0" class="lsTable" cellspacing="0" cellpadding="0" rules="all"></table>
+	    </div>
+
+	  </div>
+	  <!-- ========== DRILL DOWN 0 LIST END //-->
+
+	</div>
+	<!-- ========== VIEW CONTAINER END: DRILL DOWN //-->
+
+  <!-- ========== TOOLTIP //-->
+  <div id="_tooltip" class="tooltip"></div>
+
+  <!-- ========== TESTING //-->
+  <div id="_testField" class="testField" style="position:absolute; top: 200px; left: 10px;"></div>
+
+  <!-- ========== PAGE NAME //-->
+  <span id="_pageName" style="visibility: hidden;">listClient</span>
+
+  <!-- ================================= JAVASCRIPT //-->
+  <script src="js/3p/jquery.min.js"></script>
+  <script src="js/3p/kinetic-4.6.0.min.js"></script>
+  <script src="js/static.js"></script>
+  <script src="js/mgt_listClient.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="test/jsonManagement.js"></script>
+
+  <noscript>
+  <hr size="4">
+  <h1>This application requires Firefox with javascript enabled</h1>
+  <p>
+  This browser may not support javascript, or javascript may be disabled. If you want to run the application, please upgrade your browser (use Firefox) or enable javascript support.
+  </p>
+  <hr size="4">
+  </noscript>
+
+</body>
+
+</html>

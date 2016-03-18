@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>DataViews</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- ========== STYLESHEETS //-->
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+  <!-- ================================= HTML5 SHIM //-->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- ================================= JAVASCRIPT ERROR/MESSAGE LOG HANDLING //-->
+  <script type="text/javascript">
+  <!--
+
+    // ERROR HANDLING.
+    // Fired automatically by browser on script errors and any errors caught by browser.
+    // All errors are logged. Function tries to init app, then goes to error page and shows log.
+    // Return true prevents default browser action.
+    window.onerror = function( msg_, url_, lineNbr_ ){
+      var errorMessage_ = msg_ + " URL: " + url_ + " Line Number: " + lineNbr_;
+      logMessage( errorMessage_ );
+      handleError();
+      return true;
+    }//window.onerror
+
+	  // Message/error log vars.
+	  var i_log     = [];
+	  var i_message = "";
+
+	  // HANDLE ERROR.
+	  // Used when aborting application.
+	  function handleError() {
+	    // Build log text.
+	    var logEntries_ = buildLog( "<br><br>", s_svcVals.error_ );
+
+	    // Build message.
+	    i_message = s_message.erApplication_ + " " + s_message.support_ + "<br><br>" + logEntries_;
+
+	    // Go to error page.
+	    try {
+	       initLoad();
+	       stc_loadIframe( "_view", "message.html" );
+	    }
+	    catch( error_ ) {
+	       i_message = i_message + i_uiStr.erAbort_;
+	       stc_loadIframe( "_view", "message.html" );
+	    }//catch
+	  }//handleError()
+
+	  // LOG MESSAGE.
+	  function logMessage( message_ ) {
+	    var line_ = message_;
+	    i_log.unshift( line_ );
+	  }//logMessage()
+
+	  // BUILD LOG.
+	  function buildLog( newLine_, type_ ) {
+	    // Create var to hold entire log text.
+	    var logEntries_ = "";
+
+	    // Loop thru log and create log text.
+	    var spanExisting_ = "<span style='color: " + s_gray9 + ";'>";
+	    var spanNew_      = "<span style='color: " + s_black + ";'>";
+	    if ( type_ == s_svcVals.error_ ) {
+	      spanNew_ = "<span style='color: " + s_red + ";'>";
+	    }//error_
+	    var spanCurrent_  = "";
+	    var spanEnd_      = "</span>";
+	    var length_       = i_log.length;
+	    for ( var i = 0; i < length_; i++ ) {
+	      if ( i_log[i] ) {
+	       spanCurrent_ = spanExisting_;
+	       if ( i == 0 ) { spanCurrent_ = spanNew_; }
+	       logEntries_ = logEntries_ + spanCurrent_ + i_log[i] + spanEnd_ + newLine_;
+	      }//i_log[i]
+	    }//for each entry
+
+	    // Return log text.
+	    return logEntries_;
+	  }//buildLog
+
+	  // POPULATE LOG.
+	  function populateLog( message_, type_ ) {
+	    // Update log by inserting passed message.
+	    if ( stc_isDefined( message_ ) && message_ != "" ) {
+	      // Format message according to type.
+	      var strMessage_ = message_;
+	      if ( stc_isDefined( type_ ) ) {
+		      switch( type_ ) {
+	          case s_svcVals.info_: break;
+
+	          case s_svcVals.success_:
+			        var imgSuccess_ = "<img src='img/iconSuccess.png' style='height: 15px; width: 15px; vertical-align: middle;' />";
+			        strMessage_ = imgSuccess_ + "&nbsp;" + message_;
+	          break;
+
+	          case s_svcVals.error_:
+			        var imgError_ = "<img src='img/iconDanger.png' style='height: 15px; width: 15px; vertical-align: middle;' />";
+			        strMessage_ = imgError_ + "&nbsp;" + message_;
+	          break;
+
+	          default: break;
+		      }//switch type_
+	      }//type_ valid
+	      logMessage( strMessage_ );
+	    }//message_ valid and not empty
+
+	    // Build log text.
+	    var logEntries_ = buildLog( "<br><br>", type_ );
+
+	    // Populate log dialog.
+	    stc_populateLogDialog( logEntries_ );
+
+	    // Animate log icon.
+	    stc_animateLogIcon( $( "#_iconGlobal1" ), type_ );
+	  }//populateLog
+
+	  // POSITION MESSAGE LOG.
+	  function positionMessageLog( x_, y_ ) {
+	    stc_moveLogDialog( x_, y_ );
+	  }//positionMessageLog
+
+	  // SHOW LOG.
+	  function showLog() {
+	    stc_showLogDialog( true );
+	  }//showLog
+
+  // -->
+  </script>
+
+</head>
+
+<body style="overflow: hidden;">
+
+  <!-- ========== MAIN IFRAME //-->
+  <iframe id="_view" src="login.html" class="view" frameBorder="0">
+  </iframe>
+
+  <!-- ========== CURRENT MODULE //-->
+  <span id="_titleModule" class="titleModule">DataViews</span>
+
+  <!-- ========== ICONS TOP (show modules and views) //-->
+  <div id="_iconTop" class="iconTop">
+    <img id="_iconTop0" class="icon iconTop0" src="img/iconShowModule.png" title="Show the module options." />
+    <div id="_iconTop0Text" class="iconText iconTop0Text">MODULE</div>
+
+    <img id="_iconTop1" class="icon iconTop1" src="img/iconShowView.png" title="Show the page options for the current module." />
+    <div id="_iconTop1Text" class="iconText iconTop1Text">PAGE</div>
+  </div>
+
+  <!-- ========== ICONS MODULE //-->
+  <div id="_modules" class="iconsModule">
+    <img id="_iconM0" class="icon iconM0" src="img/iconStats.png" title="Stats" />
+    <div id="_iconM0Text" class="iconText iconM0Text">STATS</div>
+
+    <img id="_iconM1" class="icon iconM1" src="img/iconAnalyze.png" title="Analyze" />
+    <div id="_iconM1Text" class="iconText iconM1Text">ANALYZE</div>
+
+    <img id="_iconM2" class="icon iconM2" src="img/iconManage.png" title="Manage" />
+    <div id="_iconM2Text" class="iconText iconM2Text">MANAGE</div>
+
+    <img id="_iconM3" class="icon iconM3" src="img/iconPreferences.png" title="Preferences" />
+    <div id="_iconM3Text" class="iconText iconM3Text">PREFS</div>
+  </div>
+
+  <!-- ========== ICONS VIEW (by module) //-->
+  <div id="_views" class="iconsView">
+
+    <!-- ========== ICONS VIEW MODULE 0 //-->
+    <img id="_iconView_M0_V0" class="icon iconView_M0_V0" src="img/iconHeatMap.png" title="Map" />
+    <div id="_iconView_M0_V0Text" class="iconText iconView_M0_V0Text">MAP</div>
+
+    <img id="_iconView_M0_V1" class="icon iconView_M0_V1" src="img/iconList.png" title="List" />
+    <div id="_iconView_M0_V1Text" class="iconText iconView_M0_V1Text">LIST</div>
+
+    <img id="_iconView_M0_V2" class="icon iconView_M0_V2" src="img/iconSchemaWheel.png" title="Wheel" />
+    <div id="_iconView_M0_V2Text" class="iconText iconView_M0_V2Text">WHEEL</div>
+
+    <!-- ========== ICONS VIEW MODULE 1 //-->
+    <img id="_iconView_M1_V0" class="icon iconView_M1_V0" src="img/iconRecommendations.png" title="Recommendations" />
+    <div id="_iconView_M1_V0Text" class="iconText iconView_M1_V0Text">RECS</div>
+
+    <img id="_iconView_M1_V1" class="icon iconView_M1_V1" src="img/iconShardAnalysis.png" title="Shard Analysis" />
+    <div id="_iconView_M1_V1Text" class="iconText iconView_M1_V1Text">SHARD</div>
+
+    <img id="_iconView_M1_V2" class="icon iconView_M1_V2" src="img/iconStreamAnalysis.png" title="Stream Analysis" />
+    <div id="_iconView_M1_V2Text" class="iconText iconView_M1_V2Text">STREAM</div>
+
+    <!-- ========== ICONS VIEW MODULE 2 //-->
+    <img id="_iconView_M2_V0" class="icon iconView_M2_V0" src="img/iconAgent.png" title="Agents" />
+    <div id="_iconView_M2_V0Text" class="iconText iconView_M2_V0Text">AGENTS</div>
+
+    <img id="_iconView_M2_V1" class="icon iconView_M2_V1" src="img/iconClient.png" title="Clients" />
+    <div id="_iconView_M2_V1Text" class="iconText iconView_M2_V1Text">CLENTS</div>
+
+    <img id="_iconView_M2_V2" class="icon iconView_M2_V2" src="img/iconHost.png" title="Hosts" />
+    <div id="_iconView_M2_V2Text" class="iconText iconView_M2_V2Text">HOSTS</div>
+
+    <img id="_iconView_M2_V3" class="icon iconView_M2_V3" src="img/iconProcess.png" title="Processes" />
+    <div id="_iconView_M2_V3Text" class="iconText iconView_M2_V3Text">PROCS</div>
+  </div>
+
+  <!-- ========== ICONS GLOBAL //-->
+  <div id="_iconGlobal" class="iconGlobal">
+    <img id="_iconGlobal0" class="icon iconGlobal0" src="img/iconHelpMain.png" title="Help" />
+    <div id="_iconGlobal0Text" class="iconText iconGlobal0Text">HELP</div>
+
+    <img id="_iconGlobal1" class="icon iconGlobal1" src="img/iconMessage.png" title="Mouse over to show the latest message. Click to keep messages on the screen." />
+    <div id="_iconGlobal1Text" class="iconText iconGlobal1Text">MESSAGE</div>
+  </div>
+
+  <!-- ========== ICONS MODULE 0 Stats //-->
+  <div id="_iconSetM0" class="iconSetM0">
+    <img id="_iconM0_0" class="icon iconM0_0" src="img/iconClockStart.png" title="Start clock" />
+    <div id="_iconM0_0Text" class="iconText iconM0_0Text">START</div>
+
+    <img id="_iconM0_1" class="icon iconM0_1" src="img/iconClockStop.png"  title="Stop clock" />
+    <div id="_iconM0_1Text" class="iconText iconM0_1Text">STOP</div>
+
+    <img id="_iconM0_2" class="icon iconM0_2" src="img/iconClockReset.png" title="Return to real time" />
+    <div id="_iconM0_2Text" class="iconText iconM0_2Text">REAL</div>
+
+    <img id="_iconM0_3" class="icon iconM0_3" src="img/iconClockSave.png"  title="Save snapshot" />
+    <div id="_iconM0_3Text" class="iconText iconM0_3Text">SAVE</div>
+
+    <img id="_iconM0_4" class="icon iconM0_4" src="img/iconClockLoad.png"  title="Load snapshot" />
+    <div id="_iconM0_4Text" class="iconText iconM0_4Text">LOAD</div>
+  </div>
+
+  <!-- ========== ICONS MODULE 0 Stats, VIEW 0 Heat Map //-->
+  <div id="_iconSetM0_V0" class="iconSetM0_V0">
+    <img id="_iconM0_V0_0" class="icon iconM0_V0_0" src="img/iconTree.png" title="Show tree" />
+    <div id="_iconM0_V0_0Text" class="iconText iconM0_V0_0Text">TREE</div>
+
+    <img id="_iconM0_V0_1" class="icon iconM0_V0_1" src="img/iconTreeHierarchy.png" title="Restore hierarchical positions in Navigator and view" />
+    <div id="_iconM0_V0_1Text" class="iconText iconM0_V0_1Text">RESTORE</div>
+  </div>
+  <!-- ========== ICONS MODULE 0 Stats, VIEW 1 Heat List //-->
+  <div id="_iconSetM0_V1" class="iconSetM0_V1">
+  </div>
+  <!-- ========== ICONS MODULE 0 Stats, VIEW 2 Schema Wheel //-->
+  <div id="_iconSetM0_V2" class="iconSetM0_V2">
+    <img id="_iconM0_V2_0" class="icon iconM0_V2_0" src="img/iconTree.png" title="Show tree" />
+    <div id="_iconM0_V2_0Text" class="iconText iconM0_V2_0Text">TREE</div>
+
+    <img id="_iconM0_V2_1" class="icon iconM0_V2_1" src="img/iconTreeReset.png" title="Revert tree to original structure" />
+    <div id="_iconM0_V2_1Text" class="iconText iconM0_V2_1Text">REVERT</div>
+  </div>
+
+  <!-- ========== ICONS MODULE 1 Analyze, VIEW 0 Recommendations //-->
+  <div id="_iconSetM1_V0" class="iconSetM1_V0">
+  </div>
+  <!-- ========== ICONS MODULE 1 Analyze, VIEW 1 Shard Analysis //-->
+  <div id="_iconSetM1_V1" class="iconSetM1_V1">
+    <img id="_iconM1_V1_0" class="icon iconM1_V1_0" src="img/iconPrevStep.png" title="Go back to the previous step" />
+    <div id="_iconM1_V1_0Text" class="iconText iconM1_V1_0Text">Back</div>
+
+    <img id="_iconM1_V1_1" class="icon iconM1_V1_1" src="img/iconNextStepGreen.png" title="Go to the next step" />
+    <div id="_iconM1_V1_1Text" class="iconText iconM1_V1_1Text">Next</div>
+
+    <img id="_iconM1_V1_2" class="icon iconM1_V1_2" src="img/iconTree.png" title="Show tree" />
+    <div id="_iconM1_V1_2Text" class="iconText iconM1_V1_2Text">Show Tree</div>
+
+    <img id="_iconM1_V1_3" class="icon iconM1_V1_3" src="img/iconTreeReset.png" title="Revert tree to original structure" />
+    <div id="_iconM1_V1_3Text" class="iconText iconM1_V1_3Text">Revert Tree</div>
+  </div>
+  <!-- ========== ICONS MODULE 1 Analyze, VIEW 2 Stream Analysis //-->
+  <div id="_iconSetM1_V2" class="iconSetM1_V2">
+  </div>
+
+  <!-- ========== ICONS MODULE 2 Manage, VIEW 0 Agent List //-->
+  <div id="_iconSetM2_V0" class="iconSetM2_V0">
+  </div>
+  <!-- ========== ICONS MODULE 2 Manage, VIEW 1 Client List //-->
+  <div id="_iconSetM2_V1" class="iconSetM2_V1">
+  </div>
+  <!-- ========== ICONS MODULE 2 Manage, VIEW 2 Host List //-->
+  <div id="_iconSetM2_V2" class="iconSetM2_V2">
+  </div>
+  <!-- ========== ICONS MODULE 2 Manage, VIEW 3 Process List //-->
+  <div id="_iconSetM2_V3" class="iconSetM2_V3">
+  </div>
+
+  <!-- ========== TIMELINE //-->
+  <div id="_timeline" class="timeline"></div>
+
+  <!-- ========== HAIRLINE //-->
+  <div id="_hairlineContainer" class="hairlineContainer">
+    <div id="_hairline" class="hairline">
+      <div id="_hairlineCenter" class="hairlineCenter">&nbsp;</div>
+    </div>
+  </div>
+
+  <!-- ========== DIGITAL DATE //-->
+  <div id="_dateDigitalContainer" class="dateDigitalContainer">
+    <div id="_dateDigital" class="dateDigital"></div>
+  </div>
+
+  <!-- ========== DIGITAL CLOCK //-->
+  <div id="_clockDigitalContainer" class="clockDigitalContainer">
+    <div id="_clockDigital" class="clockDigital"></div>
+  </div>
+
+  <!-- ========== HEAT INDICATOR //-->
+  <div id="_heatIndicator" class="heatIndicator"></div>
+  <img id="_iconChart" class="icon iconsHeatIndicator" src="img/iconChartGraySolid.png" title="Show live chart" style="cursor: default;" />
+
+  <!-- ========== FOOTER //-->
+  <div id="_footer" class="footer">
+    <div id="_textFooter" class="textFooter"></div>
+  </div>
+
+  <!-- ========== HELP //-->
+	<div id="_containerHelp" class="containerDialog containerHelp">
+	  <div id="_handleHelp" class="handleDialog">
+	    <div class="titleDialog">Help</div>
+	    <div class="iconsDialog">
+		    <img id="_iconHelpClose" class="icon" src="img/iconCloseGrayLight.png" title="Close help dialog" style="cursor: default;" />
+	    </div>
+	  </div>
+	  <div class="divDialog">
+	    <div id="_textHelp" class="textDialog"></div>
+	  </div>
+	</div>
+
+  <!-- ========== LOG //-->
+	<div id="_containerLog" class="containerDialog">
+	  <div id="_handleLog" class="handleDialog">
+	    <div id="_titleLog" class="titleDialog">Message Log</div>
+	    <div class="iconsDialog">
+		    <img id="_iconLogClose" class="icon" src="img/iconCloseGrayLight.png" title="Close message" style="cursor: default;" />
+	    </div>
+	  </div>
+	  <div class="divDialog">
+	    <div id="_textLog" class="textDialog"></div>
+	  </div>
+	</div>
+
+  <!-- ========== TOOLTIP //-->
+  <div id="_tooltip" class="tooltip"></div>
+
+  <!-- ========== TESTING //-->
+  <div id="_testField" class="testField" style="position: absolute; top: 400px; left: 10px;"></div>
+
+  <!-- ================================= JAVASCRIPT //-->
+  <script src="js/3p/jquery.min.js"></script>
+  <script src="js/3p/jquery-ui.min.js"></script>
+  <script src="js/3p/kinetic-4.6.0.min.js"></script>
+  <script src="js/3p/jquery.resizeStop.min.js"></script>
+  <script src="js/static.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/thermometer.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="test/jsonStats.js"></script>
+  <script src="test/jsonBasic.js"></script>
+  <script src="js/3p/bowser.min.js"></script>
+
+  <noscript>
+  <hr size="4">
+  <p>
+  This browser may not support javascript, or javascript may be disabled. If you want to run the application, please upgrade your browser or enable javascript support.
+  </p>
+  <hr size="4">
+  </noscript>
+
+</body>
+
+</html>
