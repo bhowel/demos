@@ -62,14 +62,7 @@
     mgmtProcess_             : "mgmtProcess",
     mgmtDrillDown_           : "DrillDown",
     mgmtStats_               : "mgmtStats",
-    mgmtMessage_             : "mgmtMessage",
-    alyzRecommend_           : "alyzRecommendationsList",
-    alyzGetDomains_          : "alyzGetDomains",
-    alyzSubmitDomain_        : "alyzSubmitDomain",
-    alyzSelectDomain_        : "alyzSelectDomain",
-    alyzShardList_           : "alyzShardList",
-    alyzStreamList_          : "alyzStreamList",
-    alyzStreamRequest_       : "alyzStreamRequest" };
+    mgmtMessage_             : "mgmtMessage" };
 
   var s_queryType = {
     all_   : "ALL",
@@ -1485,11 +1478,9 @@
   // ============================================================================
 
   var s_help = {
-    heatMap_            : "Help text",
-    heatList_           : "Help text",
-    schemaWheel_        : "Help text",
-    shardAnalysis_      : "Help text",
-    createRelationships_: "Help text"
+    heatMap_    : "Help text",
+    heatList_   : "Help text",
+    schemaWheel_: "Help text"
   };
 
 

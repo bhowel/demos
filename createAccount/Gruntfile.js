@@ -66,7 +66,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-				'assets/logo.min.svg': 'assets/logo.svg'
+				'assets/createAccountLogo.min.svg': 'assets/createAccountLogo.svg'
 				}
 			}
     },
@@ -94,7 +94,7 @@ module.exports = function(grunt) {
 
       // svg: svgmin
 			svgs: {
-				files: 'assets/logo.svg',
+				files: 'assets/createAccountLogo.svg',
 				tasks: ['svgmin']
 			}    
             			      
@@ -186,6 +186,9 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask( 'default', 'watch' );
 
+  // Process SVG task.
+  grunt.registerTask( 'processSVG', 'svgmin' ); 
+  
   // Process CSS task.
   grunt.registerTask( 'processCSS', ['uncss', 'csscomb', 'cssmin'] ); 
   

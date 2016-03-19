@@ -43,13 +43,12 @@
   // Module/view.
   var i_moduleCurrent = "";
   var i_viewCurrent   = "";
-  var i_pageInitial   = "alyz_streamAnalysis.html";
+  var i_pageInitial   = "stats_listHeat.html";
   // "stats_listHeat.html" "stats_heatMap.html" "stats_schemaWheel.html"
   // "mgt_listAgent.html" "mgt_listClient.html" "mgt_listHost.html" "mgt_listProcess.html"
-  // "alyz_recommendations.html" "alyz_shardAnalysis.html" "alyz_streamAnalysis.html"
 
   var i_useModule0 = true;
-  var i_useModule1 = true;
+  var i_useModule1 = false;
   var i_useModule2 = true;
   var i_useModule3 = false;
 
@@ -521,32 +520,8 @@
 		    $( "#_titleModule" ).html( "Analyze" );
 		    $( "#_titleModule" ).show();
 
-        // Do view-specific settings.
-        switch( viewName_ ) {
-
-	        case s_module1._0_:
-	          // Show module title.
-	          $( "#_titleModule" ).html( "Recommendations" );
-	        break;
-
-	        case s_module1._1_:
-	          // Show module title.
-	          $( "#_titleModule" ).html( "Shard Analysis" );
-	        break;
-
-	        case s_module1._2_:
-	          // Show module title.
-	          $( "#_titleModule" ).html( "Stream Analysis" );
-	        break;
-
-          default: break;
-        }//switch viewName_
-        
 		    // Show load tooltip.
 		    showLoadTooltip();
-
-        // Start timer for various timed functions.
-        startTimer();
 
 		    // Show icon sets.
 		    showIconSets( moduleName_, viewName_ );
@@ -1063,64 +1038,10 @@
           }//page is as specified
         break;
 
-        case i_actionVals.returnToLastStep_:
-          // Module 1 View 1 (Analyze/Shard Analysis).
-          if ( getPageName() == s_module1._1_ ) {
-            getView().returnToLastStep();
-          }//page is as specified
-        break;
-
-        case i_actionVals.goToNextStep_:
-          // Module 1 View 1 (Analyze/Shard Analysis).
-          if ( getPageName() == s_module1._1_ ) {
-            getView().goNextFromCreateRelationships();
-          }//page is as specified
-        break;
-
         default: break;
       }//switch action_
     }//action_ getPageName valid
   }//runInView
-
-  // SET BACK ICON.
-  function setBackIcon( title_, show_ ) {
-    if ( getPageName() ) {
-      switch( getPageName() ) {
-
-        // Module 1 View 1 (Analyze/Shard Analysis).
-        case s_module1._1_:
-          // Set tooltip.
-          $( "#_iconM1_V1_0" ).attr( "title", title_ );
-
-          // Hide/show icons.
-          setIconSpecial( $( "#_iconM1_V1_0" ), show_ );
-          setIconSpecial( $( "#_iconM1_V1_0Text" ), show_ );
-        break;
-
-        default: break;
-      }//switch getPageName
-    }//getPageName valid
-  }//setBackIcon
-
-  // SET NEXT ICON.
-  function setNextIcon( title_, show_ ) {
-    if ( getPageName() ) {
-      switch( getPageName() ) {
-
-        // Module 1 View 1 (Analyze/Shard Analysis).
-        case s_module1._1_:
-          // Set tooltip.
-          $( "#_iconM1_V1_1" ).attr( "title", title_ );
-
-          // Hide/show icons.
-          setIconSpecial( $( "#_iconM1_V1_1" ), show_ );
-          setIconSpecial( $( "#_iconM1_V1_1Text" ), show_ );
-        break;
-
-        default: break;
-      }//switch getPageName
-    }//getPageName valid
-  }//setNextIcon
 
   // TOGGLE SHOW TREE ICONS.
   // Hide/show tree icons from view.
