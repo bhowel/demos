@@ -135,7 +135,7 @@ module.exports = function(grunt) {
 		copy: {
 			topFiles: {
 				cwd: '.',                              // set working folder / root to copy
-				src: ['*.html', '*.php', '*.txt'],     // copy only selected file types
+				src: ['*.html', '*.php', '*.txt', '*.ico'],     // copy only selected file types
 				dest: '../../openShift/accountDemo',   // destination folder
 				expand: true                           // required when using cwd
 			},		
