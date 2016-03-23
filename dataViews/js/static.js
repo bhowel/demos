@@ -407,24 +407,6 @@
     }//_containerHelp valid
   }//stc_moveHelp
 
-  // GET HELP.
-  function stc_getHelp( url_ ) {
-    $.ajax({
-      url          : url_,
-      dataType     : "text",
-      success: function( data_ ){
-        // Replace all new lines with break tag.
-        data_ = data_.replace(/\n/g, '<br />');
-
-        // Show help.
-        stc_showHelp( data_ );
-      },
-      error: function(){
-        stc_showHelp( s_message.erInfo_ + " " + s_message.support_ );
-      }
-    });
-  }//stc_getHelp
-
   // ============================================================================
   // LOG.
   // ============================================================================
@@ -650,7 +632,7 @@
 	    stc_showTooltip( s_tooltipRef, loadMessage_, 20, 0, false );
 
 	    // Set start info.
-	    var p0_ = '/manage/web?action=json&query_id={"action":"';
+	    var p0_ = '/path_to_web_service/web?action=json&query_id={"action":"';
 
       // Set request type.
 	    var p1_ = '';
@@ -719,6 +701,52 @@
 		      s_parentRef.populateLog( s_message.erInfo_ + " Action: " + action_ + ".", s_svcVals.error_ );
 		    }//data_ not valid
 	    }//is s_parentRef.i_isTestMode
+
+	    // Actual web service.
+// 	    if ( !s_parentRef.i_isTestMode ) {
+// 		    $.ajax({
+// 		      url     : url_,
+// 		      dataType: s_svcVals.json_,
+// 		      timeout : s_svcVals.timeout_,
+// 		      success : function( data_ ) { stc_returnService( data_ ); },
+// 		      error   : function( xmlHTTPRequest_ ) {
+// 		        var xReadyState_ = "";
+// 		        var xStatus_     = "";
+// 		        var xStatusText_ = "";
+// 		        var xCode_       = "";
+// 		        var xNSResult_   = "";
+// 		        var xLocation_   = "";
+// 		        if ( xmlHTTPRequest_.readyState ) { xReadyState_ = xmlHTTPRequest_.readyState; }
+// 		        if ( xmlHTTPRequest_.status )     { xStatus_     = xmlHTTPRequest_.status; }
+// 		        if ( xmlHTTPRequest_.statusText ) { xStatusText_ = xmlHTTPRequest_.statusText; }
+// 		        if ( xmlHTTPRequest_.code )       { xCode_       = xmlHTTPRequest_.code; }
+// 		        if ( xmlHTTPRequest_.nsresult )   { xNSResult_   = xmlHTTPRequest_.nsresult; }
+// 		        if ( xmlHTTPRequest_.location )   { xLocation_   = xmlHTTPRequest_.location; }
+// 		        var message_ = "Service error during " + action_ + " : " + xStatusText_;
+// 			      if ( action_ == s_action.login_ || action_ == s_action.setup_ ) {
+// 				      s_parentRef.populateLog( message_, "" );
+// 				      s_parentRef.showLog();
+// 			      } else {
+// 			        s_parentRef.populateLog( message_, s_svcVals.error_ );
+// 			      }//action is not login or setup
+// 				    stc_hideTooltip( s_tooltipRef );
+// 		        if ( stc_isDefined( s_errorCallback ) ) {
+// 		          s_errorCallback();
+// 		        }//s_errorCallback valid
+// 		      }//error
+// 		    });
+// 	    } else {
+// 		    var data_         = new Object();
+// 		    data_.status      = s_svcVals.success_;
+// 		    data_.message     = "";
+// 		    data_.queryResult = testResult_;
+// 		    if ( stc_isDefined( data_ ) ) {
+// 		      stc_returnService( data_ );
+// 		    } else {
+// 		      s_parentRef.populateLog( s_message.erInfo_ + " Action: " + action_ + ".", s_svcVals.error_ );
+// 		    }//data_ not valid
+// 	    }//is s_parentRef.i_isTestMode
+	    	    
 	  }//params valid
   }//stc_sendService
 

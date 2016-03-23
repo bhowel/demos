@@ -1,0 +1,641 @@
+/*
+
+  Custom styles for the CreateAccount project.
+  
+  Grid system based on the Responsive Grid System by Graham Miller.
+  The generated styles have been revised.
+  Web site: http://www.responsivegridsystem.com/
+  License: http://creativecommons.org/licenses/by/3.0/
+  
+  Input fields and button styles from skull-1.0.0 (Basscss theme).
+  [Basscss](http://basscss.com). 
+  License: MIT
+  
+*/
+
+// ============================================================================
+// SCREEN SIZES
+// ============================================================================
+
+$screenSmall : 480px;
+$screenMed   : 768px;
+$screenLarge : 992px;
+$screenXLarge: 1200px;
+  
+// ============================================================================
+// COLOR
+// Palette link: http://paletton.com/#uid=50I0u0kILEsmKJQteIFJtrALplu
+// ============================================================================
+
+$medium-blue  : #0099dd;
+$dark-gray    : rgba( 34, 34, 34, 1.0 );
+$medium-gray  : rgba( 160, 160, 160, 1.0 );
+$light-gray   : rgba( 200, 200, 200, 1.0 );
+$lighter-gray : rgba( 217, 217, 217, 1.0 );
+$lightest-gray: rgba( 245, 245, 245, 1.0 );
+$off-white    : rgba( 250, 250, 250, 1.0 );
+$white        : #fff;
+
+$yellow       : rgba( 255, 191, 0, 1.0 );
+$yellow-light : rgba( 255, 210, 74, 1.0 );
+$orange       : rgba( 255, 73, 0, 1.0 );
+
+// ============================================================================
+// MIXINS
+// ============================================================================
+
+// =========== MARGIN
+
+@mixin margin-set( $marginDefault, $marginSmall, $marginFull ) {
+  margin: $marginDefault;
+
+  -webkit-transition: margin 0.5s;
+  transition: margin 0.5s;
+  
+  @media only screen and ( min-width: $screenSmall )  { margin: $marginSmall; }
+  @media only screen and ( min-width: $screenMed )    { margin: $marginFull; }
+  @media only screen and ( min-width: $screenLarge )  { margin: $marginFull; }
+  @media only screen and ( min-width: $screenXLarge ) { margin: $marginFull; }
+}
+
+// =========== PADDING
+
+@mixin padding-set( $paddingDefault, $paddingSmall, $paddingFull ) {
+  padding: $paddingDefault;
+
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+  
+  @media only screen and ( min-width: $screenSmall )  { padding: $paddingSmall; }
+  @media only screen and ( min-width: $screenMed )    { padding: $paddingFull; }
+  @media only screen and ( min-width: $screenLarge )  { padding: $paddingFull; }
+  @media only screen and ( min-width: $screenXLarge ) { padding: $paddingFull; }
+}
+
+// =========== FLOAT
+
+@mixin float-set( $floatDefault, $floatSmall, $floatFull ) {
+  float: $floatDefault;
+
+  -webkit-transition: float 0.5s;
+  transition: float 0.5s; 
+  
+  @media only screen and ( min-width: $screenSmall )  { float: $floatSmall; }
+  @media only screen and ( min-width: $screenMed )    { float: $floatFull; }
+  @media only screen and ( min-width: $screenLarge )  { float: $floatFull; }
+  @media only screen and ( min-width: $screenXLarge ) { float: $floatFull; }
+}
+
+// =========== WIDTH
+
+$container-width        : 490px;
+$container-width-default: 410px;
+
+@mixin width-set( $widthDefault, $widthSmall, $widthFull ) {
+  width: $widthDefault;
+
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s; 
+  
+  @media only screen and ( min-width: $screenSmall )  { width: $widthSmall;}
+  @media only screen and ( min-width: $screenMed )    { width: $widthFull; }
+  @media only screen and ( min-width: $screenLarge )  { width: $widthFull; }
+  @media only screen and ( min-width: $screenXLarge ) { width: $widthFull; }
+}
+
+@mixin max-width-set( $widthDefault, $widthSmall, $widthFull ) {
+  max-width: $widthDefault;
+
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s;
+  
+  @media only screen and ( min-width: $screenSmall )  { max-width: $widthSmall;}
+  @media only screen and ( min-width: $screenMed )    { max-width: $widthFull; }
+  @media only screen and ( min-width: $screenLarge )  { max-width: $widthFull; }
+  @media only screen and ( min-width: $screenXLarge ) { max-width: $widthFull; }
+}
+
+// =========== BORDER
+
+$border-2-white: 2px solid $white;
+$borderNone    : none;
+              
+@mixin border-set( $border, $radius ) {
+	$borderTopDefault   : map-get( $border, "topDefault" );
+	$borderRightDefault : map-get( $border, "rightDefault" );
+	$borderBottomDefault: map-get( $border, "bottomDefault" );
+	$borderLeftDefault  : map-get( $border, "leftDefault" );
+	
+	$borderTopSmall     : map-get( $border, "topSmall" );
+	$borderRightSmall   : map-get( $border, "rightSmall" );
+	$borderBottomSmall  : map-get( $border, "bottomSmall" );
+	$borderLeftSmall    : map-get( $border, "leftSmall" );
+
+	$borderTopFull      : map-get( $border, "topFull" );
+	$borderRightFull    : map-get( $border, "rightFull" );
+	$borderBottomFull   : map-get( $border, "bottomFull" );
+	$borderLeftFull     : map-get( $border, "leftFull" );
+
+	border-top   : $borderTopDefault;
+	border-right : $borderRightDefault;
+	border-bottom: $borderBottomDefault;
+	border-left  : $borderLeftDefault;
+	border-radius: $radius;
+
+  -webkit-transition: border 0.5s, border-radius 0.5s,;
+  transition: border 0.5s, border-radius 0.5s;
+                      
+  @media only screen and ( min-width: $screenSmall ) { 
+		border-top   : $borderTopSmall;
+		border-right : $borderRightSmall;
+		border-bottom: $borderBottomSmall;
+		border-left  : $borderLeftSmall;
+		border-radius: $radius;
+  }
+  
+  @media only screen and ( min-width: $screenMed ) { 
+		border-top   : $borderTopFull;
+		border-right : $borderRightFull;
+		border-bottom: $borderBottomFull;
+		border-left  : $borderLeftFull;
+		border-radius: $radius; 
+  }
+  
+  @media only screen and ( min-width: $screenLarge ) { 
+		border-top   : $borderTopFull;
+		border-right : $borderRightFull;
+		border-bottom: $borderBottomFull;
+		border-left  : $borderLeftFull;
+		border-radius: $radius;  
+  }
+  
+  @media only screen and ( min-width: $screenXLarge ) { 
+		border-top   : $borderTopFull;
+		border-right : $borderRightFull;
+		border-bottom: $borderBottomFull;
+		border-left  : $borderLeftFull;
+		border-radius: $radius; 
+  }
+}
+
+// =========== COLOR
+
+@mixin bg-color-set( $bgDefault, $bgSmall, $bgFull ) {
+  background-color: $bgDefault;
+
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;  
+  
+  @media only screen and ( min-width: $screenSmall )  { background-color: $bgSmall; }
+  @media only screen and ( min-width: $screenMed )    { background-color: $bgFull; }
+  @media only screen and ( min-width: $screenLarge )  { background-color: $bgFull; }
+  @media only screen and ( min-width: $screenXLarge ) { background-color: $bgFull; }
+}
+
+// ============================================================================
+// BASIC TAGS
+// ============================================================================
+
+body {
+  @include bg-color-set( $yellow-light, $yellow-light, $yellow );
+  margin: 0;
+  font-family: 'Roboto', Helvetica, sans-serif; 
+  font-size: 14px; 
+  line-height: 1.25;    
+  color: $dark-gray;
+  cursor: default;
+}
+
+h1 { 
+  font-size: 36px; 
+  margin-top: 32px;
+  margin-bottom: 34px;  
+}
+
+h2 { 
+  font-size: 28px; 
+  margin-top: 24px;
+  margin-bottom: 26px;  
+}
+
+h3 { 
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 4px;
+  margin-bottom: 8px;   
+}
+
+h4 { 
+  font-size: 18px;
+  margin-top: 14px;
+  margin-bottom: 16px;   
+}
+
+h5 { 
+  font-size: 14px; 
+  margin-top: 10px;
+  margin-bottom: 12px;  
+}
+
+h6 { 
+  font-size: 12px; 
+  margin-top: 8px;
+  margin-bottom: 10px;  
+}
+
+p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+a {
+  color: $medium-blue;
+  text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+// ============================================================================
+// INPUT/SELECT/TEXTAREA/LABEL
+// Styles taken from skull-1.0.0 (Basscss theme) Autoform v1.0.0. 
+// Revised by BH, with additional styles.
+// ============================================================================
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]), select, textarea {
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]) {
+  box-sizing: border-box;
+  height: 45px;
+  padding: 8px 8px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+select {
+  box-sizing: border-box;
+  padding: 8px 8px;
+  line-height: 1.75;
+}
+
+select:not([multiple]) {
+  height: 40px;
+  vertical-align: middle;
+}
+
+textarea {
+  box-sizing: border-box;
+  padding: 8px 8px;
+  line-height: 1.75;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  border: 1px solid $lighter-gray;
+  border-radius: 5px;
+  background-color: $white;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: $light-gray;
+  background-color: $off-white;
+}
+input:disabled, select:disabled, textarea:disabled {
+  opacity: 0.625;
+}
+input:read-only, select:read-only, textarea:read-only {
+}
+input:invalid, select:invalid, textarea:invalid {
+}
+
+input::-webkit-input-placeholder { color: $lighter-gray; font-weight: 300; }
+input::-moz-placeholder          { color: $lighter-gray; font-weight: 300; }
+input:-moz-placeholder           { color: $lighter-gray; font-weight: 300; }
+input:-ms-input-placeholder      { color: $lighter-gray; font-weight: 300; }
+
+label {
+  font-size: 14px;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 11px;
+}
+
+// ============================================================================
+// BUTTON Styles taken from skull-1.0.0 (Basscss theme). 
+// Revised by BH, with additional styles.
+// ============================================================================
+
+button {
+  $paddingDefault: 8px 57px 8px 57px;
+  $paddingFull   : 8px 36px 8px 36px;
+  @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );
+  
+  font-size: 14px;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 30px;
+  margin: 0;
+  height: auto;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  color: $white;
+  background-color: $orange;
+  border-radius: 3px;
+  -webkit-transition-duration: .05s;
+          transition-duration: .05s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  -webkit-transition-property: box-shadow, background-color;
+          transition-property: box-shadow, background-color;  
+}
+
+button:after,
+button:before,
+.button:after,
+.button:before {
+  box-sizing: border-box;
+}
+
+button:hover {
+  text-decoration: none;
+  box-shadow: inset 0 0 0 20rem rgba(0,0,0,.0625);
+}
+button:focus {
+  outline: none;
+  border-color: rgba(0,0,0,.125);
+  box-shadow: 0 0 2px 1px rgba(0,0,0,.25);
+}
+.button:disabled {
+  opacity: .5;
+}
+
+// ============================================================================
+// RESPONSIVE CONTAINER
+// ============================================================================
+
+.container-parent {
+  $paddingFull: 30px;
+  @include padding-set( 0, 0, $paddingFull ); 
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto  
+}
+
+.container {
+  max-width: $container-width;
+}
+
+.row {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 11px;
+}
+
+.row:before,
+.row:after { content: ""; display: table; }
+.row:after { clear: both; }
+.row { zoom: 1; /* For IE 6/7 */ }
+
+.column {
+  @include float-set( none, none, left );
+  margin-left: 3%;
+  display: block;
+}
+
+.column-with-12 {
+  $widthDefault: 94%;
+  $widthFull   : 97%; 
+  @include width-set( $widthDefault, $widthDefault, $widthFull );   	
+}
+
+.column-with-6 {
+  $widthDefault: 94%;
+  $widthFull   : 47%; 
+  @include width-set( $widthDefault, $widthDefault, $widthFull );    	
+}
+
+// ============================================================================
+// LOGO
+// ============================================================================
+
+.logo {
+  width: 50px;
+  
+  $widthDefault: 50px;
+  $widthFull   : 75px; 
+  @include width-set( $widthDefault, $widthDefault, $widthFull );
+
+  $marginDefault: 19px 0 0 0;
+  $marginFull   : 0 auto; 
+  @include margin-set( $marginDefault, $marginDefault, $marginFull );       
+}
+
+// ============================================================================
+// CSS HELPERS
+// ============================================================================
+
+// =========== DISPLAY.
+
+.inline             { display: inline; }
+.block              { display: block; }
+.inline-block       { display: inline-block; }
+.hide               { display: none; }
+
+// =========== MARGIN.
+
+.margin-top-0       { margin-top: 0; }
+.margin-bottom-0    { margin-bottom: 0; }
+
+// =========== PADDING.
+
+.padding-top-10     { padding-top: 10px; }
+.padding-top-22     { padding-top: 22px; }
+
+/* 
+  Default screen: no padding.
+  Small screen  : no padding.
+  Full screen   : padding is 42px on top; 100px on right, left; 20px on bottom.
+*/
+.padding-none-to-42-100-20 {
+  $paddingFull: 42px 100px 20px 100px;
+  @include padding-set( 0, 0, $paddingFull );
+}
+
+/* 
+  Default screen: padding is 11px on top.
+  Small screen  : padding is 11px on top.
+  Full screen   : padding is 38px on top; 100px on right, left; 38px on bottom.
+*/
+.padding-11-to-38-100-38 {
+  $paddingDefault: 11px 0 0 0;
+  $paddingFull   : 38px 100px 38px 100px;
+  @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );
+}
+
+// =========== ALIGNMENT.
+
+.align-top          { vertical-align: top; }
+.align-bottom       { vertical-align: bottom; }
+.align-middle       { vertical-align: middle; }
+
+.left               { float: left; }
+.right              { float: right; }
+
+/* 
+  Default screen: no float.
+  Small screen  : no float.
+  Full screen   : float left.
+*/
+.float-none-to-left {
+  @include float-set( none, none, left );
+}
+
+/* 
+  Default screen: float left.
+  Small screen  : float left.
+  Full screen   : no float.
+*/
+.float-left-to-none {
+  @include float-set( left, left, none );
+}
+
+.text-left          { text-align: left; }
+.text-right         { text-align: right; }
+.text-center        { text-align: center; }
+.text-just          { text-align: justify; }
+ 
+// =========== WIDTH/HEIGHT.
+
+.fit-height         { height: 100%; }
+.fit-width          { width: 100%; }
+
+/* 
+  Default screen: width is $container-width-default.
+  Small screen  : width is $container-width-default.
+  Full screen   : width is $container-width.
+*/
+.width-default-to-container {
+  $maxWidthDefault: $container-width-default;
+  $maxWidthFull   : $container-width;
+  @include max-width-set( $maxWidthDefault, $maxWidthDefault, $maxWidthFull );  
+}
+
+// =========== TEXT.
+
+.font-family-basic { font-family: Helvetica, sans-serif; }
+.bold              { font-weight: bold; }
+.normal            { font-weight: normal; }
+.italic            { font-style: italic; }
+.caps              { text-transform: uppercase; letter-spacing: .2em; }
+.no-wrap           { white-space: nowrap; }
+
+// =========== BORDER.
+
+/* 
+  Default screen: no border.
+  Small screen  : no border.
+  Full screen   : border on top, right, left; rounded corners on upper left and right.
+*/
+.border-none-to-topR-rightR-left {
+  $border: ( topDefault: $borderNone,     rightDefault: $borderNone,  bottomDefault: $borderNone, leftDefault: $borderNone, 
+             topSmall  : $borderNone,     rightSmall  : $borderNone,    bottomSmall: $borderNone, leftSmall  : $borderNone,
+             topFull   : $border-2-white, rightFull   : $border-2-white, bottomFull: $borderNone, leftFull   : $border-2-white );
+  $radius: 5px 5px 0 0;
+  @include border-set( $border, $radius );
+}
+
+/* 
+  Default screen: border on top.
+  Small screen  : no border.
+  Full screen   : border on top, right, bottom, left; rounded corners on lower left and right.
+*/
+.border-top-to-none-to-top-right-bottomR-leftR {
+  $border: ( topDefault: $border-2-white, rightDefault: $borderNone,     bottomDefault: $borderNone,     leftDefault: $borderNone, 
+             topSmall  : $borderNone,     rightSmall  : $borderNone,     bottomSmall  : $borderNone,     leftSmall  : $borderNone,
+             topFull   : $border-2-white, rightFull   : $border-2-white, bottomFull   : $border-2-white, leftFull   : $border-2-white );
+  $radius: 0 0 5px 5px;
+  @include border-set( $border, $radius );
+}
+
+// =========== COLOR.
+
+.medium-blue   { color: $medium-blue; }
+.red           { color: red; }
+.dark-gray     { color: $dark-gray; }
+.medium-gray   { color: $medium-gray; }
+.light-gray    { color: $light-gray; }
+.lighter-gray  { color: $lighter-gray; }
+.lightest-gray { color: $lightest-gray; }
+.off-white     { color: $off-white; }	
+.white         { color: $white; }
+
+.yellow        { color: $yellow; }
+.yellow-light  { color: $yellow-light; }
+.orange        { color: $orange; }
+
+/* 
+  Default screen: yellow-light.
+  Small screen  : yellow-light.
+  Full screen   : transparent.
+*/
+.bg-light-to-trans {
+  @include bg-color-set( $yellow-light, $yellow-light, transparent );
+}
+
+// ============================================================================
+// PARSLEY OVERRIDES
+// ============================================================================
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  border: 2px solid red;
+}
+
+.parsley-errors-list {
+  margin: 2px 0 3px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  opacity: 0;
+
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+// ============================================================================
+// MATERIAL ICONS OVERRIDES
+// ============================================================================
+
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-dark { color: $orange; }

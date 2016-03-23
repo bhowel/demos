@@ -412,37 +412,16 @@
       }//switch g_list
     }//is parent.i_isTestMode
 
-    // Send service. NOTE: Create static strings for final version.
-    if ( !parent.i_isTestMode ) {
+		// Send service.
+		if ( !parent.i_isTestMode ) {
+			// Populate/show message log.	
+			var message_ = "Web services are disabled for this demo.";		
+			parent.populateLog( message_, "" );
+			parent.showLog();
 
-			$.ajax({
-			    url: "/manage/servlet",
-			    type: "POST",
-			    data: JSON.stringify({
-			        action: "replicationAgentList"
-			    }),
-			    dataType: s_svcVals.json_,
-			    contentType: "application/json",
-			    success: function( data, textStatus, jqXHR ) {
-			      parent.showHelpDialog( data.processList.length + " agents<br>" + JSON.stringify ( data.processList ) );
-
-			            //"host", "processId", "processName", "role", "shard", "localReplState",
-			            //"memUsed", "memTotal", "memUsage",
-			            //"threadCount", "files", "uptime", "uptimeString"
-			    },
-			    error: function ( jqXHR, textStatus, errorThrown ) {
-			      // Set error message.
-			      var message_ =
-			        "Agents: " + g_list + " " + g_cat +
-			        "<br>Status text: " + textStatus + ":" + errorThrown +
-			        "<br>"              + jqXHR.responseText;
-
-			      // Populate message log.
-			      parent.populateLog( message_, s_svcVals.error_ );
-			    }//error
-			});
-
-    } else {
+			// Hide load tooltip.
+			stc_hideTooltip( s_tooltipRef );
+		} else {
 	    // Send service.
 	    var loadMessage_ = s_message.loading_ + " " + g_list + " " + g_cat + " " + s_message.list_;
 	    var arrayParams_ = new Array();
@@ -452,7 +431,40 @@
 		  arrayParams_.push( { param: 'rowOffset', value: 0 } );
 		  arrayParams_.push( { param: 'rowLimit',  value: g_svcVals.nbrRowsReq_ } );
 	    stc_sendService( parent, loadMessage_, s_action.mgmtAgent_, arrayParams_, returnList, testResult_, $( "#_tooltip" ), null );
-    }//is parent.i_isTestMode
+		}//is parent.i_isTestMode
+    
+    // Actual web service.
+//     if ( !parent.i_isTestMode ) {
+// 			$.ajax({
+// 			    url: "/path_to_web_service/servlet",
+// 			    type: "POST",
+// 			    data: JSON.stringify({
+// 			        action: "replicationAgentList"
+// 			    }),
+// 			    dataType: s_svcVals.json_,
+// 			    contentType: "application/json",
+// 			    success: function( data, textStatus, jqXHR ) {
+// 			      parent.showHelpDialog( data.processList.length + " agents<br>" + JSON.stringify ( data.processList ) );
+// 			    },
+// 			    error: function ( jqXHR, textStatus, errorThrown ) {
+// 			      var message_ =
+// 			        "Agents: " + g_list + " " + g_cat +
+// 			        "<br>Status text: " + textStatus + ":" + errorThrown +
+// 			        "<br>"              + jqXHR.responseText;
+// 			      parent.populateLog( message_, s_svcVals.error_ );
+// 			    }//error
+// 			});
+//     } else {
+// 	    var loadMessage_ = s_message.loading_ + " " + g_list + " " + g_cat + " " + s_message.list_;
+// 	    var arrayParams_ = new Array();
+// 	    arrayParams_.push( { param: 'queryName', value: s_action.mgmtList_ } );
+// 	    arrayParams_.push( { param: 'listName',  value: g_list } );
+// 	    arrayParams_.push( { param: 'cat',       value: g_cat } );
+// 		  arrayParams_.push( { param: 'rowOffset', value: 0 } );
+// 		  arrayParams_.push( { param: 'rowLimit',  value: g_svcVals.nbrRowsReq_ } );
+// 	    stc_sendService( parent, loadMessage_, s_action.mgmtAgent_, arrayParams_, returnList, testResult_, $( "#_tooltip" ), null );
+//     }//is parent.i_isTestMode
+    
   }//getList
 
   // RETURN LIST.

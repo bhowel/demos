@@ -298,11 +298,11 @@
     disableIcon( $( "#_iconM0_4" ) );
     
     // Load login.
-    //goToLogin();
+    goToLogin();
     
     // Bypass login. Comment out for production.
-    i_isTestMode = true;
-    goToInitialPage();
+    //i_isTestMode = true;
+    //goToInitialPage();
 
   }//initApp
 
