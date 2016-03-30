@@ -1,0 +1,238 @@
+/*
+
+  Custom styles for my web site.
+  
+  Grid system based on the Responsive Grid System by Graham Miller.
+  The generated styles have been revised.
+  Web site: http://www.responsivegridsystem.com/
+  License: http://creativecommons.org/licenses/by/3.0/
+
+*/
+
+// ============================================================================
+// SCREEN SIZES
+// ============================================================================
+
+$screenSmall : 480px;
+$screenMed   : 768px;
+$screenLarge : 992px;
+$screenXLarge: 1200px;
+  
+// ============================================================================
+// COLOR
+// ============================================================================
+
+$dark-gray: rgba( 34, 34, 34, 1.0 );
+$white    : #fff;	
+
+// ============================================================================
+// MIXINS
+// ============================================================================
+
+// =========== PADDING
+
+@mixin padding-set( $paddingDefault, $paddingSmall, $paddingFull ) {
+  padding: $paddingDefault;
+
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+  
+  @media only screen and ( min-width: $screenSmall )  { padding: $paddingSmall; }
+  @media only screen and ( min-width: $screenMed )    { padding: $paddingFull; }
+  @media only screen and ( min-width: $screenLarge )  { padding: $paddingFull; }
+  @media only screen and ( min-width: $screenXLarge ) { padding: $paddingFull; }
+}
+
+// =========== FLOAT
+
+@mixin float-set( $floatDefault, $floatSmall, $floatFull ) {
+  float: $floatDefault;
+
+  -webkit-transition: float 0.5s;
+  transition: float 0.5s; 
+  
+  @media only screen and ( min-width: $screenSmall )  { float: $floatSmall; }
+  @media only screen and ( min-width: $screenMed )    { float: $floatFull; }
+  @media only screen and ( min-width: $screenLarge )  { float: $floatFull; }
+  @media only screen and ( min-width: $screenXLarge ) { float: $floatFull; }
+}
+
+// =========== WIDTH
+
+$container-width        : 490px;
+$container-width-default: 410px;
+
+@mixin width-set( $widthDefault, $widthSmall, $widthFull ) {
+  width: $widthDefault;
+
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s; 
+  
+  @media only screen and ( min-width: $screenSmall )  { width: $widthSmall;}
+  @media only screen and ( min-width: $screenMed )    { width: $widthFull; }
+  @media only screen and ( min-width: $screenLarge )  { width: $widthFull; }
+  @media only screen and ( min-width: $screenXLarge ) { width: $widthFull; }
+}
+
+// ============================================================================
+// BASIC TAGS
+// ============================================================================
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', Helvetica, sans-serif; 
+  font-size: 14px; 
+  line-height: 1.25;    
+  color: $dark-gray;
+  cursor: default;
+}
+
+h1 { 
+  font-size: 36px; 
+  margin-top: 32px;
+  margin-bottom: 34px;  
+}
+
+h2 { 
+  font-size: 28px; 
+  margin-top: 24px;
+  margin-bottom: 26px;  
+}
+
+h3 { 
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 4px;
+  margin-bottom: 8px;   
+}
+
+h4 { 
+  font-size: 18px;
+  margin-top: 14px;
+  margin-bottom: 16px;   
+}
+
+h5 { 
+  font-size: 14px; 
+  margin-top: 10px;
+  margin-bottom: 12px;  
+}
+
+h6 { 
+  font-size: 12px; 
+  margin-top: 8px;
+  margin-bottom: 10px;  
+}
+
+p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+// ============================================================================
+// RESPONSIVE CONTAINER
+// ============================================================================
+
+.container-parent {
+  $paddingFull: 30px;
+  @include padding-set( 0, 0, $paddingFull ); 
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto  
+}
+
+.container {
+  max-width: $container-width;
+}
+
+.row {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 11px;
+}
+
+.row:before,
+.row:after { content: ""; display: table; }
+.row:after { clear: both; }
+.row { zoom: 1; /* For IE 6/7 */ }
+
+.column {
+  @include float-set( none, none, left );
+  margin-left: 3%;
+  display: block;
+}
+
+.column-with-12 {
+  $widthDefault: 94%;
+  $widthFull   : 97%; 
+  @include width-set( $widthDefault, $widthDefault, $widthFull );   	
+}
+
+.column-with-6 {
+  $widthDefault: 94%;
+  $widthFull   : 47%; 
+  @include width-set( $widthDefault, $widthDefault, $widthFull );    	
+}
+
+// ============================================================================
+// CSS HELPERS
+// ============================================================================
+
+// =========== DISPLAY.
+
+.inline             { display: inline; }
+.block              { display: block; }
+.inline-block       { display: inline-block; }
+.hide               { display: none; }
+
+// =========== MARGIN.
+
+.margin-top-0       { margin-top: 0; }
+.margin-bottom-0    { margin-bottom: 0; }
+
+// =========== PADDING.
+
+.padding-top-10     { padding-top: 10px; }
+
+// =========== ALIGNMENT.
+
+.align-top          { vertical-align: top; }
+.align-bottom       { vertical-align: bottom; }
+.align-middle       { vertical-align: middle; }
+
+.left               { float: left; }
+.right              { float: right; }
+
+.text-left          { text-align: left; }
+.text-right         { text-align: right; }
+.text-center        { text-align: center; }
+.text-just          { text-align: justify; }
+ 
+// =========== WIDTH/HEIGHT.
+
+.fit-height         { height: 100%; }
+.fit-width          { width: 100%; }
+
+// =========== TEXT.
+
+.font-family-basic  { font-family: Helvetica, sans-serif; }
+.bold               { font-weight: bold; }
+.normal             { font-weight: normal; }
+.italic             { font-style: italic; }
+.caps               { text-transform: uppercase; letter-spacing: .2em; }
+.no-wrap            { white-space: nowrap; }
+
+// =========== COLOR.
+
+.dark-gray          { color: $dark-gray; }	
+.white              { color: $white; }

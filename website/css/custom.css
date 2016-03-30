@@ -1,0 +1,234 @@
+/*
+
+  Custom styles for my web site.
+  
+  Grid system based on the Responsive Grid System by Graham Miller.
+  The generated styles have been revised.
+  Web site: http://www.responsivegridsystem.com/
+  License: http://creativecommons.org/licenses/by/3.0/
+
+*/
+body {
+  margin: 0;
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #222222;
+  cursor: default; }
+
+h1 {
+  font-size: 36px;
+  margin-top: 32px;
+  margin-bottom: 34px; }
+
+h2 {
+  font-size: 28px;
+  margin-top: 24px;
+  margin-bottom: 26px; }
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 4px;
+  margin-bottom: 8px; }
+
+h4 {
+  font-size: 18px;
+  margin-top: 14px;
+  margin-bottom: 16px; }
+
+h5 {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 12px; }
+
+h6 {
+  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 10px; }
+
+p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 12px; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+.container-parent {
+  padding: 0;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto; }
+  @media only screen and (min-width: 480px) {
+    .container-parent {
+      padding: 0; } }
+  @media only screen and (min-width: 768px) {
+    .container-parent {
+      padding: 30px; } }
+  @media only screen and (min-width: 992px) {
+    .container-parent {
+      padding: 30px; } }
+  @media only screen and (min-width: 1200px) {
+    .container-parent {
+      padding: 30px; } }
+
+.container {
+  max-width: 490px; }
+
+.row {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 11px; }
+
+.row:before,
+.row:after {
+  content: "";
+  display: table; }
+
+.row:after {
+  clear: both; }
+
+.row {
+  zoom: 1;
+  /* For IE 6/7 */ }
+
+.column {
+  float: none;
+  -webkit-transition: float 0.5s;
+  transition: float 0.5s;
+  margin-left: 3%;
+  display: block; }
+  @media only screen and (min-width: 480px) {
+    .column {
+      float: none; } }
+  @media only screen and (min-width: 768px) {
+    .column {
+      float: left; } }
+  @media only screen and (min-width: 992px) {
+    .column {
+      float: left; } }
+  @media only screen and (min-width: 1200px) {
+    .column {
+      float: left; } }
+
+.column-with-12 {
+  width: 94%;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .column-with-12 {
+      width: 94%; } }
+  @media only screen and (min-width: 768px) {
+    .column-with-12 {
+      width: 97%; } }
+  @media only screen and (min-width: 992px) {
+    .column-with-12 {
+      width: 97%; } }
+  @media only screen and (min-width: 1200px) {
+    .column-with-12 {
+      width: 97%; } }
+
+.column-with-6 {
+  width: 94%;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s; }
+  @media only screen and (min-width: 480px) {
+    .column-with-6 {
+      width: 94%; } }
+  @media only screen and (min-width: 768px) {
+    .column-with-6 {
+      width: 47%; } }
+  @media only screen and (min-width: 992px) {
+    .column-with-6 {
+      width: 47%; } }
+  @media only screen and (min-width: 1200px) {
+    .column-with-6 {
+      width: 47%; } }
+
+.inline {
+  display: inline; }
+
+.block {
+  display: block; }
+
+.inline-block {
+  display: inline-block; }
+
+.hide {
+  display: none; }
+
+.margin-top-0 {
+  margin-top: 0; }
+
+.margin-bottom-0 {
+  margin-bottom: 0; }
+
+.padding-top-10 {
+  padding-top: 10px; }
+
+.align-top {
+  vertical-align: top; }
+
+.align-bottom {
+  vertical-align: bottom; }
+
+.align-middle {
+  vertical-align: middle; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.text-just {
+  text-align: justify; }
+
+.fit-height {
+  height: 100%; }
+
+.fit-width {
+  width: 100%; }
+
+.font-family-basic {
+  font-family: Helvetica, sans-serif; }
+
+.bold {
+  font-weight: bold; }
+
+.normal {
+  font-weight: normal; }
+
+.italic {
+  font-style: italic; }
+
+.caps {
+  text-transform: uppercase;
+  letter-spacing: .2em; }
+
+.no-wrap {
+  white-space: nowrap; }
+
+.dark-gray {
+  color: #222222; }
+
+.white {
+  color: #fff; }
+
+/*# sourceMappingURL=custom.css.map */
