@@ -80,7 +80,12 @@ module.exports = function(grunt) {
 		uncss: {
 			dist: {
 				options: {
-					ignoreSheets: [/fonts.googleapis/, /normalize.min.css/]
+					ignoreSheets: [/fonts.googleapis/, /normalize.min.css/, /font-awesome.min.css/],
+					ignore: ['.reveal-element', 
+					         '.reveal-element.slide-left', 
+					         '.reveal-element.slide-left.in-view', 
+					         '.reveal-element.slide-up', 
+					         '.reveal-element.slide-up.in-view']
 				},		
 				files: {
 					'css/tidy.css': ['index.html']
@@ -100,9 +105,9 @@ module.exports = function(grunt) {
 		// CSSMin
 		cssmin: {
 			dist: {
-				files: [
-						{ src: 'css/pretty.css', dest: 'css/custom.min.css' }
-				]
+				files: {
+				  'css/custom.min.css': ['css/pretty.css']
+				}
 			}
 		},
                 		
@@ -116,7 +121,7 @@ module.exports = function(grunt) {
 			},		
 			assetFiles: {
 				cwd: 'assets',
-				src: '**/*.min.svg',
+				src: '**/*',
 				dest: 'dist/assets',
 				expand: true
 			},
