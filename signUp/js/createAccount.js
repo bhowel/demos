@@ -28,30 +28,39 @@
 		
 		// Send email with new account data.
 		function sendAccountMail() {   
-			var firstname = $( "#firstname" ).val();
-			var lastname  = $( "#lastname" ).val();
-			var email     = $( "#email" ).val();
-			var password  = $( "#password" ).val();
+// 			var firstname = $( "#firstname" ).val();
+// 			var lastname  = $( "#lastname" ).val();
+// 			var email     = $( "#email" ).val();
+// 			var password  = $( "#password" ).val();
 
-			$.ajax({
-				type: "POST",
-				url: "sendAccountEmail.php?firstname=" + firstname + 
-																 "&lastname=" + lastname +
-																 "&email="    + email +
-																 "&password=" + password,
-				dataType: "json",
-				complete: function( data ) {
-				// Hide icon and form, then show ack page.
-				setInterval( function() { 
-					$( "#divEmailIcon" ).fadeOut( "slow", function() {
-						$( "#mainContainer" ).fadeOut( "slow", function() {
-						  window.location.href = "ack.html";
-						  window.console.log( JSON.stringify( data ) );
-						});
+			// Hide icon and form, then show ack page.
+			setInterval( function() { 
+				$( "#divEmailIcon" ).fadeOut( "slow", function() {
+					$( "#mainContainer" ).fadeOut( "slow", function() {
+						window.location.href = "ack.html";
 					});
-				}, 500 );
-				}                     
-			});//ajax
+				});
+			}, 500 );
+				
+// 			$.ajax({
+// 				type: "POST",
+// 				url: "sendAccountEmail.php?firstname=" + firstname + 
+// 																 "&lastname=" + lastname +
+// 																 "&email="    + email +
+// 																 "&password=" + password,
+// 				dataType: "json",
+// 				complete: function( data ) {
+// 				// Hide icon and form, then show ack page.
+// 				setInterval( function() { 
+// 					$( "#divEmailIcon" ).fadeOut( "slow", function() {
+// 						$( "#mainContainer" ).fadeOut( "slow", function() {
+// 						  window.location.href = "ack.html";
+// 						  window.console.log( JSON.stringify( data ) );
+// 						});
+// 					});
+// 				}, 500 );
+// 				}                     
+// 			});//ajax
 		}//sendAccountMail	
 	
 	});// ON DOC READY

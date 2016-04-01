@@ -466,16 +466,16 @@ button:focus {
 // =========== PADDING.
 
 .padding-top-10     { padding-top: 10px; }
-.padding-top-22     { padding-top: 22px; }
 
 /* 
-  Default screen: no padding.
-  Small screen  : no padding.
+  Default screen: padding is 11px on top; 0px on right, left, bottom.
+  Small screen  : padding is 11px on top; 0px on right, left, bottom.
   Full screen   : padding is 42px on top; 100px on right, left; 20px on bottom.
 */
-.padding-none-to-42-100-20 {
-  $paddingFull: 42px 100px 20px 100px;
-  @include padding-set( 0, 0, $paddingFull );
+.padding-header {
+  $paddingDefault: 11px 0 0 0;
+  $paddingFull   : 42px 100px 20px 100px;
+  @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );
 }
 
 /* 
@@ -483,7 +483,7 @@ button:focus {
   Small screen  : padding is 11px on top.
   Full screen   : padding is 38px on top; 100px on right, left; 38px on bottom.
 */
-.padding-11-to-38-100-38 {
+.padding-form {
   $paddingDefault: 11px 0 0 0;
   $paddingFull   : 38px 100px 38px 100px;
   @include padding-set( $paddingDefault, $paddingDefault, $paddingFull );
@@ -553,7 +553,7 @@ button:focus {
   Small screen  : no border.
   Full screen   : border on top, right, left; rounded corners on upper left and right.
 */
-.border-none-to-topR-rightR-left {
+.border-header {
   $border: ( topDefault: $borderNone,     rightDefault: $borderNone,  bottomDefault: $borderNone, leftDefault: $borderNone, 
              topSmall  : $borderNone,     rightSmall  : $borderNone,    bottomSmall: $borderNone, leftSmall  : $borderNone,
              topFull   : $border-2-white, rightFull   : $border-2-white, bottomFull: $borderNone, leftFull   : $border-2-white );
@@ -566,7 +566,7 @@ button:focus {
   Small screen  : no border.
   Full screen   : border on top, right, bottom, left; rounded corners on lower left and right.
 */
-.border-top-to-none-to-top-right-bottomR-leftR {
+.border-form {
   $border: ( topDefault: $border-2-white, rightDefault: $borderNone,     bottomDefault: $borderNone,     leftDefault: $borderNone, 
              topSmall  : $borderNone,     rightSmall  : $borderNone,     bottomSmall  : $borderNone,     leftSmall  : $borderNone,
              topFull   : $border-2-white, rightFull   : $border-2-white, bottomFull   : $border-2-white, leftFull   : $border-2-white );

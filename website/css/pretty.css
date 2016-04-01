@@ -24,14 +24,6 @@ body
     color: #222;
 }
 
-h1
-{
-    font-size: 36px;
-
-    margin-top: 32px;
-    margin-bottom: 34px;
-}
-
 h2
 {
     font-size: 28px;
@@ -43,11 +35,15 @@ h2
 a
 {
     text-decoration: none;
+
+    color: #fff;
 }
 
 a:hover
 {
     text-decoration: none;
+
+    color: #fff;
 }
 
 .parallaxContainer
@@ -525,6 +521,12 @@ a:hover
     display: inline-block;
 }
 
+.iconLabel
+{
+    font-size: 28px;
+    font-weight: 700;
+}
+
 .reveal-element
 {
     position: relative;
@@ -590,17 +592,8 @@ a:hover
 
 .header
 {
-    margin-bottom: 20px;
-
-    background-color: whitesmoke;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, .46);
-}
-
-.rounded-corner
-{
-    -webkit-border-radius: 12px;
-       -moz-border-radius: 12px;
-            border-radius: 12px;
+    font-size: 28pt;
+    font-weight: 700;
 }
 
 .text-center
@@ -616,6 +609,11 @@ a:hover
 .fit-width
 {
     width: 100%;
+}
+
+.dark-gray
+{
+    color: #222;
 }
 
 /*# sourceMappingURL=custom.css.map */

@@ -53,10 +53,12 @@ p {
   margin-bottom: 12px; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #fff; }
 
 a:hover {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #fff; }
 
 .parallaxContainer {
   left: 0;
@@ -337,6 +339,10 @@ a:hover {
 .icon-wrapper {
   display: inline-block; }
 
+.iconLabel {
+  font-size: 28px;
+  font-weight: 700; }
+
 .reveal-element {
   opacity: 0;
   position: relative; }
@@ -385,9 +391,8 @@ a:hover {
   transform: translate3d(0px, 0px, 0px); }
 
 .header {
-  background-color: whitesmoke;
-  margin-bottom: 20px;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.46); }
+  font-size: 28pt;
+  font-weight: 700; }
 
 .inline {
   display: inline; }

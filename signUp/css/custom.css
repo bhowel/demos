@@ -349,29 +349,26 @@ button:focus {
 .padding-top-10 {
   padding-top: 10px; }
 
-.padding-top-22 {
-  padding-top: 22px; }
-
 /* 
-  Default screen: no padding.
-  Small screen  : no padding.
+  Default screen: padding is 11px on top; 0px on right, left, bottom.
+  Small screen  : padding is 11px on top; 0px on right, left, bottom.
   Full screen   : padding is 42px on top; 100px on right, left; 20px on bottom.
 */
-.padding-none-to-42-100-20 {
-  padding: 0;
+.padding-header {
+  padding: 11px 0 0 0;
   -webkit-transition: padding 0.5s;
   transition: padding 0.5s; }
   @media only screen and (min-width: 480px) {
-    .padding-none-to-42-100-20 {
-      padding: 0; } }
+    .padding-header {
+      padding: 11px 0 0 0; } }
   @media only screen and (min-width: 768px) {
-    .padding-none-to-42-100-20 {
+    .padding-header {
       padding: 42px 100px 20px 100px; } }
   @media only screen and (min-width: 992px) {
-    .padding-none-to-42-100-20 {
+    .padding-header {
       padding: 42px 100px 20px 100px; } }
   @media only screen and (min-width: 1200px) {
-    .padding-none-to-42-100-20 {
+    .padding-header {
       padding: 42px 100px 20px 100px; } }
 
 /* 
@@ -379,21 +376,21 @@ button:focus {
   Small screen  : padding is 11px on top.
   Full screen   : padding is 38px on top; 100px on right, left; 38px on bottom.
 */
-.padding-11-to-38-100-38 {
+.padding-form {
   padding: 11px 0 0 0;
   -webkit-transition: padding 0.5s;
   transition: padding 0.5s; }
   @media only screen and (min-width: 480px) {
-    .padding-11-to-38-100-38 {
+    .padding-form {
       padding: 11px 0 0 0; } }
   @media only screen and (min-width: 768px) {
-    .padding-11-to-38-100-38 {
+    .padding-form {
       padding: 38px 100px 38px 100px; } }
   @media only screen and (min-width: 992px) {
-    .padding-11-to-38-100-38 {
+    .padding-form {
       padding: 38px 100px 38px 100px; } }
   @media only screen and (min-width: 1200px) {
-    .padding-11-to-38-100-38 {
+    .padding-form {
       padding: 38px 100px 38px 100px; } }
 
 .align-top {
@@ -519,7 +516,7 @@ button:focus {
   Small screen  : no border.
   Full screen   : border on top, right, left; rounded corners on upper left and right.
 */
-.border-none-to-topR-rightR-left {
+.border-header {
   border-top: none;
   border-right: none;
   border-bottom: none;
@@ -528,28 +525,28 @@ button:focus {
   -webkit-transition: border 0.5s, border-radius 0.5s;
   transition: border 0.5s, border-radius 0.5s; }
   @media only screen and (min-width: 480px) {
-    .border-none-to-topR-rightR-left {
+    .border-header {
       border-top: none;
       border-right: none;
       border-bottom: none;
       border-left: none;
       border-radius: 5px 5px 0 0; } }
   @media only screen and (min-width: 768px) {
-    .border-none-to-topR-rightR-left {
+    .border-header {
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
       border-bottom: none;
       border-left: 2px solid #fff;
       border-radius: 5px 5px 0 0; } }
   @media only screen and (min-width: 992px) {
-    .border-none-to-topR-rightR-left {
+    .border-header {
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
       border-bottom: none;
       border-left: 2px solid #fff;
       border-radius: 5px 5px 0 0; } }
   @media only screen and (min-width: 1200px) {
-    .border-none-to-topR-rightR-left {
+    .border-header {
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
       border-bottom: none;
@@ -561,7 +558,7 @@ button:focus {
   Small screen  : no border.
   Full screen   : border on top, right, bottom, left; rounded corners on lower left and right.
 */
-.border-top-to-none-to-top-right-bottomR-leftR {
+.border-form {
   border-top: 2px solid #fff;
   border-right: none;
   border-bottom: none;
@@ -570,28 +567,28 @@ button:focus {
   -webkit-transition: border 0.5s, border-radius 0.5s;
   transition: border 0.5s, border-radius 0.5s; }
   @media only screen and (min-width: 480px) {
-    .border-top-to-none-to-top-right-bottomR-leftR {
+    .border-form {
       border-top: none;
       border-right: none;
       border-bottom: none;
       border-left: none;
       border-radius: 0 0 5px 5px; } }
   @media only screen and (min-width: 768px) {
-    .border-top-to-none-to-top-right-bottomR-leftR {
+    .border-form {
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
       border-bottom: 2px solid #fff;
       border-left: 2px solid #fff;
       border-radius: 0 0 5px 5px; } }
   @media only screen and (min-width: 992px) {
-    .border-top-to-none-to-top-right-bottomR-leftR {
+    .border-form {
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
       border-bottom: 2px solid #fff;
       border-left: 2px solid #fff;
       border-radius: 0 0 5px 5px; } }
   @media only screen and (min-width: 1200px) {
-    .border-top-to-none-to-top-right-bottomR-leftR {
+    .border-form {
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
       border-bottom: 2px solid #fff;
