@@ -1,0 +1,91 @@
+
+ATTRIBUTION for third-party code, plugins, libraries, fonts.
+
+============================================================================
+ GOOGLE FONTS
+============================================================================
+
+============SITE
+https://www.google.com/fonts
+
+============LICENSE
+http://creativecommons.org/licenses/by/3.0/
+
+============================================================================
+ JQUERY 1.12.0
+============================================================================
+
+============CODE
+http://code.jquery.com/jquery-1.12.0.js
+
+============LICENSE
+/*!
+ * jQuery JavaScript Library v1.12.0
+ * http://jquery.com/
+ *
+ * Includes Sizzle.js
+ * http://sizzlejs.com/
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license
+ * http://jquery.org/license
+ *
+ * Date: 2016-01-08T19:56Z
+ */
+ 
+============================================================================
+ FONT AWESOME
+============================================================================
+
+============SITE
+https://fortawesome.github.io/Font-Awesome/
+
+============LICENSE
+SIL Open Font LIcense http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+
+============================================================================
+ NORMALIZE.CSS
+============================================================================
+
+============CODE
+http://necolas.github.io/normalize.css/
+
+============LICENSE
+Normalize.css is a project by [Nicolas Gallagher](https://github.com/necolas),
+co-created with [Jonathan Neal](https://github.com/jonathantneal).
+
+============================================================================
+ GRID SYSTEM
+============================================================================
+
+The grid system is based on the Responsive Grid System by Graham Miller.
+The generated styles have been revised.
+Web site: http://www.responsivegridsystem.com/
+License: http://creativecommons.org/licenses/by/3.0/
+  
+============================================================================
+ PARALLAX SCROLLING
+============================================================================  
+
+CSS and Javascript from https://www.kirupa.com/.
+Javascript for the requestAnimationFrame shim from http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/.
+
+============================================================================
+ CIRCLE ICONS
+============================================================================    
+
+CSS from http://codepen.io/Onomicon/pen/iDfld.
+
+============================================================================
+ SCROLL REVEAL
+============================================================================  
+
+CSS and Javascript from http://www.sitepoint.com/scroll-based-animations-jquery-css3/.
+  
+  
+  
+  
+  
+  
+  
+  
