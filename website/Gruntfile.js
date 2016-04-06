@@ -116,25 +116,25 @@ module.exports = function(grunt) {
 			topFiles: {
 				cwd: '.',
 				src: ['*.html', '*.txt', '*.ico'],
-				dest: 'dist',
+				dest: '../../dist/netlifyTaxRhino',
 				expand: true 
 			},		
 			assetFiles: {
 				cwd: 'assets',
 				src: '**/*',
-				dest: 'dist/assets',
+				dest: '../../dist/netlifyTaxRhino/assets',
 				expand: true
 			},
 			cssFiles: {
 				cwd: 'css',
 				src: ['**/normalize.min.css', '**/custom.min.css'],
-				dest: 'dist/css',
+				dest: '../../dist/netlifyTaxRhino/css',
 				expand: true 
 			},
 			jsFiles: {
 				cwd: 'js',
 				src: ['**/*.min.js', '**/*.map'],
-				dest: 'dist/js',
+				dest: '../../dist/netlifyTaxRhino/js',
 				expand: true 
 			}					
 		},
@@ -143,7 +143,7 @@ module.exports = function(grunt) {
     htmlrefs: {
       dist: {
 				files: [
-						{ src: 'dist/index.html', dest: 'dist/index.html' }
+						{ src: '../../dist/netlifyTaxRhino/index.html', dest: '../../dist/netlifyTaxRhino/index.html' }
 				]
       }
     }

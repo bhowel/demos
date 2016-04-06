@@ -26,6 +26,12 @@ h2 {
   margin-bottom: 26px;
 }
 
+p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
 a {
   text-decoration: none;
   color: #fff;
@@ -400,8 +406,13 @@ a:hover {
   display: inline-block;
 }
 
-.iconLabel {
+.icon-label-side {
   font-size: 28px;
+  font-weight: 700;
+}
+
+.icon-label-bottom {
+  margin-top: 10px;
   font-weight: 700;
 }
 

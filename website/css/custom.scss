@@ -318,8 +318,13 @@ a:hover {
 	display: inline-block;
 }
 
-.iconLabel { 
+.icon-label-side { 
   font-size  : 28px;
+  font-weight: 700; 
+}
+
+.icon-label-bottom { 
+  margin-top : 10px;
   font-weight: 700; 
 }
 

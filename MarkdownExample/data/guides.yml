@@ -1,0 +1,36 @@
+- title: "Guides Example"
+  url: 'index'
+  chapters:
+    - title: "User guide"
+      url: ""
+      skip_sidebar: true
+
+- title: "GETTING STARTED >"
+  url: 'toc-0'
+  chapters:
+    - title: "Before you install"
+      url: "overview"
+    - title: "Installing TuffDataList"
+      url: "installation"
+    - title: "Setting up TuffDataList"
+      url: "setup"                
+    - title: "Setting up your data"
+      url: "data" 
+    - title: "Initializing TuffDataList"
+      url: "initialize" 
+            
+- title: "USING Tuffdatalist >"
+  url: 'toc-1'
+  chapters:
+    - title: "Before you start"
+      url: "overview"
+    - title: "Using TuffDataList to create a basic list"
+      url: "use" 
+    - title: "Creating a list from a web service"
+      url: "use-web-service"              
+    - title: "Adding a selected row function"
+      url: "use-selected-row" 
+    - title: "Adding a get data function"
+      url: "use-get-data" 
+    - title: "Creating multiple lists from a web service"
+      url: "use-get-mult-list"       

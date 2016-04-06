@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>GETTING STARTED >: Setting up your data</title>
+    <meta property="st:title" content="GETTING STARTED >: Setting up your data" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+
+  <body class="guides toc-0 toc-0_data toc-0_data_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper"><span style="font-size: 16pt; margin-left: 7px;">TuffDataList</span>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <div id="sidebar">
+
+          <ol class='toc-level-0'><li class='toc-level-0 selected'><a href="../overview/">GETTING STARTED ></a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../overview/">Before you install</a></li><li class='toc-level-1 '><a href="../installation/">Installing TuffDataList</a></li><li class='toc-level-1 '><a href="../setup/">Setting up TuffDataList</a></li><li class='toc-level-1 selected'><a href="./">Setting up your data</a></li><li class='toc-level-1 '><a href="../initialize/">Initializing TuffDataList</a></li></ol></li><li class='toc-level-0 '><a href="../../toc-1/overview/">USING Tuffdatalist ></a><ol class='toc-level-1 '><li class='toc-level-1 '><a href="../../toc-1/overview/">Before you start</a></li><li class='toc-level-1 '><a href="../../toc-1/use/">Using TuffDataList to create a basic list</a></li><li class='toc-level-1 '><a href="../../toc-1/use-web-service/">Creating a list from a web service</a></li><li class='toc-level-1 '><a href="../../toc-1/use-selected-row/">Adding a selected row function</a></li><li class='toc-level-1 '><a href="../../toc-1/use-get-data/">Adding a get data function</a></li><li class='toc-level-1 '><a href="../../toc-1/use-get-mult-list/">Creating multiple lists from a web service</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back up</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Setting up your data
+        </h1>
+      
+          <hr>
+
+          <p>
+<p>You can use any data source - REST services, JSON files, Javascript objects - 
+to populate lists in TuffDataList, as long as you convert or extract the final result
+into a format TuffDataList can read.</p>
+
+<p>In this section, we&#39;ll show you how to set up your data for TuffDataList.
+If you&#39;re using a static data source, you can follow our format to create your data.</p>
+
+<p>If you&#39;re using a supplied data source or data from a web service, you&#39;ll have to
+convert the data into a matching format. Use <a href="#Converting-your-data">Converting your data</a> 
+as a guide.</p>
+
+<p><a href="#Data-format">Data format</a><br>
+<a href="#Primary-key">Primary key</a><br>
+<a href="#Foreign-key">Foreign key</a><br>
+<a href="#Foreign-name">Foreign name</a><br>
+<a href="#Converting-your-data">Converting your data</a>    </p>
+
+</p>
+
+<p>
+<p><a name="Data-format"></a></p>
+<h3 class='anchorable-toc' id='toc_data-format'>Data format</h3>
+<p>The format for each list is an array of JSON objects:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> arrayName =
+[
+  { 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>      :<span class="string"><span class="delimiter">&quot;</span><span class="content">primaryKeyValue</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>      :<span class="string"><span class="delimiter">&quot;</span><span class="content">foreignKeyValue</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">columnName</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">columnValue</span><span class="delimiter">&quot;</span></span>,
+    <span class="comment">// ...other columns,</span>
+    <span class="comment">// ...last column, with no comma </span>
+  },
+  { 
+    <span class="comment">// ...other rows </span>
+  },
+  { 
+    <span class="comment">// ...last row, with no comma </span>
+  }
+]
+</pre></td>
+</tr></table>
+</div></div>
+<p>For example:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> engineeringEmployees =
+[
+  { 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">1</span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">3</span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">dateStarted</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">1/1/2015</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">salary</span><span class="delimiter">&quot;</span></span>     :<span class="string"><span class="delimiter">&quot;</span><span class="content">80,000</span><span class="delimiter">&quot;</span></span>
+  }
+]
+</pre></td>
+</tr></table>
+</div></div>
+<p>The JSON objects contain name/value properties. Each property has a name followed by the property&#39;s value.
+When you&#39;re writing JSON, enclose the name in double quotes:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="string"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span> <span class="comment">// The name is &quot;role&quot;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Enclose each value in double quotes unless the value is numeric:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="string"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>           <span class="comment">// Numeric value</span>
+<span class="string"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span> <span class="comment">// Non-numeric value</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p><span class="fontawesome-info-sign"></span> To find out more about JSON formats, <strong>see</strong>
+<a href="https://en.wikipedia.org/wiki/JSON" target="_blank">Wikipedia: JSON</a>,</p>
+
+<p>The following table defines each parameter. We&#39;ll give you more details in the next few sections. </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>arrayName</code></td>
+<td>The name of the array. For example, <code>engineeringEmployees</code>. This is the element you send to TuffDataList when you create a list.</td>
+</tr>
+<tr>
+<td><code>&quot;pkey&quot;</code></td>
+<td>The name of the primary key, which identifies the row. You must use the name <code>&quot;pkey&quot;</code>.</td>
+</tr>
+<tr>
+<td><code>primaryKeyValue</code></td>
+<td>The value of the <a href="http://www.w3schools.com/sql/sql_primarykey.asp" target="_blank">primary key</a>. For example, <code>1</code> or <code>&quot;a_001&quot;</code>.</td>
+</tr>
+<tr>
+<td><code>&quot;fkey&quot;</code></td>
+<td>The name of the <a href="http://www.w3schools.com/sql/sql_foreignkey.asp" target="_blank">foreign key</a>, which identifies the row in the source list. You must use the name <code>&quot;fkey&quot;</code>.</td>
+</tr>
+<tr>
+<td><code>foreignKeyValue</code></td>
+<td>The value of the foreign key. For example, <code>1</code> or <code>&quot;a_001&quot;</code>.</td>
+</tr>
+<tr>
+<td><code>columnName</code></td>
+<td>The name of a column. For example, <code>&quot;role&quot;</code>.</td>
+</tr>
+<tr>
+<td><code>columnValue</code></td>
+<td>The value of a column. For example, <code>&quot;Developer&quot;</code>.</td>
+</tr>
+</tbody></table>
+
+</p>
+
+<p>
+<p><a name="Primary-key"></a></p>
+<h3 class='anchorable-toc' id='toc_primary-key'>Primary key</h3>
+<p>Each row has one column, the primary key, that identifies the row in the list.
+The primary key is different for each row:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Customer Service</span><span class="delimiter">&quot;</span></span> },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Human Relations</span><span class="delimiter">&quot;</span></span> },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Engineering</span><span class="delimiter">&quot;</span></span> },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">4</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Sales</span><span class="delimiter">&quot;</span></span> }
+</pre></td>
+</tr></table>
+</div></div>
+</p>
+
+<p>
+<p><a name="Foreign-key"></a></p>
+<h3 class='anchorable-toc' id='toc_foreign-key'>Foreign key</h3>
+<p>Each row in a source list has a primary key. When the user selects a row in a source list, TuffDataList sends 
+the primary key back to your application so you can use it to retrieve the target list.</p>
+
+<p>The primary key from the the source list is the foreign key of the target list.
+It&#39;s the same in every row of the target list.</p>
+
+<p>Let&#39;s look at an example:<br>
+<img src="/images/custom_11.png" /><br>
+<strong>Departments</strong> is a source list with empty foreign keys:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Customer Service</span><span class="delimiter">&quot;</span></span> },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Human Relations</span><span class="delimiter">&quot;</span></span> },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Engineering</span><span class="delimiter">&quot;</span></span> },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">5</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Sales</span><span class="delimiter">&quot;</span></span> }
+</pre></td>
+</tr></table>
+</div></div>
+<p>If the user selects the <strong>Engineering</strong> department, which has the primary key <code>3</code>,
+TuffDataList populates <strong>Employees for department</strong> with the target list.
+The target list has the foreign key <code>3</code> in every row:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">VP Engineering</span><span class="delimiter">&quot;</span></span>, ...other columns },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span>, ...other columns },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span>, ...other columns },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">4</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">UI Developer</span><span class="delimiter">&quot;</span></span>, ...other columns },
+{ <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">5</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fKey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Guides Editor</span><span class="delimiter">&quot;</span></span>, ...other columns }
+</pre></td>
+</tr></table>
+</div></div>
+</p>
+
+<p>
+<p><a name="Foreign-name"></a></p>
+<h3 class='anchorable-toc' id='toc_foreign-name'>Foreign name</h3>
+<p>When TuffDataList loads a target list, it puts the source&#39;s <code>pkey</code> into an input field at the top
+of the target:<br>
+<img src="/images/custom_9.png" />  </p>
+
+<p>The key isn&#39;t helpful because it doesn&#39;t appear in the source list.
+The user can&#39;t tell which source row is related to the target.</p>
+
+<p>To create a better label, add the optional <code>fname</code> to the target data:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> serviceDetailsConsult =
+  [
+    { 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span> :<span class="integer">1</span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">3</span><span class="delimiter">&quot;</span></span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fname</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Consultation</span><span class="delimiter">&quot;</span></span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">Survey</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">price</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">40/hour</span><span class="delimiter">&quot;</span></span> },
+    { 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span> :<span class="integer">2</span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">3</span><span class="delimiter">&quot;</span></span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fname</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Consultation</span><span class="delimiter">&quot;</span></span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">Recommendations</span><span class="delimiter">&quot;</span></span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">price</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">30/hour</span><span class="delimiter">&quot;</span></span> }
+  ]
+</pre></td>
+</tr></table>
+</div></div>
+<p>When you add the <code>fname</code>, TuffDataList uses it at the top of the target instead of the key:<br>
+<img src="/images/custom_8.png" /><br>
+Now it&#39;s easy for the user to see where the data came from:<br>
+<img src="/images/custom_10.png" />    </p>
+
+</p>
+
+<p>
+<p><a name="Converting-your-data"></a></p>
+<h3 class='anchorable-toc' id='toc_converting-your-data'>Converting your data</h3>
+<p>Complete instructions on converting different data sources is beyond the scope of this guide.
+However, we can give you a simple example that might point you in the right direction.</p>
+
+<p>Let&#39;s assume you&#39;re running a web service that returns a JSON result, but it&#39;s not in the format
+you need for TuffDataList. You probably have a function that provides the response, such as:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">returnData</span>( response ) { 
+  <span class="comment">// Handle the response.</span>
+}<span class="comment">//returnData</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Sometimes the part of the data you want is nested inside the response:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> response =
+{ 
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">lists</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">employees</span><span class="delimiter">&quot;</span></span>:
+    [
+      { 
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">1</span>, 
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">3</span>, 
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, 
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span>, 
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">dateStarted</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">1/1/2015</span><span class="delimiter">&quot;</span></span>, 
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">salary</span><span class="delimiter">&quot;</span></span>     :<span class="string"><span class="delimiter">&quot;</span><span class="content">80,000</span><span class="delimiter">&quot;</span></span>
+      },
+      <span class="comment">// ...other entries,</span>
+    ],
+    <span class="comment">// ...other entries,</span>
+  }, 
+  <span class="comment">// ...other entries,</span>
+}
+</pre></td>
+</tr></table>
+</div></div>
+<p>You might have to display the response in the web console or use the browser developer
+tools to explore the structure:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>console.log( response );
+
+<span class="comment">// or, to show the structure of a JSON response:</span>
+
+console.log( JSON.stringify( response );
+</pre></td>
+</tr></table>
+</div></div>
+<p>After you understand the structure, put the data you want into a variable.
+For example:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">returnData</span>( response ) { 
+  <span class="keyword">var</span> responseData = response.lists.employees;
+}<span class="comment">//returnData</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Use an iterative function, such as a <code>for</code> loop, to go through each element
+in the response. Capture each element, then map the values from the element to 
+an array in the TuffDataList format. For example, if the response is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> response =
+{ 
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">lists</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">employees</span><span class="delimiter">&quot;</span></span>:
+    [
+      { <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">parent</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fullName</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span> },
+      <span class="comment">// ...other entries,</span>
+    ],
+    <span class="comment">// ...other entries,</span>
+  }, 
+  <span class="comment">// ...other entries,</span>
+}
+</pre></td>
+</tr></table>
+</div></div>
+<p>You can map the values like this:       </p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">returnData</span>( response ) {
+  <span class="comment">// Convert the response to the TuffDataList format.</span>
+  <span class="keyword">var</span> listData     = []; <span class="comment">// TuffDataList array.</span>
+  <span class="keyword">var</span> responseData = response.lists.employees;
+  <span class="keyword">var</span> length       = responseData.length;
+  <span class="keyword">var</span> entry        = <span class="predefined-constant">null</span>;
+
+  <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="integer">0</span>; i &lt; length; i++ ) {
+    entry = responseData[i];
+    <span class="keyword">var</span> listElement = { 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:entry.id, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:entry.parent,  
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:entry.fullName }
+    listData.push( listElement );       
+  }
+
+  <span class="comment">// Send listData to TuffDataList.</span>
+  <span class="comment">// (We'll show this to you in a later step.)  </span>
+}<span class="comment">//returnData</span>
+</pre></td>
+</tr></table>
+</div></div>
+</p>
+
+          
+      <footer>
+        <a class="previous-guide" href="../setup/"> ← Setting up TuffDataList</a> <a class="next-guide" href="../initialize/">Initializing TuffDataList →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+
+    <script>
+      ga('create', 'UA-64039036-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

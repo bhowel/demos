@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>USING Tuffdatalist >: Adding a selected row function</title>
+    <meta property="st:title" content="USING Tuffdatalist >: Adding a selected row function" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+
+  <body class="guides toc-1 toc-1_use-selected-row toc-1_use-selected-row_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper"><span style="font-size: 16pt; margin-left: 7px;">TuffDataList</span>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <div id="sidebar">
+
+          <ol class='toc-level-0'><li class='toc-level-0 '><a href="../../toc-0/overview/">GETTING STARTED ></a><ol class='toc-level-1 '><li class='toc-level-1 '><a href="../../toc-0/overview/">Before you install</a></li><li class='toc-level-1 '><a href="../../toc-0/installation/">Installing TuffDataList</a></li><li class='toc-level-1 '><a href="../../toc-0/setup/">Setting up TuffDataList</a></li><li class='toc-level-1 '><a href="../../toc-0/data/">Setting up your data</a></li><li class='toc-level-1 '><a href="../../toc-0/initialize/">Initializing TuffDataList</a></li></ol></li><li class='toc-level-0 selected'><a href="../overview/">USING Tuffdatalist ></a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../overview/">Before you start</a></li><li class='toc-level-1 '><a href="../use/">Using TuffDataList to create a basic list</a></li><li class='toc-level-1 '><a href="../use-web-service/">Creating a list from a web service</a></li><li class='toc-level-1 selected'><a href="./">Adding a selected row function</a></li><li class='toc-level-1 '><a href="../use-get-data/">Adding a get data function</a></li><li class='toc-level-1 '><a href="../use-get-mult-list/">Creating multiple lists from a web service</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back up</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Adding a selected row function
+        </h1>
+      
+          <hr>
+
+          <p>
+<p>In this section, we&#39;ll show you how to use the <code>buildList</code> function
+with the <code>selectedRowFunction</code> parameter.
+When the user selects a list row, <code>selectedRowFunction</code> performs a custom action.</p>
+
+<p>For this example, the <code>listContainers</code> variable is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> listContainers = [
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Employees</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">410</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#dddddd</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  }     
+];
+</pre></td>
+</tr></table>
+</div></div>
+<p>And the list data from the web service is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> employees =
+[
+  { 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">1</span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">VP Engineering</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">dateStarted</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">1/1/2015</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">salary</span><span class="delimiter">&quot;</span></span>     :<span class="string"><span class="delimiter">&quot;</span><span class="content">100,000</span><span class="delimiter">&quot;</span></span>
+  },
+  { 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">2</span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">dateStarted</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">1/1/2015</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">salary</span><span class="delimiter">&quot;</span></span>     :<span class="string"><span class="delimiter">&quot;</span><span class="content">80,000</span><span class="delimiter">&quot;</span></span> 
+  } 
+]       
+</pre></td>
+</tr></table>
+</div></div>
+<p>You want to use <code>buildList</code> to create a list from a web service response
+and run the <code>handleRowSelection</code> function when the user selects a row in the list.</p>
+
+<p>Set up the <code>getData</code> and <code>returnData</code> functions:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">getData</span>( selectedPkey, containerIndex ) {
+  <span class="comment">// Set the index for the current container.</span>
+  n_tuffDataList.setContainerIndex( containerIndex );
+
+  <span class="comment">// Request the web service.</span>
+  callWebService( containerIndex, selectedPkey, returnData  );
+}<span class="comment">//getData</span>
+
+<span class="keyword">function</span> <span class="function">returnData</span>( response ) {
+  <span class="comment">// Build a list from the returned data.</span>
+  <span class="comment">// In this example, the response is already in TuffDataList format.</span>
+  n_tuffDataList.buildList( response, <span class="predefined-constant">null</span>, <span class="predefined-constant">null</span> );
+}<span class="comment">//</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Add a selected row function with two parameters:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">handleRowSelection</span>( containerIndex, rowValues ) { 
+  <span class="comment">// Do something with the selected list container and row data.</span>
+}<span class="comment">//handleRowSelection</span>
+</pre></td>
+</tr></table>
+</div></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>containerIndex</code></td>
+<td>The index of the selected container in <code>listContainers</code>. You can use any name for this parameter.</td>
+</tr>
+<tr>
+<td><code>rowValues</code></td>
+<td>A Javascript object containing the values of the selected row. You can use any name for this parameter.</td>
+</tr>
+</tbody></table>
+
+<p>Go back to <code>returnData</code>. Use <code>handleRowSelection</code> (without the parentheses) for the last parameter of <code>buildList</code>:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">returnData</span>( response ) {
+    <span class="comment">// Build a list from the returned data.</span>
+    <span class="comment">// In this example, the response is already in TuffDataList format.</span>
+    n_tuffDataList.buildList( response, <span class="predefined-constant">null</span>, handleRowSelection );
+}<span class="comment">//returnData</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now you can call <code>getData</code>. Set <code>selectedPkey</code> to <code>null</code> and <code>containerIndex</code> to <code>0</code>, the <strong>Employees</strong> container.
+In this example, the web service doesn&#39;t use a selected <code>pkey</code>:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>getData( <span class="predefined-constant">null</span>, <span class="integer">0</span> );
+</pre></td>
+</tr></table>
+</div></div>
+<p>The screen result is:<br>
+<img src="/images/custom_3.png" /></p>
+
+<p>If the user selects the second row, TuffDataList calls <code>handleRowSelection</code> with <code>containerIndex</code> set to <code>0</code> (<strong>Employees</strong>)
+and <code>rowValues</code> set to:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+  <td class="code"><pre>{ 
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">2</span>, 
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, 
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, 
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span>, 
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">dateStarted</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">1/1/2015</span><span class="delimiter">&quot;</span></span>, 
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">salary</span><span class="delimiter">&quot;</span></span>     :<span class="string"><span class="delimiter">&quot;</span><span class="content">80,000</span><span class="delimiter">&quot;</span></span> 
+}
+</pre></td>
+</tr></table>
+</div></div>
+<p>You can write your selected row function to do anything you like. TuffDataList provides <code>containerIndex</code> and <code>rowValues</code>
+in case you want to work with the values from the selected container or row. For example:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">handleRowSelection</span>( containerIndex, rowValues ) {
+  <span class="comment">// Use containerIndex to show the container name.</span>
+  <span class="keyword">var</span> containerName = listContainers[containerIndex].name; 
+  console.log( ( <span class="string"><span class="delimiter">&quot;</span><span class="content">You selected a row in </span><span class="delimiter">&quot;</span></span> + containerName + <span class="string"><span class="delimiter">&quot;</span><span class="content">.</span><span class="delimiter">&quot;</span></span>  );
+
+  <span class="comment">// Use rowValues to calculate the cost of living raise for the selected employee.</span>
+  <span class="keyword">var</span> empName = rowValues.name;
+  <span class="keyword">var</span> raise   = calcRaise( rowValues.pkey, 
+                           rowValues.role, 
+                           rowValues.dateStarted, 
+                           rowValues.salary );
+  console.log( ( <span class="string"><span class="delimiter">&quot;</span><span class="content">The raise for </span><span class="delimiter">&quot;</span></span> + empName + <span class="string"><span class="delimiter">&quot;</span><span class="content"> is </span><span class="delimiter">&quot;</span></span> + raise + <span class="string"><span class="delimiter">&quot;</span><span class="content">.</span><span class="delimiter">&quot;</span></span>  );
+}<span class="comment">//handleRowSelection</span>
+</pre></td>
+</tr></table>
+</div></div>
+</p>
+
+          
+      <footer>
+        <a class="previous-guide" href="../use-web-service/"> ← Creating a list from a web service</a> <a class="next-guide" href="../use-get-data/">Adding a get data function →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+
+    <script>
+      ga('create', 'UA-64039036-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
