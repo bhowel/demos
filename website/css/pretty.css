@@ -22,6 +22,7 @@ body
     cursor: default;
 
     color: #222;
+    background-color: rgba(35, 138, 172, .8);
 }
 
 h2
@@ -447,7 +448,8 @@ a:hover
 {
     cursor: pointer;
 
-    background-color: #ed8639;
+    color: #222;
+    background-color: #999;
 }
 
 .portfolio-label
@@ -527,12 +529,6 @@ a:hover
 .icon-wrapper
 {
     display: inline-block;
-}
-
-.icon-label-side
-{
-    font-size: 28px;
-    font-weight: 700;
 }
 
 .icon-label-bottom
@@ -626,7 +622,7 @@ a:hover
     width: 100%;
 }
 
-.dark-gray
+.gray-dark
 {
     color: #222;
 }

@@ -17,6 +17,7 @@ body {
   font-size: 14px;
   line-height: 1.25;
   color: #222222;
+  background-color: rgba(35, 138, 172, 0.8);
   cursor: default;
 }
 
@@ -339,7 +340,8 @@ a:hover {
 }
 
 .portfolio-item:hover {
-  background-color: #ed8639;
+  color: #222222;
+  background-color: #999999;
   cursor: pointer;
 }
 
@@ -404,11 +406,6 @@ a:hover {
 
 .icon-wrapper {
   display: inline-block;
-}
-
-.icon-label-side {
-  font-size: 28px;
-  font-weight: 700;
 }
 
 .icon-label-bottom {
@@ -485,7 +482,7 @@ a:hover {
   width: 100%;
 }
 
-.dark-gray {
+.gray-dark {
   color: #222222;
 }
 

@@ -14,6 +14,7 @@ body {
   font-size: 14px;
   line-height: 1.25;
   color: #222222;
+  background-color: rgba(35, 138, 172, 0.8);
   cursor: default; }
 
 h1 {
@@ -279,7 +280,8 @@ a:hover {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.46); }
 
 .portfolio-item:hover {
-  background-color: #ed8639;
+  color: #222222;
+  background-color: #999999;
   cursor: pointer; }
 
 .portfolio-label {
@@ -338,10 +340,6 @@ a:hover {
 
 .icon-wrapper {
   display: inline-block; }
-
-.icon-label-side {
-  font-size: 28px;
-  font-weight: 700; }
 
 .icon-label-bottom {
   margin-top: 10px;
@@ -476,13 +474,16 @@ a:hover {
 .no-wrap {
   white-space: nowrap; }
 
+.turquoise {
+  color: rgba(35, 138, 172, 0.8); }
+
 .orange {
   color: #ed8639; }
 
 .orange-light {
   color: #ffcc99; }
 
-.dark-gray {
+.gray-dark {
   color: #222222; }
 
 .white {

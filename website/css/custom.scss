@@ -23,9 +23,11 @@ $screenXLarge: 1200px;
 // COLOR
 // ============================================================================
 
+$turquoise   : rgba( 35, 138, 172, 0.80);
 $orange      : rgba( 237, 134, 57, 1.0);
 $orange-light: rgba( 255, 204, 153, 1.0 );
-$dark-gray   : rgba( 34, 34, 34, 1.0 );
+$gray-med    : rgba( 153, 153, 153, 1.0 );
+$gray-dark   : rgba( 34, 34, 34, 1.0 );
 $white       : #fff;	
 $off-white   : rgba( 245, 245, 245, 1.0 );
 
@@ -86,12 +88,13 @@ $container-width-default: 1024px;
 // ============================================================================
 
 body {
-  margin     : 0;
-  font-family: 'Raleway', Helvetica, sans-serif; 
-  font-size  : 14px; 
-  line-height: 1.25;    
-  color      : $dark-gray;
-  cursor     : default;
+  margin          : 0;
+  font-family     : 'Raleway', Helvetica, sans-serif; 
+  font-size       : 14px; 
+  line-height     : 1.25; 
+  color           : $gray-dark;
+  background-color: $turquoise;   
+  cursor          : default;
 }
 
 h1 { 
@@ -239,13 +242,14 @@ a:hover {
 
 .portfolio-item {
   color           : $white;
-  background-color: $dark-gray;
+  background-color: $gray-dark;
   padding-bottom  : 5px;
   margin-bottom   : 10px;
   box-shadow      :0 1px 10px rgba(0, 0, 0, 0.46);
 }
 .portfolio-item:hover {
-  background-color: $orange;
+  color           : $gray-dark;
+  background-color: $gray-med;
   cursor          : pointer;
 }
 
@@ -287,7 +291,7 @@ a:hover {
 
 .circle-icon-small {
   font-size             :30px;
-	background            :$dark-gray;
+	background            :$gray-dark;
 	padding               :20px;
 	border                :6px solid $white;
 	color                 :$white;
@@ -310,17 +314,12 @@ a:hover {
 	transition            :0.5s;
 }
 .circle-icon-small:hover {
-	color     : $dark-gray;
+	color     : $gray-dark;
 	background: $white;
 }
 
 .icon-wrapper {
 	display: inline-block;
-}
-
-.icon-label-side { 
-  font-size  : 28px;
-  font-weight: 700; 
 }
 
 .icon-label-bottom { 
@@ -451,8 +450,9 @@ a:hover {
 
 // =========== COLOR.
 
+.turquoise          { color: $turquoise; }
 .orange             { color: $orange; }
 .orange-light       { color: $orange-light; }
-.dark-gray          { color: $dark-gray; }	
+.gray-dark          { color: $gray-dark; }	
 .white              { color: $white; }
 .off-white          { color: $off-white; }
