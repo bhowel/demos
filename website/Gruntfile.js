@@ -136,7 +136,49 @@ module.exports = function(grunt) {
 				src: ['**/*.min.js', '**/*.map'],
 				dest: '../../dist/netlifyTaxRhino/js',
 				expand: true 
-			}					
+			},
+			geometryHelpFiles: {
+				cwd: '../geometryHelp/',
+				src: ['**'],
+				dest: '../../dist/netlifyTaxRhino/geometryHelp',
+				expand: true 
+			},	
+			guidesExampleFiles: {
+				cwd: '../MarkdownExample/build/',
+				src: ['**'],
+				dest: '../../dist/netlifyTaxRhino/guidesExample',
+				expand: true 
+			},						
+			tuffDataListFiles: {
+				cwd: '../tuffDataListDemo/',
+				src: ['**'],
+				dest: '../../dist/netlifyTaxRhino/tuffDataListDemo',
+				expand: true 
+			},			
+			dataViewsFiles: {
+				cwd: '../dataViews/',
+				src: ['**'],
+				dest: '../../dist/netlifyTaxRhino/dataViews',
+				expand: true 
+			},
+			signUpTopFiles: {
+				cwd: '../signUp/',
+				src: ['*.html', '*.txt', '*.ico'],
+				dest: '../../dist/netlifyTaxRhino/signUp',
+				expand: true 
+			},
+			signUpCSSFiles: {
+				cwd: '../signUp/css',
+				src: ['**/normalize.min.css', '**/magic.min.css', '**/custom.css'],
+				dest: '../../dist/netlifyTaxRhino/signUp/css',
+				expand: true 
+			},
+			signUpJSFiles: {
+				cwd: '../signUp/js',
+				src: ['**/createAccount.min.js', '**/parsley.min.js'],
+				dest: '../../dist/netlifyTaxRhino/signUp/js',
+				expand: true 
+			}											
 		},
 
 		// HTML refs
