@@ -17,7 +17,7 @@ body {
   font-size: 14px;
   line-height: 1.25;
   color: #222222;
-  background-color: rgba(35, 138, 172, 0.8);
+  background-color: rgba(164, 164, 164, 0.8);
   cursor: default;
 }
 
@@ -43,7 +43,7 @@ a:hover {
   color: #fff;
 }
 
-.parallaxContainer {
+.parallax-container {
   left: 0;
   position: fixed;
   top: 0;
@@ -51,7 +51,7 @@ a:hover {
   z-index: -1;
 }
 
-.parallaxContainer img {
+.parallax-container img {
   width: 100%;
   height: auto;
 }
@@ -261,76 +261,6 @@ a:hover {
   }
 }
 
-.column-quarter {
-  float: none;
-  -webkit-transition: float 0.5s;
-  transition: float 0.5s;
-  width: 100%;
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  display: block;
-}
-
-@media only screen and (min-width: 360px) {
-  .column-quarter {
-    float: none;
-  }
-}
-
-@media only screen and (min-width: 480px) {
-  .column-quarter {
-    float: left;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .column-quarter {
-    float: left;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .column-quarter {
-    float: left;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .column-quarter {
-    float: left;
-  }
-}
-
-@media only screen and (min-width: 360px) {
-  .column-quarter {
-    width: 100%;
-  }
-}
-
-@media only screen and (min-width: 480px) {
-  .column-quarter {
-    width: 25%;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .column-quarter {
-    width: 25%;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .column-quarter {
-    width: 25%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .column-quarter {
-    width: 25%;
-  }
-}
-
 .portfolio-item {
   color: #fff;
   background-color: #222222;
@@ -362,7 +292,7 @@ a:hover {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  -webkit-border-radius: 1100%;
+  -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -o-border-radius: 100%;
   border-radius: 100%;
@@ -389,7 +319,7 @@ a:hover {
   width: 45px;
   height: 45px;
   cursor: pointer;
-  -webkit-border-radius: 1100%;
+  -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -o-border-radius: 100%;
   border-radius: 100%;

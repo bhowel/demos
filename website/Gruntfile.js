@@ -142,12 +142,6 @@ module.exports = function(grunt) {
 				src: ['**'],
 				dest: '../../dist/netlifyTaxRhino/geometryHelp',
 				expand: true 
-			},	
-			guidesExampleFiles: {
-				cwd: '../MarkdownExample/build/',
-				src: ['**'],
-				dest: '../../dist/netlifyTaxRhino/guidesExample',
-				expand: true 
 			},						
 			tuffDataListFiles: {
 				cwd: '../tuffDataListDemo/',

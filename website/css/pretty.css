@@ -22,7 +22,7 @@ body
     cursor: default;
 
     color: #222;
-    background-color: rgba(35, 138, 172, .8);
+    background-color: rgba(164, 164, 164, .8);
 }
 
 h2
@@ -55,7 +55,7 @@ a:hover
     color: #fff;
 }
 
-.parallaxContainer
+.parallax-container
 {
     position: fixed;
     z-index: -1;
@@ -65,7 +65,7 @@ a:hover
     width: 100%;
 }
 
-.parallaxContainer img
+.parallax-container img
 {
     width: 100%;
     height: auto;
@@ -341,99 +341,6 @@ a:hover
     }
 }
 
-.column-quarter
-{
-    display: block;
-    float: none;
-
-    width: 100%;
-
-    -webkit-transition: float .5s;
-    -webkit-transition: width .5s;
-            transition: float .5s;
-            transition: width .5s;
-}
-
-@media only screen and (min-width: 360px)
-{
-    .column-quarter
-    {
-        float: none;
-    }
-}
-
-@media only screen and (min-width: 480px)
-{
-    .column-quarter
-    {
-        float: left;
-    }
-}
-
-@media only screen and (min-width: 768px)
-{
-    .column-quarter
-    {
-        float: left;
-    }
-}
-
-@media only screen and (min-width: 992px)
-{
-    .column-quarter
-    {
-        float: left;
-    }
-}
-
-@media only screen and (min-width: 1200px)
-{
-    .column-quarter
-    {
-        float: left;
-    }
-}
-
-@media only screen and (min-width: 360px)
-{
-    .column-quarter
-    {
-        width: 100%;
-    }
-}
-
-@media only screen and (min-width: 480px)
-{
-    .column-quarter
-    {
-        width: 25%;
-    }
-}
-
-@media only screen and (min-width: 768px)
-{
-    .column-quarter
-    {
-        width: 25%;
-    }
-}
-
-@media only screen and (min-width: 992px)
-{
-    .column-quarter
-    {
-        width: 25%;
-    }
-}
-
-@media only screen and (min-width: 1200px)
-{
-    .column-quarter
-    {
-        width: 25%;
-    }
-}
-
 .portfolio-item
 {
     margin-bottom: 10px;
@@ -477,7 +384,7 @@ a:hover
 
     color: #fff;
     border: 6px solid #fff;
-    -webkit-border-radius: 1100%;
+    -webkit-border-radius: 100%;
        -moz-border-radius: 100%;
             border-radius: 100%;
     background: #ed8639;
@@ -511,7 +418,7 @@ a:hover
 
     color: #fff;
     border: 6px solid #fff;
-    -webkit-border-radius: 1100%;
+    -webkit-border-radius: 100%;
        -moz-border-radius: 100%;
             border-radius: 100%;
     background: #222;

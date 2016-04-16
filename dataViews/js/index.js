@@ -298,29 +298,29 @@
     disableIcon( $( "#_iconM0_4" ) );
     
     // Get initial page from calling href.
-		var passedPageName_ = location.href.substring( ( location.href.indexOf( "?" ) + 1 ), location.href.length );
-		if ( location.href.indexOf( "?" ) < 0 ) {
-		  passedPageName_ = "";
-		}//param not valid
-		var pageNameSplit_ = passedPageName_.split( "&" );
-		passedPageName_ = new Array();
-
-		for ( var i = 0; i < pageNameSplit_.length; i++ ) {
-				var nameValue_ = pageNameSplit_[i].split( "=" );
-				nameValue_[1] = nameValue_[1].replace( /\+/g, " " );
-				passedPageName_[ nameValue_[0] ] = unescape( nameValue_[1] );
-		}//for each entry in pageNameSplit_
-
-		if ( passedPageName_[ "passedPageName" ] != "" ) {
-		  i_pageInitial = passedPageName_[ "passedPageName" ];
-		}//passed name is valid
+// 		var passedPageName_ = location.href.substring( ( location.href.indexOf( "?" ) + 1 ), location.href.length );
+// 		if ( location.href.indexOf( "?" ) < 0 ) {
+// 		  passedPageName_ = "";
+// 		}//param not valid
+// 		var pageNameSplit_ = passedPageName_.split( "&" );
+// 		passedPageName_ = new Array();
+// 
+// 		for ( var i = 0; i < pageNameSplit_.length; i++ ) {
+// 				var nameValue_ = pageNameSplit_[i].split( "=" );
+// 				nameValue_[1] = nameValue_[1].replace( /\+/g, " " );
+// 				passedPageName_[ nameValue_[0] ] = unescape( nameValue_[1] );
+// 		}//for each entry in pageNameSplit_
+// 
+// 		if ( passedPageName_[ "passedPageName" ] != "" ) {
+// 		  i_pageInitial = passedPageName_[ "passedPageName" ];
+// 		}//passed name is valid
   
     // Load login. Comment out when loading individual modules without login.
-    //goToLogin();
+    goToLogin();
     
     // Bypass login. Comment out when using login.
-    i_isTestMode = true;
-    goToInitialPage();
+    //i_isTestMode = true;
+    //goToInitialPage();
 
   }//initApp
 

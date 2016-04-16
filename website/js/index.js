@@ -156,7 +156,7 @@
 
     // Set globals for scroll parallax.
     transformProperty = getSupportedPropertyName( transforms );
-    parallaxContainer = document.querySelector( ".parallaxContainer" );
+    parallaxContainer = document.querySelector( ".parallax-container" );
 	 
 		// Add event listeners.
 		window.addEventListener( "scroll", handleScrollEvent, false );

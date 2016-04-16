@@ -13,23 +13,28 @@
 // SCREEN SIZES
 // ============================================================================
 
-$screenXSmall: 360px;
-$screenSmall : 480px;
-$screenMed   : 768px;
-$screenLarge : 992px;
-$screenXLarge: 1200px;
+$screen-x-small: 360px;
+$screen-small  : 480px;
+$screen-med    : 768px;
+$screen-large  : 992px;
+$screen-x-large: 1200px;
   
 // ============================================================================
 // COLOR
 // ============================================================================
 
-$turquoise   : rgba( 35, 138, 172, 0.80);
 $orange      : rgba( 237, 134, 57, 1.0);
 $orange-light: rgba( 255, 204, 153, 1.0 );
+$gray-light  : rgba( 164, 164, 164, 0.8 );
 $gray-med    : rgba( 153, 153, 153, 1.0 );
 $gray-dark   : rgba( 34, 34, 34, 1.0 );
-$white       : #fff;	
-$off-white   : rgba( 245, 245, 245, 1.0 );
+$white       : #fff;
+
+// ============================================================================
+// MISC
+// ============================================================================
+
+$box-shadow: 0 1px 10px rgba( 0, 0, 0, 0.46 );
 
 // ============================================================================
 // MIXINS
@@ -43,11 +48,11 @@ $off-white   : rgba( 245, 245, 245, 1.0 );
   -webkit-transition: padding 0.5s;
   transition: padding 0.5s;
   
-  @media only screen and ( min-width: $screenXSmall ) { padding: $paddingXSmall; } 
-  @media only screen and ( min-width: $screenSmall )  { padding: $paddingSmall; }
-  @media only screen and ( min-width: $screenMed )    { padding: $paddingMed; }
-  @media only screen and ( min-width: $screenLarge )  { padding: $paddingFull; }
-  @media only screen and ( min-width: $screenXLarge ) { padding: $paddingXFull; }
+  @media only screen and ( min-width: $screen-x-small ) { padding: $paddingXSmall; } 
+  @media only screen and ( min-width: $screen-small )   { padding: $paddingSmall; }
+  @media only screen and ( min-width: $screen-med )     { padding: $paddingMed; }
+  @media only screen and ( min-width: $screen-large )   { padding: $paddingFull; }
+  @media only screen and ( min-width: $screen-x-large ) { padding: $paddingXFull; }
 }
 
 // =========== FLOAT
@@ -58,11 +63,11 @@ $off-white   : rgba( 245, 245, 245, 1.0 );
   -webkit-transition: float 0.5s;
   transition: float 0.5s; 
 
-  @media only screen and ( min-width: $screenXSmall ) { float: $floatXSmall; }  
-  @media only screen and ( min-width: $screenSmall )  { float: $floatSmall; }
-  @media only screen and ( min-width: $screenMed )    { float: $floatMed; }
-  @media only screen and ( min-width: $screenLarge )  { float: $floatFull; }
-  @media only screen and ( min-width: $screenXLarge ) { float: $floatXFull; }
+  @media only screen and ( min-width: $screen-x-small ) { float: $floatXSmall; }  
+  @media only screen and ( min-width: $screen-small )   { float: $floatSmall; }
+  @media only screen and ( min-width: $screen-med )     { float: $floatMed; }
+  @media only screen and ( min-width: $screen-large )   { float: $floatFull; }
+  @media only screen and ( min-width: $screen-x-large ) { float: $floatXFull; }
 }
 
 // =========== WIDTH
@@ -76,11 +81,11 @@ $container-width-default: 1024px;
   -webkit-transition: width 0.5s;
   transition: width 0.5s; 
   
-  @media only screen and ( min-width: $screenXSmall ) { width: $widthXSmall; }
-  @media only screen and ( min-width: $screenSmall )  { width: $widthSmall; }
-  @media only screen and ( min-width: $screenMed )    { width: $widthMed; }
-  @media only screen and ( min-width: $screenLarge )  { width: $widthFull; }
-  @media only screen and ( min-width: $screenXLarge ) { width: $widthXFull; }
+  @media only screen and ( min-width: $screen-x-small ) { width: $widthXSmall; }
+  @media only screen and ( min-width: $screen-small )   { width: $widthSmall; }
+  @media only screen and ( min-width: $screen-med )     { width: $widthMed; }
+  @media only screen and ( min-width: $screen-large )   { width: $widthFull; }
+  @media only screen and ( min-width: $screen-x-large ) { width: $widthXFull; }
 }
 
 // ============================================================================
@@ -93,7 +98,7 @@ body {
   font-size       : 14px; 
   line-height     : 1.25; 
   color           : $gray-dark;
-  background-color: $turquoise;   
+  background-color: $gray-light;  
   cursor          : default;
 }
 
@@ -154,14 +159,14 @@ a:hover {
 // SCROLL PARALLAX from https://www.kirupa.com/
 // ============================================================================
 
-.parallaxContainer {
+.parallax-container {
   left    : 0;
   position: fixed;
   top     : 0;
   width   : 100%;
   z-index : -1;
 }
-.parallaxContainer img {
+.parallax-container img {
   width : 100%;
   height: auto;
 }
@@ -245,7 +250,7 @@ a:hover {
   background-color: $gray-dark;
   padding-bottom  : 5px;
   margin-bottom   : 10px;
-  box-shadow      :0 1px 10px rgba(0, 0, 0, 0.46);
+  box-shadow      : $box-shadow;
 }
 .portfolio-item:hover {
   color           : $gray-dark;
@@ -262,56 +267,56 @@ a:hover {
 // ============================================================================
 
 .circle-icon-large {
-  font-size             :45px;
-	background            :$orange;
-	padding               :30px;
-	border                :6px solid $white;
-	color                 :$white;
-	box-shadow            :0 1px 10px rgba(0, 0, 0, 0.46);
-	text-align            :center;
-	display               :table-cell;
-	vertical-align        :middle;
-	width                 :60px;
-	height                :60px;
-	cursor                :pointer;
+  font-size             : 45px;
+	background            : $orange;
+	padding               : 30px;
+	border                : 6px solid $white;
+	color                 : $white;
+	box-shadow            : $box-shadow;
+	text-align            : center;
+	display               : table-cell;
+	vertical-align        : middle;
+	width                 : 60px;
+	height                : 60px;
+	cursor                : pointer;
 		
-	-webkit-border-radius :1100%;
-	-moz-border-radius    :100%;
-	-o-border-radius      :100%;
-	border-radius         :100%;
+	-webkit-border-radius : 100%;
+	-moz-border-radius    : 100%;
+	-o-border-radius      : 100%;
+	border-radius         : 100%;
 
-	-moz-transition       :0.5s;
-	-webkit-transition    :0.5s;
-	-o-transition         :0.5s;
-	transition            :0.5s;
+	-moz-transition       : 0.5s;
+	-webkit-transition    : 0.5s;
+	-o-transition         : 0.5s;
+	transition            : 0.5s;
 }
 .circle-icon-large:hover {
 	background: $orange-light;
 }
 
 .circle-icon-small {
-  font-size             :30px;
-	background            :$gray-dark;
-	padding               :20px;
-	border                :6px solid $white;
-	color                 :$white;
-	box-shadow            :0 1px 10px rgba(0, 0, 0, 0.46);
-	text-align            :center;
-	display               :table-cell;
-	vertical-align        :middle;
-	width                 :45px;
-	height                :45px;
-	cursor                :pointer;
+  font-size             : 30px;
+	background            : $gray-dark;
+	padding               : 20px;
+	border                : 6px solid $white;
+	color                 : $white;
+	box-shadow            : $box-shadow;
+	text-align            : center;
+	display               : table-cell;
+	vertical-align        : middle;
+	width                 : 45px;
+	height                : 45px;
+	cursor                : pointer;
 		
-	-webkit-border-radius :1100%;
-	-moz-border-radius    :100%;
-	-o-border-radius      :100%;
-	border-radius         :100%;
+	-webkit-border-radius : 100%;
+	-moz-border-radius    : 100%;
+	-o-border-radius      : 100%;
+	border-radius         : 100%;
 
-	-moz-transition       :0.5s;
-	-webkit-transition    :0.5s;
-	-o-transition         :0.5s;
-	transition            :0.5s;
+	-moz-transition       : 0.5s;
+	-webkit-transition    : 0.5s;
+	-o-transition         : 0.5s;
+	transition            : 0.5s;
 }
 .circle-icon-small:hover {
 	color     : $gray-dark;
@@ -338,49 +343,56 @@ a:hover {
 
 .reveal-element.slide-left {
 	opacity: 0;
-	-moz-transition: all 500ms linear;
+	
+	-moz-transition   : all 500ms linear;
 	-webkit-transition: all 500ms linear;
-	-o-transition: all 500ms linear;
-	transition: all 500ms linear;
-	-moz-transform: translate3d(-100px, 0px, 0px);
-	-webkit-transform: translate3d(-100px, 0px, 0px);
-	-o-transform: translate(-100px, 0px);
-	-ms-transform: translate(-100px, 0px);
-	transform: translate3d(-100px, 0px, 0px);
+	-o-transition     : all 500ms linear;
+	transition        : all 500ms linear;
+	
+	-moz-transform   : translate3d( -100px, 0px, 0px );
+	-webkit-transform: translate3d( -100px, 0px, 0px );
+	-o-transform     : translate( -100px, 0px );
+	-ms-transform    : translate( -100px, 0px );
+	transform        : translate3d( -100px, 0px, 0px );
 }
 
 .reveal-element.slide-left.in-view {
 	opacity: 1;
-	-moz-transform: translate3d(0px, 0px, 0px);
-	-webkit-transform: translate3d(0px, 0px, 0px);
-	-o-transform: translate(0px, 0px);
-	-ms-transform: translate(0px, 0px);
-	transform: translate3d(0px, 0px, 0px);
+	
+	-moz-transform   : translate3d( 0px, 0px, 0px );
+	-webkit-transform: translate3d( 0px, 0px, 0px );
+	-o-transform     : translate( 0px, 0px );
+	-ms-transform    : translate( 0px, 0px );
+	transform        : translate3d( 0px, 0px, 0px );
 }
 
 .reveal-element.slide-up {
 	opacity: 0;
-	-moz-transition: all 700ms ease-out;
+	
+	-moz-transition   : all 700ms ease-out;
 	-webkit-transition: all 700ms ease-out;
-	-o-transition: all 700ms ease-out;
-	transition: all 700ms ease-out;
-	-moz-transform: translate3d(0px, 200px, 0px);
-	-webkit-transform: translate3d(0px, 200px, 0px);
-	-o-transform: translate(0px, 200px);
-	-ms-transform: translate(0px, 200px);
-	transform: translate3d(0px, 200, 0px);
+	-o-transition     : all 700ms ease-out;
+	transition        : all 700ms ease-out;
+	
+	-moz-transform   : translate3d( 0px, 200px, 0px );
+	-webkit-transform: translate3d( 0px, 200px, 0px );
+	-o-transform     : translate( 0px, 200px );
+	-ms-transform    : translate( 0px, 200px );
+	transform        : translate3d( 0px, 200, 0px );
+	
 	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	backface-visibility: hidden;
+	-moz-backface-visibility   : hidden;
+	backface-visibility        : hidden;
 }
 
 .reveal-element.slide-up.in-view {
 	opacity: 1;
-	-moz-transform: translate3d(0px, 0px, 0px);
-	-webkit-transform: translate3d(0px, 0px, 0px);
-	-o-transform: translate(0px, 0px);
-	-ms-transform: translate(0px, 0px);
-	transform: translate3d(0px, 0px, 0px);
+	
+	-moz-transform   : translate3d( 0px, 0px, 0px );
+	-webkit-transform: translate3d( 0px, 0px, 0px );
+	-o-transform     : translate( 0px, 0px );
+	-ms-transform    : translate( 0px, 0px );
+	transform        : translate3d( 0px, 0px, 0px );
 }
 
 // ============================================================================
@@ -450,9 +462,9 @@ a:hover {
 
 // =========== COLOR.
 
-.turquoise          { color: $turquoise; }
 .orange             { color: $orange; }
 .orange-light       { color: $orange-light; }
+.gray-light         { color: $gray-light; }
+.gray-med           { color: $gray-med; }
 .gray-dark          { color: $gray-dark; }	
 .white              { color: $white; }
-.off-white          { color: $off-white; }

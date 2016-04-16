@@ -14,7 +14,7 @@ body {
   font-size: 14px;
   line-height: 1.25;
   color: #222222;
-  background-color: rgba(35, 138, 172, 0.8);
+  background-color: rgba(164, 164, 164, 0.8);
   cursor: default; }
 
 h1 {
@@ -61,14 +61,14 @@ a:hover {
   text-decoration: none;
   color: #fff; }
 
-.parallaxContainer {
+.parallax-container {
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: -1; }
 
-.parallaxContainer img {
+.parallax-container img {
   width: 100%;
   height: auto; }
 
@@ -300,7 +300,7 @@ a:hover {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  -webkit-border-radius: 1100%;
+  -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -o-border-radius: 100%;
   border-radius: 100%;
@@ -325,7 +325,7 @@ a:hover {
   width: 45px;
   height: 45px;
   cursor: pointer;
-  -webkit-border-radius: 1100%;
+  -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -o-border-radius: 100%;
   border-radius: 100%;
@@ -474,22 +474,22 @@ a:hover {
 .no-wrap {
   white-space: nowrap; }
 
-.turquoise {
-  color: rgba(35, 138, 172, 0.8); }
-
 .orange {
   color: #ed8639; }
 
 .orange-light {
   color: #ffcc99; }
 
+.gray-light {
+  color: rgba(164, 164, 164, 0.8); }
+
+.gray-med {
+  color: #999999; }
+
 .gray-dark {
   color: #222222; }
 
 .white {
   color: #fff; }
-
-.off-white {
-  color: whitesmoke; }
 
 /*# sourceMappingURL=custom.css.map */
