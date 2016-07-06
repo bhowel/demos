@@ -1,2 +1,2 @@
 # demos
-Contains demos for UI work.
+Contains demos and examples.
