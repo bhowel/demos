@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>USING Tuffdatalist >: Adding a get data function</title>
+    <meta property="st:title" content="USING Tuffdatalist >: Adding a get data function" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+
+  <body class="guides toc-1 toc-1_use-get-data toc-1_use-get-data_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper"><span style="font-size: 16pt; margin-left: 7px;">TuffDataList</span>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <div id="sidebar">
+
+          <ol class='toc-level-0'><li class='toc-level-0 '><a href="../../toc-0/overview/">GETTING STARTED ></a><ol class='toc-level-1 '><li class='toc-level-1 '><a href="../../toc-0/overview/">Before you install</a></li><li class='toc-level-1 '><a href="../../toc-0/installation/">Installing TuffDataList</a></li><li class='toc-level-1 '><a href="../../toc-0/setup/">Setting up TuffDataList</a></li><li class='toc-level-1 '><a href="../../toc-0/data/">Setting up your data</a></li><li class='toc-level-1 '><a href="../../toc-0/initialize/">Initializing TuffDataList</a></li></ol></li><li class='toc-level-0 selected'><a href="../overview/">USING Tuffdatalist ></a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../overview/">Before you start</a></li><li class='toc-level-1 '><a href="../use/">Using TuffDataList to create a basic list</a></li><li class='toc-level-1 '><a href="../use-web-service/">Creating a list from a web service</a></li><li class='toc-level-1 '><a href="../use-selected-row/">Adding a selected row function</a></li><li class='toc-level-1 selected'><a href="./">Adding a get data function</a></li><li class='toc-level-1 '><a href="../use-get-mult-list/">Creating multiple lists from a web service</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back up</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Adding a get data function
+        </h1>
+      
+          <hr>
+
+          <p>
+<p>In this section, we&#39;ll show you how to use the <code>buildList</code> function
+with the <code>getDataFunction</code> parameter.
+When the user selects a list row, <code>getDataFunction</code> gets a target list.</p>
+
+<p>For this example, the <code>listContainers</code> variable is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> listContainers = [
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Departments</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">20</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#dddddd</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>
+  },
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Employees for department</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">410</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#bbbbbb</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  }     
+];
+</pre></td>
+</tr></table>
+</div></div>
+<p><strong>Departments</strong> (<code>0</code>) is the source container and <strong>Employees for department</strong> (<code>1</code>) is the target container.</p>
+
+<p>The source list from the web service is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> departmentList =
+[
+  { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Customer Service</span><span class="delimiter">&quot;</span></span> },
+  { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Human Relations</span><span class="delimiter">&quot;</span></span> },
+  { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Engineering</span><span class="delimiter">&quot;</span></span> },
+  { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">4</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Sales</span><span class="delimiter">&quot;</span></span> }
+]      
+</pre></td>
+</tr></table>
+</div></div>
+<p>When the user selects the <strong>Engineering</strong> department, the target list from the web service is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> engineeringEmployees =
+[
+  { 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">1</span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">3</span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fname</span><span class="delimiter">&quot;</span></span>      :<span class="string"><span class="delimiter">&quot;</span><span class="content">Engineering</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">VP Engineering</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">dateStarted</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">1/1/2015</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">salary</span><span class="delimiter">&quot;</span></span>     :<span class="string"><span class="delimiter">&quot;</span><span class="content">100,000</span><span class="delimiter">&quot;</span></span>
+  },
+  { 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">2</span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>       :<span class="integer">3</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fname</span><span class="delimiter">&quot;</span></span>      :<span class="string"><span class="delimiter">&quot;</span><span class="content">Engineering</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Last, First</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">role</span><span class="delimiter">&quot;</span></span>       :<span class="string"><span class="delimiter">&quot;</span><span class="content">Developer</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">dateStarted</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">1/1/2015</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">salary</span><span class="delimiter">&quot;</span></span>     :<span class="string"><span class="delimiter">&quot;</span><span class="content">80,000</span><span class="delimiter">&quot;</span></span> 
+  } 
+]      
+</pre></td>
+</tr></table>
+</div></div>
+<p>You want to use <code>buildList</code> to create <strong>Departments</strong> from a web service
+and get <strong>Employees for department</strong> when the user selects a department.</p>
+
+<p>Set up the <code>getData</code> and <code>returnData</code> functions.
+Use <code>getData</code> (without the parentheses) for the second parameter of <code>buildList</code>:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">getData</span>( selectedPkey, containerIndex ) {
+    <span class="comment">// Set the index for the current container.</span>
+    n_tuffDataList.setContainerIndex( containerIndex );
+
+    <span class="comment">// Request the web service.</span>
+    callWebService( containerIndex, selectedPkey, returnData  );
+}<span class="comment">//getData</span>
+
+<span class="keyword">function</span> <span class="function">returnData</span>( response ) {
+    <span class="comment">// Build a list from the returned data.</span>
+    <span class="comment">// In this example, the response is already in TuffDataList format.</span>
+    n_tuffDataList.buildList( response, getData, <span class="predefined-constant">null</span> );
+}<span class="comment">//</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now you can call <code>getData.</code> Set <code>selectedPkey</code> to <code>null</code> and <code>containerIndex</code> to <code>0</code>, the <strong>Departments</strong> container.
+In this example, the web service doesn&#39;t use a selected <code>pkey</code> to get <strong>Departments</strong>:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>getData( <span class="predefined-constant">null</span>, <span class="integer">0</span> );
+</pre></td>
+</tr></table>
+</div></div>
+<p>The screen result is:<br>
+<img src="/images/custom_2.png" /></p>
+
+<p>If the user selects the third row, <strong>Engineering</strong>,  TuffDataList calls <code>getData</code> with <code>selectedPkey</code> set to <code>3</code>, the <code>pkey</code> for <strong>Engineering</strong>,
+and <code>containerIndex</code> set to <code>1</code>, the target container.</p>
+
+<p>In <code>getData</code>, the <code>setContainerIndex</code> function tells TuffDataList the current list is now <strong>Employees for department</strong>,
+so <code>buildList</code> can create the correct list. The screen result is now:<br>
+<img src="/images/custom_12.png" /></p>
+
+</p>
+
+          
+      <footer>
+        <a class="previous-guide" href="../use-selected-row/"> ← Adding a selected row function</a> <a class="next-guide" href="../use-get-mult-list/">Creating multiple lists from a web service →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+
+    <script>
+      ga('create', 'UA-64039036-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

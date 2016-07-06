@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title><%= current_page.data.title || page_title %></title>
+    <meta property="st:title" content="<%= current_page.data.title || page_title %>" />
+    <!--[if lte IE 7 ]><%= stylesheet_link_tag "fonts/fontello-ie7" %><![endif]-->
+    <%= stylesheet_link_tag "site" %>
+    <%= yield_content :head %>
+  </head>
+
+  <body class="guides <%= page_classes %>">
+
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag 'common-old-ie' %>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <%= javascript_include_tag 'common-modern' %>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper"><span style="font-size: 16pt; margin-left: 7px;">Guides Example</span>
+      </div>
+    </div>
+
+    <%= yield_content :outside_wrapper %>
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <div id="sidebar">
+
+          <%= toc_for(data.guides) %>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back up</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          <%= chapter_heading %>
+          <hr>
+
+          <%= yield %>
+
+          <%= chapter_links %>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'guides' %>
+
+    <script>
+      ga('create', 'UA-64039036-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+- title: "Guides Example"
+  url: 'index'
+  chapters:
+    - title: "User guide"
+      url: ""
+      skip_sidebar: true
+
+- title: "GETTING STARTED >"
+  url: 'toc-0'
+  chapters:
+    - title: "Before you install"
+      url: "overview"

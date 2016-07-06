@@ -1,0 +1,58 @@
+@import "compass/css3";
+@import "colors";
+@import "mixins/hidpi";
+
+body.guides, body.blog, body.api {
+  p {
+    margin: 1.5em 0;
+    line-height: 1.5em;
+    color: #333333;
+  }
+
+  sup {
+    vertical-align: super;
+    font-weight: 100;
+    color: gray;
+    font-size: 11px
+  }
+
+  code {
+    font-family: Menlo, Courier, monospace;
+    font-size: 90%;
+    font-weight: bolder;   
+    color: $text-color-1;
+    background-color: $backgroundMain;
+    padding: 3px;
+    @include border-radius(5px);
+  }
+
+  .highlight { // jsbin includes
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+    color: $text-color-0;
+    padding: 0px;
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    margin: 40px 0;
+    background-color: #dfd7d4;
+
+    &:first-of-type {
+      margin: 8px 0;
+    }
+  }
+
+  dt {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  dd {
+    padding-left: 10px;
+    margin-bottom: 15px;
+  }
+}

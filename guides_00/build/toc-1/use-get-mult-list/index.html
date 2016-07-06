@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>USING Tuffdatalist >: Creating multiple lists from a web service</title>
+    <meta property="st:title" content="USING Tuffdatalist >: Creating multiple lists from a web service" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+
+  <body class="guides toc-1 toc-1_use-get-mult-list toc-1_use-get-mult-list_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper"><span style="font-size: 16pt; margin-left: 7px;">TuffDataList</span>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <div id="sidebar">
+
+          <ol class='toc-level-0'><li class='toc-level-0 '><a href="../../toc-0/overview/">GETTING STARTED ></a><ol class='toc-level-1 '><li class='toc-level-1 '><a href="../../toc-0/overview/">Before you install</a></li><li class='toc-level-1 '><a href="../../toc-0/installation/">Installing TuffDataList</a></li><li class='toc-level-1 '><a href="../../toc-0/setup/">Setting up TuffDataList</a></li><li class='toc-level-1 '><a href="../../toc-0/data/">Setting up your data</a></li><li class='toc-level-1 '><a href="../../toc-0/initialize/">Initializing TuffDataList</a></li></ol></li><li class='toc-level-0 selected'><a href="../overview/">USING Tuffdatalist ></a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../overview/">Before you start</a></li><li class='toc-level-1 '><a href="../use/">Using TuffDataList to create a basic list</a></li><li class='toc-level-1 '><a href="../use-web-service/">Creating a list from a web service</a></li><li class='toc-level-1 '><a href="../use-selected-row/">Adding a selected row function</a></li><li class='toc-level-1 '><a href="../use-get-data/">Adding a get data function</a></li><li class='toc-level-1 selected'><a href="./">Creating multiple lists from a web service</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back up</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Creating multiple lists from a web service
+        </h1>
+      
+          <hr>
+
+          <p>
+<p>In this section, we&#39;ll show you how to get multiple lists from a web service.</p>
+
+<p>We&#39;ll also show you how to use the <code>getContainerIndex</code> function
+to control what happens when the user selects a list row.
+The <code>getContainerIndex</code> function gets the index of the current container from TuffDataList.</p>
+
+<p>For this example, the <code>listContainers</code> variable is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> listContainers = [
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Products</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">20</span>, <span class="key">width</span>: <span class="integer">20</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#dddddd</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  },
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Services</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">410</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#bbbbbb</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span>
+  },
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Service details</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">360</span>, <span class="key">left</span>: <span class="integer">410</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#bbbbbb</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  }     
+];
+</pre></td>
+</tr></table>
+</div></div>
+<p>And the list data from the web service is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+<strong>30</strong>
+31
+32
+33
+34
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> products =
+  [
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Outdoor pot</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">size</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">11 in</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Outdoor pot</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">size</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">6 in</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Indoor pot</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">size</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">9 in</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">4</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Indoor pot</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">size</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">5 in</span><span class="delimiter">&quot;</span></span> }
+  ]
+
+<span class="keyword">var</span> services =
+  [
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Garden prep</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Complete garden installation</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Consultation</span><span class="delimiter">&quot;</span></span> }
+  ]
+
+<span class="keyword">var</span> serviceDetailsPrep =
+  [
+    { 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span> :<span class="integer">1</span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fname</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Garden prep</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">Design</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">price</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">50/hour</span><span class="delimiter">&quot;</span></span> 
+    },
+    { 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span> :<span class="integer">2</span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">fname</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Garden prep</span><span class="delimiter">&quot;</span></span>, 
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">Prep</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">price</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">60/hour</span><span class="delimiter">&quot;</span></span> 
+    }
+  ]
+
+...other detail lists          
+</pre></td>
+</tr></table>
+</div></div>
+<p>In this page, you want to show the <strong>Products</strong> and <strong>Services</strong> lists right away:<br>
+<img src="/images/custom_6.png" /><br>
+When the user selects a service, you want to show a detail list:<br>
+<img src="/images/custom_7.png" /><br>
+To show <strong>Products</strong> and <strong>Services</strong> right away, you have to run the web service twice. 
+To keep track of the lists you get from the web service,
+create an array with a separate index in your global variable section:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>  <span class="keyword">var</span> initialServices     = [ <span class="integer">0</span>, <span class="integer">1</span> ];
+  <span class="keyword">var</span> initialServiceIndex = <span class="integer">0</span>;
+</pre></td>
+</tr></table>
+</div></div>
+<p>You&#39;ll also need a flag to indicate when you&#39;re done with initial services:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> initialServicesDone = <span class="predefined-constant">false</span>;
+</pre></td>
+</tr></table>
+</div></div>
+<p>When the application first starts, initialize TuffDataList and specify an onload function, <code>getFirstList</code>:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">startPage</span>() {
+  n_tuffDataList.setupLists( pageContainer, listContainers, getFirstList );
+}<span class="comment">//startPage</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>getFirstList</code> function calls <code>getData</code> to load <strong>Products</strong>:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">getFirstList</span>() {
+  getData( <span class="predefined-constant">null</span>, <span class="integer">0</span> );
+}<span class="comment">//getFirstList</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>getData</code> function sets the <code>containerIndex</code> and calls the web service:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">getData</span>( selectedPkey, containerIndex ) {      
+  <span class="comment">// Set the index for the current container.</span>
+  n_tuffDataList.setContainerIndex( containerIndex );
+
+  <span class="comment">// Request the web service.</span>
+  <span class="comment">// Send returnData as the callback.</span>
+  callWebService( containerIndex, selectedPkey, returnData  );
+}<span class="comment">//getData</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>When the web service gets a response, it calls <code>returnData</code>.
+There&#39;s a couple of new actions in <code>returnData</code>:</p>
+
+<ul>
+<li>Use <code>getContainerIndex</code> to find out which list is current, then set the parameters for <code>buildList</code> to match.</li>
+<li>Keep track of the initial services. If they&#39;re not done, get the next list.</li>
+</ul>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+<strong>30</strong>
+31
+32
+33
+34
+35
+36
+37
+38
+39
+<strong>40</strong>
+41
+42
+</pre></td>
+  <td class="code"><pre><span class="keyword">function</span> <span class="function">returnData</span>( response ) {
+  <span class="comment">// Set the callbacks.         </span>
+  <span class="keyword">var</span> containerIndex     = n_tuffDataList.getContainerIndex().toString();
+  <span class="keyword">var</span> getDataFunction    = <span class="predefined-constant">null</span>;
+  <span class="keyword">var</span> handleRowSelection = <span class="predefined-constant">null</span>;
+  <span class="keyword">switch</span>( containerIndex ) {
+
+    <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span>: 
+      getDataFunction    = <span class="predefined-constant">null</span>;
+      handleRowSelection = handleSelectedProduct; 
+    <span class="keyword">break</span>;
+
+    <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>: 
+      getDataFunction    = getData;
+      handleRowSelection = <span class="predefined-constant">null</span>; 
+    <span class="keyword">break</span>;
+
+    <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span>: 
+      getDataFunction    = <span class="predefined-constant">null</span>;
+      handleRowSelection = <span class="predefined-constant">null</span>; 
+    <span class="keyword">break</span>;
+
+    <span class="keyword">default</span> : <span class="keyword">break</span>;
+  }<span class="comment">//switch( containerIndex )           </span>
+
+  <span class="comment">// Build a list from the returned data.</span>
+  n_tuffDataList.buildList( response, getDataFunction, handleRowSelection );
+
+  <span class="comment">// Increment the index for initial services.</span>
+  <span class="comment">// If we're still running initial services, send the next one.</span>
+  <span class="keyword">if</span> ( !initialServicesDone ) {
+    initialServiceIndex++;
+    <span class="keyword">if</span> ( initialServiceIndex &lt; initialServices.length ) {
+      getData( <span class="predefined-constant">null</span>, initialServiceIndex );
+    } <span class="keyword">else</span> {
+      <span class="comment">// Set the flag to indicate we're now done with the initial services.</span>
+      <span class="comment">// To refresh the associated lists, reset initialServicesDone to false,</span>
+      <span class="comment">// set initialServiceIndex to 0, then call getFirstList() again.</span>
+      initialServicesDone = <span class="predefined-constant">true</span>;
+    }<span class="comment">//initialServiceIndex not lt initialServices.length            </span>
+  }<span class="comment">//initialServicesDone not true   </span>
+}<span class="comment">//returnData</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Let&#39;s look at the details for each of these new actions.</p>
+<h3 class='anchorable-toc' id='toc_getcontainerindex'>getContainerIndex</h3>
+<p>You can use <code>getContainerIndex</code> to find out which list you&#39;ll dealing with
+and control what happens next:</p>
+
+<ul>
+<li>If <strong>Products</strong> (<code>0</code>) is current, specify a row selection function and tell TuffDataList you don&#39;t want to retrieve a target list.<br></li>
+<li>If <strong>Services</strong> (<code>1</code>) is current, tell TuffDataList you want to retrieve a target list.<br></li>
+<li>If <strong>Service details</strong> (<code>2</code>) is current, tell TuffDataList you don&#39;t want either function.<br></li>
+</ul>
+<h3 class='anchorable-toc' id='toc_initial-services'>Initial services</h3>
+<p>The final code in <code>returnData</code> keeps track of the initial services.</p>
+
+<ol>
+<li>When the user first gets to your page, <code>initialServiceIndex</code> and <code>containerIndex</code> are both <code>0</code>, and your application loads <strong>Products</strong>:<br>
+<img src="/images/custom_13.png" /><br></li>
+<li>At the end of <code>returnData</code>, the function increments <code>initialServiceIndex</code> to <code>1</code>.<br></li>
+<li>The <code>initialServiceIndex</code> is still less than the length of the <code>initialServices</code> array, so your application loads <strong>Services</strong>:<br>
+<img src="/images/custom_14.png" /><br></li>
+<li>The next time through, the index is equal to the length of the array. The function sets <code>initialServicesDone</code> to true and doesn&#39;t run <code>getData</code> again.</li>
+</ol>
+
+<p>Later, if the user selects a row in <strong>Services</strong>, TuffDataList calls <code>getData</code> with the <code>pkey</code> of
+the selected service and the <code>containerIndex</code> for <strong>Service details</strong>.
+When <code>returnData</code> runs, it creates the <strong>Service details</strong> list:<br>
+<img src="/images/custom_15.png" /><br>
+Because <code>initialServicesDone</code> is now true,
+your application doesn&#39;t have to check or run the initial services code. </p>
+
+</p>
+
+          
+      <footer>
+        <a class="previous-guide" href="../use-get-data/"> ← Adding a get data function</a> 
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+
+    <script>
+      ga('create', 'UA-64039036-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>GETTING STARTED >: Setting up TuffDataList</title>
+    <meta property="st:title" content="GETTING STARTED >: Setting up TuffDataList" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+
+  <body class="guides toc-0 toc-0_setup toc-0_setup_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper"><span style="font-size: 16pt; margin-left: 7px;">TuffDataList</span>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <div id="sidebar">
+
+          <ol class='toc-level-0'><li class='toc-level-0 selected'><a href="../overview/">GETTING STARTED ></a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../overview/">Before you install</a></li><li class='toc-level-1 '><a href="../installation/">Installing TuffDataList</a></li><li class='toc-level-1 selected'><a href="./">Setting up TuffDataList</a></li><li class='toc-level-1 '><a href="../data/">Setting up your data</a></li><li class='toc-level-1 '><a href="../initialize/">Initializing TuffDataList</a></li></ol></li><li class='toc-level-0 '><a href="../../toc-1/overview/">USING Tuffdatalist ></a><ol class='toc-level-1 '><li class='toc-level-1 '><a href="../../toc-1/overview/">Before you start</a></li><li class='toc-level-1 '><a href="../../toc-1/use/">Using TuffDataList to create a basic list</a></li><li class='toc-level-1 '><a href="../../toc-1/use-web-service/">Creating a list from a web service</a></li><li class='toc-level-1 '><a href="../../toc-1/use-selected-row/">Adding a selected row function</a></li><li class='toc-level-1 '><a href="../../toc-1/use-get-data/">Adding a get data function</a></li><li class='toc-level-1 '><a href="../../toc-1/use-get-mult-list/">Creating multiple lists from a web service</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back up</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Setting up TuffDataList
+        </h1>
+      
+          <hr>
+
+          <p>
+<p>After you install TuffDataList, use this section to set up.</p>
+
+<p><span class="fontawesome-info-sign"></span> If you downloaded the <a href="">seed application</a>, you can open
+<code>demo/index.html</code> and <code>demo/js/index.js</code> in a text editor to see a completed setup.
+You can see the live application by going to the
+<a href="../../../../demo/index.html" target="_blank">demo</a>.</p>
+
+<p><a href="#Set-up-a-web-server">Set up a web server</a><br>
+<a href="#Set-up-your-HTML-page">Set up your HTML page</a><br>
+<a href="#Set-up-your-Javascript">Set up your Javascript</a></p>
+
+</p>
+
+<p>
+<p><a name="Set-up-a-web-server"></a></p>
+<h3 class='anchorable-toc' id='toc_set-up-a-web-server'>Set up a web server</h3>
+<p>TuffDataList uses iframes. Some browsers don&#39;t display the contents of iframes unless your web application
+is running on a server.
+We recommend running your application on a server, even if you&#39;re creating a completely static site.</p>
+
+<p>If you&#39;re new to web development or don&#39;t know anything about web servers, don&#39;t worry!
+There&#39;s plenty of free, open source packages available, such as
+<a href="http://sailsjs.org/get-started" target="_blank">sails</a>.
+Most of the packages are very easy to set up.</p>
+
+<p>Before you install an open source server, you should probably install
+<a href="https://nodejs.org/en/download/" target="_blank">node.js</a>, which includes
+<a href="https://www.npmjs.com/" target="_blank">npm</a>, the package manager for node.js.
+Many open source packages use npm for installation. If you already have node.js, you should
+<a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank">verify or update npm</a>
+before you start.</p>
+
+</p>
+
+<p>
+<p><a name="Set-up-your-HTML-page"></a></p>
+<h3 class='anchorable-toc' id='toc_set-up-your-html-page'>Set up your HTML page</h3>
+<p>You can use TuffDataList in any page.</p>
+<h4 class='anchorable-toc' id='toc_add-the-stylesheet-links'>Add the stylesheet links</h4>
+<p>Open the <code>.html</code> file for your page in a text editor
+and add the following stylesheet links inside the <code>&lt;head&gt;</code> tag:</p>
+<div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;link</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tuffDataList/css/vendor/jquery-ui.css</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/css</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>  
+<span class="tag">&lt;link</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tuffDataList/css/tuffDataList.css</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/css</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p><span class="fontawesome-pushpin"></span> The <code>href</code> for each stylesheet contains the path to the stylesheets.
+Our example shows the paths to use if both your <code>.html</code> file and the <code>tuffDataList</code> folder are
+inside the top-level folder.
+If you&#39;re using different locations, change the paths to match.</p>
+<h4 class='anchorable-toc' id='toc_add-the-script-tags'>Add the script tags</h4><h5 class='anchorable-toc' id='toc_add-jquery'>Add jQuery</h5>
+<p>TuffDataList requires jQuery 1.9.x or above at the page level. If you don&#39;t have a current version, you can download it from
+<a href="http://jquery.com/download/#jquery-1-x" target="_blank">jQuery 1.x</a>. Put the file somewhere under your top-level folder,
+then add a Javascript tag inside the <code>&lt;head&gt;</code> tag or wherever you place your Javascript:</p>
+<div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">pathToFile/jqueryFile.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>pathToFile</code></td>
+<td>The local path to your jQuery file.</td>
+</tr>
+<tr>
+<td><code>jqueryFile.js</code></td>
+<td>The name of the jQuery file.</td>
+</tr>
+</tbody></table>
+
+<p>For example:</p>
+<div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">js/vendor/jquery-1.11.3.min.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+</pre></td>
+</tr></table>
+</div></div><h5 class='anchorable-toc' id='toc_add-the-tuffdatalist-javascript'>Add the TuffDataList Javascript</h5>
+<p>Add the following Javascript tags inside the <code>&lt;head&gt;</code> tag or wherever you like to place your Javascript:</p>
+<div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tuffDataList/js/vendor/jquery-ui-1.11.0.min.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">tuffDataList/tuffDataList.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span> 
+</pre></td>
+</tr></table>
+</div></div>
+<p><span class="fontawesome-pushpin"></span> Remember, if you&#39;re using different locations, change the paths to match.</p>
+
+</p>
+
+<p>
+<p><a name="Set-up-your-Javascript"></a></p>
+<h3 class='anchorable-toc' id='toc_set-up-your-javascript'>Set up your Javascript</h3>
+<p>TuffDataList requires two global variables. Open the <code>.js</code> file for your page in a text editor
+and go to your global variable section.</p>
+
+</p>
+
+<p>
+<h4 class='anchorable-toc' id='toc_page-container'>Page container</h4>
+<p>Add <code>pageContainer</code> to your global variable section:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> pageContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">nameOfHTMLTag</span><span class="delimiter">&quot;</span></span>;
+</pre></td>
+</tr></table>
+</div></div>
+<p>This variable points to the the HTML tag that contains your lists.
+You can use <code>&lt;body&gt;</code> or a <code>&lt;div&gt;</code> for the page container.
+To use <code>&lt;body&gt;</code>, type:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> pageContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">body</span><span class="delimiter">&quot;</span></span>;
+</pre></td>
+</tr></table>
+</div></div>
+<p>To use a <code>&lt;div&gt;</code>, add a <code>&lt;div&gt;</code> with an <code>id</code> to your <code>.html</code> page.
+For example:</p>
+<div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">divLists</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="comment">&lt;!-- This is where all the lists go. //--&gt;</span>  
+<span class="tag">&lt;/div&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Use <code>#div_id</code> as the value of <code>pageContainer</code>. For example, if the <code>id</code> is <code>divLists</code>, type:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> pageContainer = <span class="string"><span class="delimiter">&quot;</span><span class="content">#divLists</span><span class="delimiter">&quot;</span></span>;
+</pre></td>
+</tr></table>
+</div></div>
+</p>
+
+<p>
+<h4 class='anchorable-toc' id='toc_list-containers'>List containers</h4>
+<p>Add <code>listContainers</code> to your global variable section:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> listContainers = [
+  { 
+    <span class="key">name</span>  : <span class="string"><span class="delimiter">&quot;</span><span class="content">nameOfContainer</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>   : pixelPosition, 
+    <span class="key">left</span>  : pixelPosition, 
+    <span class="key">width</span> : pixelWidth,
+    <span class="key">color</span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">cssColor</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">sourceIndex</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">targetIndex</span><span class="delimiter">&quot;</span></span>
+  },
+  { 
+    <span class="comment">//...as many containers as you want to add</span>
+  },
+  { 
+    <span class="comment">//...last one, with no comma</span>
+  }     
+];
+</pre></td>
+</tr></table>
+</div></div>
+<p>List containers are the main ingredients of TuffDataList.
+Each container is a draggable, resizable <code>&lt;div&gt;</code> that contains a data list:<br>
+<img src="/images/custom_4.png" /><br>
+The <code>listContainers</code> variable is an array of Javascript objects - one for each container you want to add.
+TuffDataList uses the information in this array to set up your containers.</p>
+
+<p>Whenever you want to do something with a container, use its index - its position in the array. The index is zero-based,
+which means it starts with zero instead of one.
+So, if you&#39;re working with the first container, refer to it as <code>0</code>, the second as <code>1</code>, and so on.</p>
+
+<p>We&#39;ll explain each of the properties of <code>listContainers</code> in the following sections, starting with the basic properties.</p>
+<h5 class='anchorable-toc' id='toc_basic-properties'>Basic properties</h5>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span style="white-space: nowrap;"><code>name: &quot;nameOfContainer&quot;</code></span></td>
+<td>The screen name for the container. For example, <code>name: &quot;Departments&quot;</code>.</td>
+</tr>
+<tr>
+<td><span style="white-space: nowrap;"><code>top: pixelPosition</code></span></td>
+<td>The vertical screen position of the container in pixels. For example, <code>top: 120</code>.</td>
+</tr>
+<tr>
+<td><span style="white-space: nowrap;"><code>left: pixelPosition</code></span></td>
+<td>The horizontal screen position of the container in pixels. For example, <code>left: 20</code>.</td>
+</tr>
+<tr>
+<td><span style="white-space: nowrap;"><code>width: pixel_pixelWidthwidth</code></span></td>
+<td>The width of the container in pixels. For example, <code>width: 380</code>. TuffDataList sets the minimum width to 380 pixels, and you can set a greater width.</td>
+</tr>
+<tr>
+<td><span style="white-space: nowrap;"><code>color: &quot;cssColor&quot;</code></span></td>
+<td>The color of the container. You can use any valid CSS color, such as <code>#cccccc</code>, <code>rgba( 17, 17, 17, 1.0 )</code>, or <code>black</code>. For example, <code>color: &quot;#dddddd&quot;</code>.</td>
+</tr>
+</tbody></table>
+<h5 class='anchorable-toc' id='toc_source-target'>Source/target</h5>
+<p>You can set up any container as a source list or as a target list.
+When the user selects a row in a source, TuffDataList loads its target with the related list.</p>
+
+<p>To indicate a source, use the index of the target in <code>target</code>.
+To indicate a target, use the index of the source in <code>source</code>.</p>
+
+<p>In the following example, <strong>Departments</strong> (<code>0</code>), is a source and its target is
+<strong>Employees for department</strong> (<code>1</code>):</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> listContainers = [
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Departments</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">20</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#dddddd</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>
+  },
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Employees for department</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">410</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#bbbbbb</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  }     
+]; 
+</pre></td>
+</tr></table>
+</div></div>
+<p>When the user goes to the page, <strong>Departments</strong> contains a list and <strong>Employees for department</strong> is empty:<br>
+<img src="/images/custom_2.png" /><br>
+If the user selects the <strong>Engineering</strong> row, TuffDataList populates <strong>Employees for department</strong> with <strong>Engineering</strong> employees:<br>
+<img src="/images/custom_11.png" />    </p>
+
+</p>
+
+          
+      <footer>
+        <a class="previous-guide" href="../installation/"> ← Installing TuffDataList</a> <a class="next-guide" href="../data/">Setting up your data →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+
+    <script>
+      ga('create', 'UA-64039036-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

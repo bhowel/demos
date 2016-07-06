@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>USING Tuffdatalist >: Using TuffDataList to create a basic list</title>
+    <meta property="st:title" content="USING Tuffdatalist >: Using TuffDataList to create a basic list" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+
+  <body class="guides toc-1 toc-1_use toc-1_use_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper"><span style="font-size: 16pt; margin-left: 7px;">TuffDataList</span>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <div id="sidebar">
+
+          <ol class='toc-level-0'><li class='toc-level-0 '><a href="../../toc-0/overview/">GETTING STARTED ></a><ol class='toc-level-1 '><li class='toc-level-1 '><a href="../../toc-0/overview/">Before you install</a></li><li class='toc-level-1 '><a href="../../toc-0/installation/">Installing TuffDataList</a></li><li class='toc-level-1 '><a href="../../toc-0/setup/">Setting up TuffDataList</a></li><li class='toc-level-1 '><a href="../../toc-0/data/">Setting up your data</a></li><li class='toc-level-1 '><a href="../../toc-0/initialize/">Initializing TuffDataList</a></li></ol></li><li class='toc-level-0 selected'><a href="../overview/">USING Tuffdatalist ></a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../overview/">Before you start</a></li><li class='toc-level-1 selected'><a href="./">Using TuffDataList to create a basic list</a></li><li class='toc-level-1 '><a href="../use-web-service/">Creating a list from a web service</a></li><li class='toc-level-1 '><a href="../use-selected-row/">Adding a selected row function</a></li><li class='toc-level-1 '><a href="../use-get-data/">Adding a get data function</a></li><li class='toc-level-1 '><a href="../use-get-mult-list/">Creating multiple lists from a web service</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back up</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Using TuffDataList to create a basic list
+        </h1>
+      
+          <hr>
+
+          <p>
+<p>To use TuffDataList to create a list from your data, use the <code>setContainerIndex</code> and <code>buildList</code> functions:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>n_tuffDataList.setContainerIndex( containerIndex );
+n_tuffDataList.buildList( listData, getDataFunction, selectedRowFunction );
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>setContainerIndex</code> function sets the index of the list container in TuffDataList so it
+can populate the correct container when you call <code>buildList</code>, the function that actually creates the list.</p>
+
+<p>The parameters are:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>containerIndex</code></td>
+<td>The index of the container you want to use from <code>listContainers</code>.</td>
+</tr>
+<tr>
+<td><code>listData</code></td>
+<td>The list data in TuffDataList <a href="../../toc-0/data/">format</a>. To learn how to use <code>listData</code> with a web service, <strong>see</strong> <a href="../../toc-1/use-web-service/">Creating a list from a web service</a>.</td>
+</tr>
+<tr>
+<td><code>getDataFunction</code></td>
+<td>The name of a function that retrieves the target list for a selected row. To learn how to use this parameter, <strong>see</strong> <a href="../../toc-1/use-selected-row/">Adding a selected row function</a>.</td>
+</tr>
+<tr>
+<td><code>selectedRowFunction</code></td>
+<td>The name of a function that performs an action when the user selects a row. To learn how to use this parameter, <strong>see</strong> <a href="../../toc-1/use-get-data/">Adding a get data function</a>.</td>
+</tr>
+</tbody></table>
+
+<p>In this section, we&#39;ll show you how to use <code>setContainerIndex</code> and how the <code>listData</code> parameter works for a basic list.
+The next sections will cover the other parameters and show you how to use the <code>buildList</code> function from a web service.</p>
+
+<p>We&#39;ll start with a simple example. Let&#39;s say you have a price list you want to show in a page. Your <code>listContainers</code> variable is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> listContainers = [
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Prices</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">20</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#dddddd</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  }     
+];
+</pre></td>
+</tr></table>
+</div></div>
+<p>And you have a static price list set up in TuffDataList format:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> priceList =
+[
+  { 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">p_001</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">Product 1</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">price</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">10.00</span><span class="delimiter">&quot;</span></span>
+  },
+  {   
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">p_002</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">Product 2</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">price</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">15.00</span><span class="delimiter">&quot;</span></span>
+  },
+  {   
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">p_003</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> :<span class="string"><span class="delimiter">&quot;</span><span class="content">Product 3</span><span class="delimiter">&quot;</span></span>, 
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">price</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">5.00</span><span class="delimiter">&quot;</span></span>
+  }     
+]
+</pre></td>
+</tr></table>
+</div></div>
+<p>You want to create a basic list - a list without additional functionality.
+First, use the <code>setContainerIndex</code> function with <code>containerIndex</code> set to <code>0</code>, the index of the container in <code>listContainers</code>:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>n_tuffDataList.setContainerIndex( <span class="integer">0</span> );
+</pre></td>
+</tr></table>
+</div></div>
+<p>Next, use the <code>buildList</code> function. Set the <code>listData</code> parameter to the variable that contains your list data, then set the other parameters to null:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>n_tuffDataList.buildList( priceList, <span class="predefined-constant">null</span>, <span class="predefined-constant">null</span> );
+</pre></td>
+</tr></table>
+</div></div>
+<p>After you call <code>buildList</code>, your list looks like this on the screen:<br>
+<img src="/images/custom_5.png" /> </p>
+
+<p>If you have more than one list, it&#39;s easy to handle all of them. For example, your <code>listContainers</code> variable is:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> listContainers = [
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Products</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">20</span>, <span class="key">width</span>: <span class="integer">20</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#dddddd</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  },
+  { 
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Services</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">top</span>: <span class="integer">120</span>, <span class="key">left</span>: <span class="integer">410</span>, <span class="key">width</span>: <span class="integer">380</span>,
+    <span class="key">color</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">#bbbbbb</span><span class="delimiter">&quot;</span></span>,
+    <span class="key">source</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key">target</span>: <span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>
+  } 
+];
+</pre></td>
+</tr></table>
+</div></div>
+<p>And your lists are:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+</pre></td>
+  <td class="code"><pre><span class="keyword">var</span> products =
+  [
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Outdoor pot</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">size</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">11 in</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Outdoor pot</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">size</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">6 in</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Indoor pot</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">size</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">9 in</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">4</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Indoor pot</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">size</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">5 in</span><span class="delimiter">&quot;</span></span> }
+  ]
+
+<span class="keyword">var</span> services =
+  [
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Garden prep</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Complete garden installation</span><span class="delimiter">&quot;</span></span> },
+    { <span class="key"><span class="delimiter">&quot;</span><span class="content">pkey</span><span class="delimiter">&quot;</span></span>:<span class="integer">3</span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">fkey</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Consultation</span><span class="delimiter">&quot;</span></span> }
+  ]
+</pre></td>
+</tr></table>
+</div></div>
+<p>To create the lists, use the following commands:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+  <td class="code"><pre><span class="comment">// Build the product list.</span>
+n_tuffDataList.setContainerIndex( <span class="integer">0</span> );
+n_tuffDataList.buildList( products, <span class="predefined-constant">null</span>, <span class="predefined-constant">null</span> );
+
+<span class="comment">// Build the service list.</span>
+n_tuffDataList.setContainerIndex( <span class="integer">1</span> );
+n_tuffDataList.buildList( services, <span class="predefined-constant">null</span>, <span class="predefined-constant">null</span> );
+
+</pre></td>
+</tr></table>
+</div></div>
+</p>
+
+          
+      <footer>
+        <a class="previous-guide" href="../overview/"> ← Before you start</a> <a class="next-guide" href="../use-web-service/">Creating a list from a web service →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+
+    <script>
+      ga('create', 'UA-64039036-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

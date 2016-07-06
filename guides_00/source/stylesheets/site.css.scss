@@ -1,0 +1,493 @@
+@import 'compass';
+@import 'compass/reset';
+@import 'compass/typography/text/ellipsis';
+@import 'mixins/hidpi';
+@import 'fonts';
+@import 'colors';
+@import 'guides';
+@import 'shared';
+@import 'vendor/select2';
+@import 'select2';
+
+/* Calculated page dimensions. */
+$page-width: 940px;
+$col-width: 40px;
+$col-spacing: 20px;
+$sidebar-width: $col-width * 4 + $col-spacing * 3;
+$content-width: $page-width - $sidebar-width - $col-spacing * 2;
+
+@mixin width-for-columns($cols) {
+  width: $cols * $col-width + ($cols - 1) * $col-spacing;
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+body {
+  background-color: $backgroundMain;
+  margin: 30px 0 0 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+  font-size: 14px;
+  line-height: 1.4em;
+  color: #444444;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+
+a {
+  color: lighten($accents, 10%);
+  border-bottom: 1px dotted $accents;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px dotted lighten($accents, 10%);
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+  font-weight: bold;
+
+  code {
+    text-transform: none;
+  }
+}
+
+h1 {
+  font-size: 24px;
+  margin-top: 0;
+  color: $text-color-0;
+  padding-bottom: 20px;
+}
+
+/* This next h1 is so h1s in the middle of the page (ie not the first time)
+have additional breathing room up top */
+
+h1:not(:first-child) {
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 22px;
+  margin: .83em 0;
+}
+
+h2, h3{
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+  font-weight: bold;
+  color: $text-color-0;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 1.618em;
+  color: $text-color-0;
+  letter-spacing: 1px;
+  margin: 24px 0 12px 0;
+}
+
+
+ul {
+  list-style-type: disc;
+}
+
+#slider {
+  list-style-type: none;
+}
+
+ol {
+  list-style-type: decimal;
+}
+p {
+  margin: 1em 0;
+}
+
+/* Structure */
+
+.section {
+  margin: 0 auto;
+  width: 960px;
+}
+
+/* Components */
+
+/**
+  Sidebar
+**/
+
+#sidebar-wrapper {
+  float: left;
+  width: $sidebar-width;
+  margin-top: 55px;
+  margin-left: 20px;
+}
+
+#sidebar { 
+  width: $sidebar-width;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+  font-weight: normal;
+  background: $backgroundMain;
+  border-left: 1px solid $backgroundMain;
+  border-right: 1px solid $backgroundMain;
+  border-bottom: 1px solid $backgroundMain;
+  min-height: 475px;
+  margin-bottom: 28px;
+  padding-bottom: 120px;
+
+  #back-to-top {
+    padding-left: 13px;
+    text-align: center;
+    display: none;
+    @include transition(opacity 0.05s linear);
+
+    @media screen and (max-width: 1200px) {
+      padding-left: 0px;
+      height: 20px;
+      width: 30px;
+      overflow: hidden;
+    }
+
+    @media screen and (max-width: 1020px) {
+      display: none !important;
+    }
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1.5em;
+    border-bottom: none;
+    color: $text-color-0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      color: $text-color-0;
+    }
+
+    &.active {
+      color: $text-color-0;
+    }
+  }
+
+  ol.toc-level-0 {
+    li {
+      font-size: 12px;
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+
+      p {
+        padding-left: 7px;
+      }
+
+      a {
+        padding: 0 0 0 1em;
+        line-height: 1.2em;
+      }
+
+      > ol {
+        display: none;
+        margin: 10px 0;
+
+        &.selected {
+          display: block;
+        }
+
+        li.selected {
+          > a {
+            font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+            font-weight: bolder;
+            color: $text-color-0;
+          }
+        }
+
+      }
+
+      &.toc-level-0 {
+
+        > a {
+          display: block;
+          color: $text-color-0;
+          border-top: 1px solid #dddddd;
+          //border-bottom: 1px solid #dddddd;
+          padding: 12px 12px 10px 12px;
+
+          &:hover {
+
+          }
+        }
+
+        & + .toc-level-0 > a {
+          margin-top: -1px;
+        }
+
+        &.selected > a {
+          margin-left: -1px;
+          margin-right: -1px;
+          color: $text-color-0;
+          //border-bottom: 1px solid #dddddd;
+
+          &:hover {
+
+          }          
+        }
+
+        &:last-of-type ol {
+          padding-bottom: 0.5em;
+        }
+      }
+
+      &.toc-level-1, &.toc-level-2 {
+
+        a {
+          padding: 6px 1em 6px 1em;
+          display: block;
+          text-transform: none;
+          color: $text-color-2;
+          &:hover {
+            color: $text-color-0;
+          }
+          &:active {
+            color: $text-color-0;
+          }
+        }
+        &.selected {
+          // fancy me up.
+        }
+      }
+    }
+  }
+}
+
+/* Pages */
+
+/**
+  Header
+**/
+
+#header {
+  position: absolute;
+  width: 100%;
+  min-width: $page-width;
+  top: 0;
+  height: 30px;
+  padding-top: 46px;
+  padding-left: 20px;  
+
+  #wrapper {
+    width: $page-width;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #nav {
+    width: 930px;
+    height: 65px;
+    margin: 0 auto;
+
+    text-align: right;
+
+    li {
+      line-height: 26px;
+      margin: 18px 0 0;
+      display: inline-block;
+
+      a {
+        font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+        font-weight: bold;
+        font-size: 13px;
+        color: #faf2ee;
+
+        @include text-shadow(rgba(0, 0, 0, 0.3) 0px 1px 0px);
+        display: block;
+        padding: 0px 0.3em;
+        margin-left: 1em;
+        margin-right: 1em;
+        height: 26px;
+        line-height: 26px;
+        text-decoration: none;
+        border: 1px solid transparent;
+
+        &:hover { color: #ffffff }
+      }
+
+      &.active a {
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.6);
+        @include text-shadow(rgba(255, 255, 255, 0.2) 0 1px 0px);
+        &:hover {
+          color: white;
+          background-color: rgba(0, 0, 0, 0.17);
+        }
+      }
+
+    }
+  }
+}
+
+#content-wrapper {
+  @include clearfix;
+  width: 960px;
+  padding: 0px 0px 20px 0px;
+  margin: 0 auto;
+  position: relative;
+
+  &.grid {
+    background-image: url('/images/grid.png');
+  }
+}
+
+#content {
+  &.has-sidebar {
+    margin: 18px 0 90px 2.1em;
+    width: $content-width;
+    float: left;
+  }
+
+  ol + h2, ul + h2, p + h2,
+  ol + h3, ul + h3, p + h3,
+  div + h3 {
+    margin-top: 1.5em;
+  }
+
+  .tabs > ul{
+  }
+
+  figure {
+    width: 100%;
+    background-color: #ffffff;
+    margin: 1.5em 0;
+    text-align: center;
+    border: 1px solid #cccccc;
+    overflow-x: auto;
+  }
+
+  aside {
+    background-color: #ffffff;
+    padding: 1em;
+    color: #666666;
+    code {
+      color: #777777;
+    }
+  }
+}
+
+.section {
+  overflow: hidden;
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  table.columns {
+    margin: 0 auto;
+
+    td {
+      vertical-align: top;
+      padding-right: 50px;
+    }
+  }
+}
+
+/**
+  Guides Page
+**/
+
+.guides {
+  .chapter {
+    $h3-indent: 32px;
+    $body-indent: $h3-indent;
+
+    h1 {
+      padding-bottom: 0.5em;
+    }
+
+    ul, ol {
+      margin-left: $body-indent;
+      margin-bottom: 28px;
+
+      li {
+        font-size: 15px;
+        margin: 10px 0 10px 0;
+
+        p {
+          padding-left: 7px;
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+
+    margin: 1em 0;
+    tbody tr{
+      background: $backgroundMain;
+      border-bottom: 1px solid rgba(223, 215, 212, 0.28);
+    }
+
+    thead {
+      background-color: $table-head;
+    }
+
+    th {
+      font-weight: bold;
+    }
+
+    th, td {
+      padding: 5px 10px;
+    }
+
+    &.specific {
+      th, td {
+        padding: 5px 6px;
+      }
+    }
+  }
+
+  .note {
+    background: rgba(0,0,0, 0.2);
+
+    &::before {
+      content: "Note"
+    }
+  }
+}
+
+.previous-guide {
+  float: left;
+}
+
+.next-guide {
+  float: right;
+}
+
+/**
+  404 Page
+**/
+
+body.not-found #content {
+  margin: 3em auto 0 auto;
+  width: 54em;
+}
+
+@import 'highlight';
